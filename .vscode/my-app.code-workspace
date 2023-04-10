@@ -1,12 +1,9 @@
 {
   "folders": [
-	{
-		"path": ".."
-	},
-	{
-		"path": "../../app-playground"
-	}
-],
+    {
+      "path": ".."
+    }
+  ],
   "settings": {
     "workbench.colorCustomizations": {
       "activityBar.activeBackground": "#9f7abf",
@@ -33,5 +30,10 @@
     "peacock.color": "#8657af",
     "typescript.tsdk": "node_modules/typescript/lib",
     "typescript.enablePromptUseWorkspaceTsdk": true
+  },
+  "extensions": {
+    "recommendations": [
+      "ms-vscode.vscode-typescript-next"
+    ]
   }
 }

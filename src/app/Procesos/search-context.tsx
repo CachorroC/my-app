@@ -11,10 +11,16 @@ const SearchContext = React.createContext<
 
 export function ProcesosProvider({ children }: { children: React.ReactNode }) {
     const params = useParams();
-    const [search, setSearch] = React.useState("");
-    const [hasUltimaActuacion, setUltimaActuacion] = React.useState(false);
+    const [
+        search, setSearch
+    ] = React.useState("");
+    const [
+        hasUltimaActuacion, setUltimaActuacion
+    ] = React.useState(false);
     return (
-        <SearchContext.Provider value={[search, setSearch]}>
+        <SearchContext.Provider value={[
+            search, setSearch
+        ]}>
             {/* @ts-expect-error Async Server Component */}
 
             <SearchItems

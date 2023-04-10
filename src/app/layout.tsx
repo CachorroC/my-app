@@ -11,7 +11,9 @@ import { Suspense, useCallback } from "react";
 
 const poiret = Poiret_One({
     weight: "400",
-    subsets: ["latin", "latin-ext"],
+    subsets: [
+        "latin", "latin-ext"
+    ],
     display: "swap",
 });
 export const metadata: Metadata = {
@@ -20,7 +22,9 @@ export const metadata: Metadata = {
     generator: "R&S Asesoría Jurídica",
     applicationName: "R&S Asesoría Jurídica",
     referrer: "origin-when-cross-origin",
-    keywords: ["Next.js", "React", "JavaScript"],
+    keywords: [
+        "Next.js", "React", "JavaScript"
+    ],
     authors: [
         { name: "cam" },
         {

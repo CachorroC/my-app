@@ -1,5 +1,4 @@
 import type { Actuacion } from "#@/app/api/procesos/proceso";
-import Block from "#@/components/actuacion";
 import { notFound } from "next/navigation";
 import styles from "#@/styles/css/actuacion.module.css";
 import box from "#@/styles/scss/box.module.scss";
@@ -11,8 +10,7 @@ export default async function Page ( {
     params,
 }: {
     params: { tipo: string; slug: string; };
-} ) 
-{
+} ) {
     const res = await fetch(
         `https://consultaprocesos.ramajudicial.gov.co:448/api/v2/Proceso/Actuaciones/${ params.slug }?pagina=1`,
         { cache: "no-store" }
@@ -32,17 +30,14 @@ export default async function Page ( {
                     path={ `/Procesos/${ params.tipo }/${ params.slug }` }
                 />
             </Suspense>
-            { actuaciones.actuaciones.map( ( actuacion: Actuacion ) => 
-            {
-                return (
-                    <div
-                        className={ box.container }
-                        key={ actuacion.consActuacion }
-                    >
-                        <HooksClient />
-                    </div>
-                );
-            } ) }
+            { actuaciones.actuaciones.map( ( actuacion: Actuacion ) => (
+                <div
+                    className={ box.container }
+                    key={ actuacion.consActuacion }
+                >
+                    <HooksClient />
+                </div>
+            ) ) }
         </div>
     );
 }

@@ -11,43 +11,38 @@ import ContextSearchInput, {
     Search,
 } from "#@/app/Procesos/context-input-search";
 import box from "#@/styles/scss/box.module.scss";
+import { TabGroup } from '#@/components/tab-group';
 export const metadata = {
     title: "Reintegra",
 };
-const poiret = Poiret_One({
+const poiret = Poiret_One( {
     weight: "400",
-    subsets: ["latin", "latin-ext"],
+    subsets: [
+        "latin", "latin-ext"
+    ],
     display: "swap",
-});
-export default async function Layout({
+} );
+export default async function Layout ( {
     children,
     params,
 }: {
     children: React.ReactNode;
-    params: { tipo: string };
-}) {
-    const procesos = await getProcesos({
+    params: { tipo: string; };
+} ) {
+    const procesos = await getProcesos( {
         tipo: params.tipo,
-    });
+    } );
 
     return (
-        <div className={layout.section}>
+        <div className={ layout.section }>
             <ContextSearchInput />
-            <Link href={`/Procesos/${params.tipo}`}>{params.tipo}</Link>
+            <Link href={ `/Procesos/${ params.tipo }` }>{ params.tipo }</Link>
             <TabGroup
-                path={`/context/${category.slug}`}
-                items={[
-                    {
-                        text: "All",
-                    },
-                    ...categories.map((x) => ({
-                        text: x.name,
-                        slug: x.slug,
-                    })),
-                ]}
+                path={ `/Procesos/${ params.tipo }` }
+                items={ procesos }
             />
 
-            {children}
+            { children }
             <LayoutHooks />
         </div>
     );

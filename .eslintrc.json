@@ -1,17 +1,6 @@
 {
-  "env": {
-    "browser": true,
-    "es2021": true,
-    "node": true
-  },
   "extends": [
-    "next/core-web-vitals",
-    "eslint:recommended",
-    "plugin:@typescript-eslint/recommended"
-  ],
-  "plugins": [
-    "react",
-    "@typescript-eslint"
+    "next/core-web-vitals"
   ],
   "rules": {
     "array-bracket-newline": [
@@ -35,10 +24,8 @@
       "always"
     ],
     "arrow-body-style": [
-      [
-        "error",
-        "as-needed"
-      ]
+      "error",
+      "as-needed"
     ]
   }
 }

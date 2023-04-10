@@ -1,24 +1,22 @@
 import { promises as fs } from "fs";
 import path from "path";
 
-export const getProducts = async () => {
-    // We'd normally get data from an external data source
-    return JSON.parse(
-        await fs.readFile(
-            path.join(process.cwd(), "lib/page-directory") + "/products.json",
-            "utf8"
-        )
-    ) as SingleProduct[];
-};
+export const getProducts = async () => 
+// We'd normally get data from an external data source
+     JSON.parse(
+         await fs.readFile(
+             path.join(process.cwd(), "lib/page-directory") + "/products.json",
+             "utf8"
+         )
+     ) as SingleProduct[]
+;
 
-const getReviews = async () => {
-    return JSON.parse(
-        await fs.readFile(
-            path.join(process.cwd(), "lib/page-directory") + "/reviews.json",
-            "utf8"
-        )
-    ) as IReview[];
-};
+const getReviews = async () => JSON.parse(
+    await fs.readFile(
+        path.join(process.cwd(), "lib/page-directory") + "/reviews.json",
+        "utf8"
+    )
+) as IReview[];
 
 export const getProduct = async (id: string) => {
     const products = await getProducts();

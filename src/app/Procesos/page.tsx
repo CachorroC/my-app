@@ -1,6 +1,7 @@
-import { ExternalLink } from "#@/components/external-link";
 
-export default function Page() {
+import Link from 'next/link';
+
+export default function Page () {
     return (
         <div className="prose prose-sm prose-invert max-w-none">
             <h1 className="text-xl font-bold">Client Context</h1>
@@ -19,12 +20,12 @@ export default function Page() {
             </ul>
 
             <div className="flex gap-2">
-                <ExternalLink href="https://casa.suarez-ramirez.com">
+                <Link href="https://casa.suarez-ramirez.com">
                     Docs
-                </ExternalLink>
-                <ExternalLink href="https://cockpit.suarez-ramirez.com">
+                </Link>
+                <Link href="https://cockpit.suarez-ramirez.com">
                     Code
-                </ExternalLink>
+                </Link>
             </div>
         </div>
     );

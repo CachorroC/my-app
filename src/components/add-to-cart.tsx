@@ -6,9 +6,13 @@ import { useCartCount } from "./cart-count-context";
 
 export function AddToCart({ initialCartCount }: { initialCartCount: number }) {
     const router = useRouter();
-    const [isPending, startTransition] = useTransition();
+    const [
+        isPending, startTransition
+    ] = useTransition();
 
-    const [, setOptimisticCartCount] = useCartCount();
+    const [
+        , setOptimisticCartCount
+    ] = useCartCount();
 
     const addToCart = () => {
         setOptimisticCartCount(initialCartCount + 1);

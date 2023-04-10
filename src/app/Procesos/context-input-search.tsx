@@ -11,7 +11,9 @@ import { getProcesos } from "#@/app/api/procesos/getProcesos";
 import navbar from "#@/styles/css/navbar.module.css";
 
 const ContextSearchInput = () => {
-    const [search, setSearch] = useSearch();
+    const [
+        search, setSearch
+    ] = useSearch();
 
     return (
         <div className={navbar.menu}>
@@ -29,9 +31,12 @@ const ContextSearchInput = () => {
 };
 
 export const Search = ({ procesos }: { procesos: Proceso[] }) => {
-    const [search] = useSearch();
+    const [
+        search
+    ] = useSearch();
 
-    const rows: any[] = [];
+    const rows: any[] = [
+    ];
 
     procesos.forEach((proceso: Proceso) => {
         if (

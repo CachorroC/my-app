@@ -1,4 +1,5 @@
-import { Tab } from "#@/components/tab";
+import Tab from "#@/components/tab";
+import { Proceso } from '#@/app/api/procesos/proceso';
 
 export type Item = {
     text: string;
@@ -6,13 +7,11 @@ export type Item = {
     segment?: string;
 };
 
-export const TabGroup = ({ path, items }: { path: string; items: Item[] }) => {
-    return (
-        <div className="flex flex-wrap items-center gap-2">
-            {" "}
-            {items.map((item) => (
-                <Tab key={path + item.slug} item={item} path={path} />
-            ))}
-        </div>
-    );
-};
+export const TabGroup = ( { path, items }: { path: string; items: Proceso[]; } ) => (
+    <div className="flex flex-wrap items-center gap-2">
+        { " " }
+        { items.map( ( item ) => (
+            <Tab proceso={ item } key={ item.slug } />
+        ) ) }
+    </div>
+);

@@ -1,17 +1,16 @@
-import Author from "#@/types/author";
+
 import { cache } from "react";
 
 export type Post = {
     title: string;
     slug: string;
     date: number;
-    author: Author;
     excerpt: string;
     coverImage: string;
     text: string[];
 };
 
-export const getPosts = cache((): Post[] => [
+export const getPosts = cache( (): Post[] => [
     {
         title: "Dynamic Routing and Static Generation",
         excerpt:
@@ -19,10 +18,7 @@ export const getPosts = cache((): Post[] => [
         coverImage: "/assets/blog/dynamic-routing/cover.jpg",
         date: 20230316,
         slug: "2023-03-16",
-        author: {
-            name: "CachorroC",
-            picture: "/assets/blog/authors/jj.jpeg",
-        },
+
 
         text: [
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Praesent elementum facilisis leo vel fringilla est ullamcorper eget. At imperdiet dui accumsan sit amet nulla facilities morbi tempus. Praesent elementum facilisis leo vel fringilla. Congue mauris rhoncus aenean vel. Egestas sed tempus urna et pharetra pharetra massa massa ultricies.",
@@ -38,10 +34,7 @@ export const getPosts = cache((): Post[] => [
         coverImage: "/assets/blog/dynamic-routing/cover.jpg",
         date: 20230103,
         slug: "2023-01-03",
-        author: {
-            name: "CachorroC",
-            picture: "/assets/blog/authors/jj.jpeg",
-        },
+
 
         text: [
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Praesent elementum facilisis leo vel fringilla est ullamcorper eget. At imperdiet dui accumsan sit amet nulla facilities morbi tempus. Praesent elementum facilisis leo vel fringilla. Congue mauris rhoncus aenean vel. Egestas sed tempus urna et pharetra pharetra massa massa ultricies.",
@@ -57,10 +50,6 @@ export const getPosts = cache((): Post[] => [
         coverImage: "/assets/blog/dynamic-routing/cover.jpg",
         date: 20230228,
         slug: "2023-02-28",
-        author: {
-            name: "CachorroC",
-            picture: "/assets/blog/authors/jj.jpeg",
-        },
 
         text: [
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Praesent elementum facilisis leo vel fringilla est ullamcorper eget. At imperdiet dui accumsan sit amet nulla facilities morbi tempus. Praesent elementum facilisis leo vel fringilla. Congue mauris rhoncus aenean vel. Egestas sed tempus urna et pharetra pharetra massa massa ultricies.",
@@ -69,13 +58,13 @@ export const getPosts = cache((): Post[] => [
             "Tristique senectus et netus et malesuada fames ac turpis. Ridiculous mus mauris vitae ultricies leo integer malesuada nunc vel. In mollis nunc sed id semper. Egestas tellus rutrum tellus pellentesque. Phasellus vestibulum lorem sed risus ultricies tristique nulla. Quis blandit turpis cursus in hac habitasse platea dictumst quisque. Eros donec ac odio tempor orci dapibus ultrices. Aliquam sem et tortor consequat id porta nibh. Adipiscing elit duis tristique sollicitudin nibh sit amet commodo nulla. Diam vulputate ut pharetra sit amet. Ut tellus elementum sagittis vitae et leo. Arcu non odio euismod lacinia at quis risus sed vulputate.",
         ],
     },
-]);
+] );
 
-export async function fetchPostBySlug(slug: string | undefined) {
+export async function fetchPostBySlug ( slug: string | undefined ) {
     // Assuming it always return expected categories
-    return getPosts().find((post) => post.slug === slug);
+    return getPosts().find( ( post ) => post.slug === slug );
 }
 
-export async function fetchPosts(): Promise<Post[]> {
+export async function fetchPosts (): Promise<Post[]> {
     return getPosts();
 }

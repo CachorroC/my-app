@@ -1,4 +1,4 @@
-export type Proceso = {
+export interface Proceso {
     departamento: string;
     despacho: string;
     esPrivado: boolean;
@@ -12,7 +12,7 @@ export type Proceso = {
     tipo: string;
 };
 
-export type Actuacion = {
+export interface Actuacion {
     idRegActuacion: number;
     llaveProceso: string;
     slug: string;

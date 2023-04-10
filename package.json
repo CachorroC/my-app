@@ -8,10 +8,7 @@
         "sass": "sass src/styles/scss:src/styles/css",
         "sassdev": "sass --watch src/styles/scss:src/styles/css",
         "start": "next start",
-        "lint": "next lint",
-        "prettier": "prettier --write --ignore-unknown .",
-        "prettier:check": "prettier --check --ignore-unknown .",
-        "test": "yarn prettier:check && yarn lint"
+        "lint": "next lint --fix && next lint"
     },
     "dependencies": {
         "@emotion/react": "^11.10.6",
