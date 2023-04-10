@@ -1,3 +1,44 @@
 {
-  "extends": "next/core-web-vitals"
+  "env": {
+    "browser": true,
+    "es2021": true,
+    "node": true
+  },
+  "extends": [
+    "next/core-web-vitals",
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended"
+  ],
+  "plugins": [
+    "react",
+    "@typescript-eslint"
+  ],
+  "rules": {
+    "array-bracket-newline": [
+      "error",
+      "always"
+    ],
+    "brace-style": [
+      "error",
+      "stroustrup"
+    ],
+    "indent": [
+      "error",
+      4
+    ],
+    "linebreak-style": [
+      "error",
+      "unix"
+    ],
+    "semi": [
+      "error",
+      "always"
+    ],
+    "arrow-body-style": [
+      [
+        "error",
+        "as-needed"
+      ]
+    ]
+  }
 }

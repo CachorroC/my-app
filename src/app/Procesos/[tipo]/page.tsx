@@ -1,0 +1,22 @@
+import { getProcesos } from "#@/app/api/procesos/getProcesos";
+import layout from "#@/styles/css/layout.module.css";
+import typeface from "#@/styles/css/typeface.module.css";
+import React from "react";
+import { Search } from "#@/app/Procesos/context-input-search";
+import { HooksClient } from "#@/app/Procesos/router-context";
+export const metadata = {
+    title: "procesos",
+};
+
+export default async function Page({ params }: { params: { tipo: string } }) {
+    const procesos = await getProcesos({
+        tipo: params.tipo,
+    });
+    return (
+        <div className={layout.article}>
+            <HooksClient />
+            <h1 className={typeface.title}>{params.tipo}</h1>
+            <Search procesos={procesos} />
+        </div>
+    );
+}

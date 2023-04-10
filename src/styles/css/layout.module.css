@@ -1,0 +1,56 @@
+.main {
+    box-sizing: border-box;
+    background-color: var(--background);
+    color: var(--on-background);
+    padding-top: 5vh;
+}
+@media screen and (max-width: 1000px) {
+    .main {
+        padding-bottom: 5vh;
+        padding: 0;
+        padding-top: 0;
+    }
+}
+
+.section {
+    max-width: 100%;
+    max-height: 100%;
+    box-sizing: border-box;
+    background-color: var(--surface-variant);
+    padding: 2vmin;
+    text-align: center;
+}
+
+.article {
+    display: flex;
+    flex-flow: column nowrap;
+    width: 100%;
+    height: 100%;
+    gap: 2vmin;
+    background-color: var(--surface);
+    padding: 2vh;
+    box-shadow: var(--dp5);
+}
+.article > .nombre {
+    background-color: var(--secondary);
+    color: var(--on-secondary);
+}
+.article > .block {
+    color: var(--on-surface);
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color: var(--sf-2);
+    border: 2px dashed var(--secondary);
+    border-radius: 2vmax;
+    color: var(--on-surface);
+    box-shadow: var(--dp3);
+    text-align: center;
+    box-sizing: border-box;
+    padding: 2vmax;
+}
+
+/*# sourceMappingURL=layout.module.css.map */
