@@ -2,41 +2,44 @@
 import React from "react";
 import { useState, Suspense } from "react";
 import { Proceso } from "#@/app/api/procesos/proceso";
-import { SearchItems } from "#@/components/search";
+import { SearchItems, SearchItemsEskeleton } from "#@/components/search";
 import { useParams } from "next/navigation";
 
-const SearchContext = React.createContext<
-    [string, React.Dispatch<React.SetStateAction<string>>] | null
->(null);
 
-export function ProcesosProvider({ children }: { children: React.ReactNode }) {
+const SearchContext = React.createContext<
+    [ string, React.Dispatch<React.SetStateAction<string>> ] | null
+>( null );
+
+export function ProcesosProvider ( { children }: { children: React.ReactNode; } ) {
     const params = useParams();
     const [
         search, setSearch
-    ] = React.useState("");
+    ] = React.useState( "" );
     const [
         hasUltimaActuacion, setUltimaActuacion
-    ] = React.useState(false);
+    ] = React.useState( false );
     return (
-        <SearchContext.Provider value={[
+        <SearchContext.Provider value={ [
             search, setSearch
-        ]}>
-            {/* @ts-expect-error Async Server Component */}
+        ] }>
+            <Suspense fallback={ <SearchItemsEskeleton /> }>
+                {/* @ts-expect-error Async Server Component */ }
 
-            <SearchItems
-                search={search}
-                hasUltimaActuacion={hasUltimaActuacion}
-            />
+                <SearchItems
+                    search={ search }
 
-            {children}
+                />
+            </Suspense>
+
+            { children }
         </SearchContext.Provider>
     );
 }
 
-export function useSearch() {
-    const context = React.useContext(SearchContext);
-    if (context === null) {
-        throw new Error(" no sirvio");
+export function useSearch () {
+    const context = React.useContext( SearchContext );
+    if ( context === null ) {
+        throw new Error( " no sirvio" );
     }
     return context;
 }

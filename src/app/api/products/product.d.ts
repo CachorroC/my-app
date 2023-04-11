@@ -1,4 +1,5 @@
 export type Product = {
+    category: any;
     id: string;
     stock: number;
     rating: number;

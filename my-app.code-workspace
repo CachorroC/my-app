@@ -1,7 +1,7 @@
 {
   "folders": [
     {
-      "path": ".."
+      "path": "."
     }
   ],
   "settings": {
@@ -28,12 +28,6 @@
       "titleBar.inactiveForeground": "#e7e7e799"
     },
     "peacock.color": "#8657af",
-    "typescript.tsdk": "node_modules/typescript/lib",
-    "typescript.enablePromptUseWorkspaceTsdk": true
+    "js/ts.implicitProjectConfig.strictFunctionTypes": true
   },
-  "extensions": {
-    "recommendations": [
-      "ms-vscode.vscode-typescript-next"
-    ]
-  }
 }

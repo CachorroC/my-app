@@ -1,58 +1,92 @@
-"use client";
 
 import searchbar from "#@/styles/css/searchbar.module.css";
 import { Proceso } from "#@/app/api/procesos/proceso";
-import Link from "next/link";
-import { notFound } from "next/navigation";
 import { getBaseUrl } from "#@/lib/getBaseUrl";
+import { ProcesoCard } from './proceso-card';
+import layout from '#@/styles/css/layout.module.css';
+import { notFound } from 'next/navigation';
 
-export async function fetchProceso() {
-    const res = await fetch(`${getBaseUrl()}/api/procesos`);
-    if (!res.ok) {
-        // Render the closest `error.js` Error Boundary
-        throw new Error("Something went wrong!");
+export async function fetchProceso () {
+    const res = await fetch( `${ getBaseUrl() }/api/procesos` );
+    if ( !res.ok ) {
+        notFound();
     }
 }
-export async function SearchItems({
-    search,
-    hasUltimaActuacion,
-}: {
-    search: string;
-    hasUltimaActuacion: boolean;
-}) {
+export async function SearchItems (
+    {
+        search,
+    }: {
+        search: string;
+
+    }
+) {
     const rows: any[] = [
     ];
-    const res = await fetch(`${getBaseUrl()}/api/procesos`);
+    const procesos = await fetch( `${ getBaseUrl() }/api/procesos` ).then( ( res ) => res.json() ) as Proceso[];
 
-    const procesos = (await res.json()) as Proceso[];
 
-    procesos.forEach((proceso: Proceso) => {
-        if (
-            proceso.Demandado.toLowerCase().indexOf(search.toLowerCase()) === -1
-        ) {
-            return;
-        }
-        rows.push(<Item proceso={proceso} key={proceso.Demandado} />);
-    });
 
-    return <div className={searchbar.itemscontainer}>{rows}</div>;
-}
-export const Item = ({ proceso }: { proceso: Proceso }) => {
-    const href = `/Procesos/${proceso.tipo}/${proceso.slug}`;
-    const ultimact = proceso.fechaUltimaActuacion === null;
-    const Demandado = ultimact ? (
-        <span style={{ color: "red" }}>{proceso.Demandado}</span>
-    ) : (
-        proceso.Demandado
-    );
+    procesos.forEach(
+        ( proceso: Proceso ) => {
+            if (
+                proceso.Demandado.toLowerCase().indexOf( search.toLowerCase() ) === -1
+            ) {
+                return;
+            }
+            rows.push(
+                <ProcesoCard
+                    proceso={ proceso }
+                    key={ proceso.Demandado } /> );
+        } );
+
     return (
-        <Link href={`/${href}`} className={searchbar.tab}>
-            <h1 className={searchbar.title}>
-                {proceso.Demandado.toLocaleLowerCase()}
-            </h1>
-            <span className="material-symbols-outlined">
-                {ultimact ? "lock" : "book"}
-            </span>
-        </Link>
+        <>
+            <div className={ searchbar.itemscontainer }>
+                <p>rows push</p>{
+                    rows
+                }</div>
+            <div>
+                <p>procesos map</p>
+                { procesos.map(
+                    ( proceso ) => (
+
+                        <div
+                            key={ proceso.Demandado }
+                            className="col-span-4 lg:col-span-1"
+                        >
+                            <ProcesoCard proceso={ proceso } />
+                        </div>
+                    )
+                ) }
+            </div>
+        </>
     );
-};
+}
+function ItemSkeleton () {
+    return (
+        <div className={ layout.card } >
+            <h1 className={ searchbar.title }>
+                { 'Deudor' }
+            </h1>
+            <span className='material-symbols-outlined'>loading</span>
+            <i><strong>{ 'dia/mes/año' }</strong></i>
+        </div>
+    );
+}
+
+export function SearchItemsEskeleton () {
+    return (
+        <div className="space-y-6 pb-[5px]">
+
+
+            <div className="grid grid-cols-4 gap-6">
+                <ItemSkeleton key={ 1 } />
+                <ItemSkeleton key={ 2 } />
+                <ItemSkeleton key={ 3 } />
+                <ItemSkeleton key={ 4 } />
+            </div>
+        </div>
+    );
+
+}
+
