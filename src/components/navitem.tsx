@@ -5,7 +5,7 @@ import { useSelectedLayoutSegment } from "next/navigation";
 import "material-symbols";
 import box from "#@/styles/css/box.module.css";
 
-export default function NavItem({
+export default function NavItem ( {
     link,
     className,
     close,
@@ -13,19 +13,19 @@ export default function NavItem({
     link: Item;
     className: string;
     close: () => false | void;
-}) {
+} ) {
     const segment = useSelectedLayoutSegment();
     const isActive = link.href === segment;
     return (
         <Link
-            onClick={close}
-            href={link.href}
-            className={`${styles.link} ${box.container}`}
+            onClick={ close }
+            href={ link.href }
+            className={ `${ styles.link } ${ box.container }` }
         >
             <span className="material-symbols-outlined">
-                {isActive ? "favorite" : link.icon}
+                { isActive ? "favorite" : link.icon }
             </span>
-            <p className={className}>{link.name}</p>
+            <p className={ className }>{ link.name }</p>
         </Link>
     );
 }
