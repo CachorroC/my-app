@@ -11,23 +11,19 @@ export default async function Page ( {
 }: {
     params: { tipo: string; slug: string; };
 } ) {
-    alert( params.slug );
+    console.log( params.slug );
     const res = await fetch(
         `https://consultaprocesos.ramajudicial.gov.co:448/api/v2/Proceso/Actuaciones/${ params.slug }?pagina=1`,
         { cache: "no-store" }
     );
     const actuaciones = await res.json();
 
-    if ( !actuaciones ) notFound();
     return (
         <div className={ `${ styles.module } ${ box.container }` }>
             <Suspense fallback={ <ProcesosBoxSkeleton /> }>
                 {/* @ts-expect-error Async Server Component */ }
                 <ProcesosBox
-                    data={ fetch(
-                        `https://consultaprocesos.ramajudicial.gov.co:448/api/v2/Proceso/Actuaciones/${ params.slug }?pagina=1`,
-                        { cache: "no-store" }
-                    ) }
+                    params={ params }
                     path={ `/Procesos/${ params.tipo }/${ params.slug }` }
                 />
             </Suspense>

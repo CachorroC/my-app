@@ -35,12 +35,8 @@ export default async function Layout ( {
 
     return (
         <div className={ layout.section }>
-            <Search procesos={ procesos } />
             <Link href={ `/Procesos/${ params.tipo }` }>{ params.tipo }</Link>
-            <TabGroup
-                path={ `/Procesos/${ params.tipo }` }
-                items={ procesos }
-            />
+
             { children }
         </div>
     );

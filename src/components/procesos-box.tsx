@@ -1,20 +1,22 @@
-import { Proceso } from "#@/app/api/procesos/proceso";
-import { ProcesoCard } from "#@/components/proceso-card";
+
+import { Actuacion } from '../app/api/procesos/proceso';
+import Block from './actuacion';
 
 export async function ProcesosBox (
     {
         path,
-        data,
+        params,
     }: {
         path: string;
-        data: Promise<Response>;
+        params: { tipo: string; slug: string; };
     }
 ) {
-    const procesos = (
-        await data.then(
-            ( res ) => res.json()
-        )
-    ) as Proceso[];
+    const res = await fetch(
+        `https://consultaactuacions.ramajudicial.gov.co:448/api/v2/Proceso/Actuaciones/${ params.slug }?pagina=1`,
+        { cache: "no-store" }
+    );
+    const actuaciones = await res.json();
+
 
     return (
         <div className="space-y-6">
@@ -27,13 +29,12 @@ export async function ProcesosBox (
                 </div>
             </div>
             <div className="grid grid-cols-4 gap-6">
-                { procesos.map( ( proceso ) => (
+                { actuaciones.map( ( actuacion: Actuacion ) => (
                     <div
-                        key={ proceso.slug }
+                        key={ actuacion.slug }
                         className="col-span-4 lg:col-span-1"
                     >
-                        <ProcesoCard
-                            proceso={ proceso }
+                        <Block path={ path } item={ actuacion }
 
                         />
                     </div>

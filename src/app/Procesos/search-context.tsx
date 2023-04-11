@@ -4,6 +4,7 @@ import { useState, Suspense } from "react";
 import { Proceso } from "#@/app/api/procesos/proceso";
 import { SearchItems, SearchItemsEskeleton } from "#@/components/search";
 import { useParams } from "next/navigation";
+import ContextInputSearch from './context-input-search';
 
 
 const SearchContext = React.createContext<
@@ -22,6 +23,8 @@ export function SearchProvider ( { children }: { children: React.ReactNode; } ) 
         <SearchContext.Provider value={ [
             search, setSearch
         ] }>
+            <h1>search context</h1>
+            <ContextInputSearch />
 
 
             { children }

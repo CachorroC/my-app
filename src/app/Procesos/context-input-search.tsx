@@ -8,6 +8,7 @@ import searchbox from "#@/styles/css/searchbar.module.css";
 import { Proceso } from "#@/app/api/procesos/proceso";
 import navbar from "#@/styles/css/navbar.module.css";
 import typeface from '#@/styles/css/typeface.module.css';
+import Link from 'next/link';
 
 const ContextInputSearch = () => {
     const [
@@ -18,6 +19,7 @@ const ContextInputSearch = () => {
     return (
         <div className={ navbar.menu }>
             <form className={ navbar.link }>
+                <h1>context Input Search</h1>
                 <input
                     type="text"
                     className={ form.input }
@@ -34,11 +36,12 @@ const ContextInputSearch = () => {
 function ProcesoRow (
     { proceso }: { proceso: Proceso; }
 ) {
+    const href = 'Procesos/' + proceso.tipo + '/' + proceso.slug;
     return (
-        <div className={ box.container }>
+        <Link className={ box.container } href={ `/${ href }` }>
             <h1 className={ typeface.title }>{ proceso.Demandado }</h1>
             <i>{ proceso.fechaUltimaActuacion?.toString() }</i>
-        </div>
+        </Link>
     );
 };
 export const Search = (
@@ -49,7 +52,7 @@ export const Search = (
     const [
         search
     ] = useSearch();
-    const rows = [
+    const rows: any[] = [
 
     ];
     let lastultimoTipo: string | null = null;
@@ -63,16 +66,6 @@ export const Search = (
             ) {
                 return;
             }
-            if ( proceso.esPrivado ) {
-                return;
-            }
-            if ( proceso.tipo !== lastultimoTipo ) {
-                rows.push(
-                    <ProcesoRow
-                        proceso={ proceso }
-                        key={ proceso.slug } />
-                );
-            }
             rows.push(
                 <ProcesoRow
                     proceso={ proceso }
@@ -85,7 +78,7 @@ export const Search = (
 
 
     ;
-    return <div className={ searchbox.tabgroup }>{ search }</div>;
+    return <div className={ searchbox.tabgroup }>{ rows }</div>;
 };
 
 export default ContextInputSearch;
