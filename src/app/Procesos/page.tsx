@@ -1,5 +1,4 @@
 
-import Link from 'next/link';
 
 export default function Page () {
     return (
@@ -19,14 +18,7 @@ export default function Page () {
                 </li>
             </ul>
 
-            <div className="flex gap-2">
-                <Link href="https://casa.suarez-ramirez.com">
-                    Docs
-                </Link>
-                <Link href="https://cockpit.suarez-ramirez.com">
-                    Code
-                </Link>
-            </div>
+            
         </div>
     );
 }

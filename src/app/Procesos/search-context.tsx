@@ -10,7 +10,7 @@ const SearchContext = React.createContext<
     [ string, React.Dispatch<React.SetStateAction<string>> ] | null
 >( null );
 
-export function ProcesosProvider ( { children }: { children: React.ReactNode; } ) {
+export function SearchProvider ( { children }: { children: React.ReactNode; } ) {
     const params = useParams();
     const [
         search, setSearch
@@ -22,14 +22,7 @@ export function ProcesosProvider ( { children }: { children: React.ReactNode; } 
         <SearchContext.Provider value={ [
             search, setSearch
         ] }>
-            <Suspense fallback={ <SearchItemsEskeleton /> }>
-                {/* @ts-expect-error Async Server Component */ }
 
-                <SearchItems
-                    search={ search }
-
-                />
-            </Suspense>
 
             { children }
         </SearchContext.Provider>

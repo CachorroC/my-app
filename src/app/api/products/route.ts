@@ -2,49 +2,49 @@ import type { Product } from "#@/app/api/products/product";
 
 export const runtime = "edge";
 
-export async function GET(request: Request) {
-    const { searchParams } = new URL(request.url);
+export async function GET ( request: Request ) {
+    const { searchParams } = new URL( request.url );
 
     // We sometimes artificially delay a reponse for demo purposes.
     // Don't do this in real life :)
-    const delay = searchParams.get("delay");
-    if (delay) {
-        await new Promise((resolve) => setTimeout(resolve, Number(delay)));
+    const delay = searchParams.get( "delay" );
+    if ( delay ) {
+        await new Promise( ( resolve ) => setTimeout( resolve, Number( delay ) ) );
     }
 
-    const id = searchParams.get("id");
-    if (id) {
-        let product = data.find((product) => product.id === id);
+    const id = searchParams.get( "id" );
+    if ( id ) {
+        let product = data.find( ( product ) => product.id === id );
 
-        const fields = searchParams.get("fields");
-        if (product && fields) {
-            product = fields.split(",").reduce((acc, field) => {
+        const fields = searchParams.get( "fields" );
+        if ( product && fields ) {
+            product = fields.split( "," ).reduce( ( acc, field ) => {
                 // @ts-ignore
-                acc[field] = product[field];
+                acc[ field ] = product[ field ];
 
                 return acc;
-            }, {} as Product);
+            }, {} as Product );
         }
 
-        return new Response(JSON.stringify(product ?? null), {
+        return new Response( JSON.stringify( product ?? null ), {
             status: 200,
             headers: {
                 "content-type": "application/json",
             },
-        });
+        } );
     }
 
-    const filter = searchParams.get("filter");
+    const filter = searchParams.get( "filter" );
     const products = filter
-        ? data.filter((product) => product.id !== filter)
+        ? data.filter( ( product ) => product.id !== filter )
         : data;
 
-    return new Response(JSON.stringify(products), {
+    return new Response( JSON.stringify( products ), {
         status: 200,
         headers: {
             "content-type": "application/json",
         },
-    });
+    } );
 }
 
 const data: Product[] = [
@@ -62,6 +62,7 @@ const data: Product[] = [
         },
         isBestSeller: false,
         leadTime: 2,
+        category: "Bancolombia",
         discount: { percent: 90, expires: 2 },
         image: "eniko-kis-KsLPTsYaqIQ-unsplash.jpg",
         imageBlur:
@@ -70,7 +71,7 @@ const data: Product[] = [
     {
         id: "2",
         stock: 5,
-        rating: 4,
+        rating: 4, category: "Bancolombia",
         name: "Fusce commodo porta posuere",
         description:
             "Morbi eu ullamcorper urna, a condimentum massa. In fermentum ante non turpis cursus fringilla. Praesent neque eros, gravida vel ante sed, vehicula elementum orci. Sed eu ipsum eget enim mattis mollis.",
@@ -89,7 +90,7 @@ const data: Product[] = [
         id: "3",
         stock: 3,
         rating: 3,
-        name: "Praesent tincidunt lectus",
+        name: "Praesent tincidunt lectus", category: "Bancolombia",
         description:
             "Morbi eu ullamcorper urna, a condimentum massa. In fermentum ante non turpis cursus fringilla. Praesent neque eros, gravida vel ante sed, vehicula elementum orci. Sed eu ipsum eget enim mattis mollis.",
         price: {
@@ -108,7 +109,7 @@ const data: Product[] = [
         id: "4",
         stock: 2,
         rating: 5,
-        name: "Morbi at viverra turpis",
+        name: "Morbi at viverra turpis", category: "Bancolombia",
         description:
             "Morbi eu ullamcorper urna, a condimentum massa. In fermentum ante non turpis cursus fringilla. Praesent neque eros, gravida vel ante sed, vehicula elementum orci. Sed eu ipsum eget enim mattis mollis.",
         price: {
@@ -126,7 +127,7 @@ const data: Product[] = [
         id: "5",
         stock: 1,
         rating: 4,
-        name: "Maecenas interdum",
+        name: "Maecenas interdum", category: "Bancolombia",
         description:
             "Morbi eu ullamcorper urna, a condimentum massa. In fermentum ante non turpis cursus fringilla. Praesent neque eros, gravida vel ante sed, vehicula elementum orci. Sed eu ipsum eget enim mattis mollis.",
         price: {

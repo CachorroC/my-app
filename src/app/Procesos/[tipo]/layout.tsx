@@ -6,7 +6,6 @@ import { getProcesos } from "#@/app/api/procesos/getProcesos";
 import layout from "#@/styles/css/layout.module.css";
 import { Proceso } from "#@/app/api/procesos/proceso";
 
-import { LayoutHooks } from "#@/app/Procesos/router-context-layout";
 import ContextSearchInput, {
     Search,
 } from "#@/app/Procesos/context-input-search";
@@ -33,17 +32,16 @@ export default async function Layout ( {
         tipo: params.tipo,
     } );
 
+
     return (
         <div className={ layout.section }>
-            <ContextSearchInput />
+            <Search procesos={ procesos } />
             <Link href={ `/Procesos/${ params.tipo }` }>{ params.tipo }</Link>
             <TabGroup
                 path={ `/Procesos/${ params.tipo }` }
                 items={ procesos }
             />
-
             { children }
-            <LayoutHooks />
         </div>
     );
 }
