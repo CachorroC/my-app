@@ -6,21 +6,21 @@ import { SearchProvider } from './search-context';
 import ContextInputSearch, { Search } from './context-input-search';
 
 export const metadata = {
-    title: 'Procesos',
+  title: 'Procesos',
 };
 
 export default async function Layout (
-    { children, }: { children: React.ReactNode; }
+  { children, }: { children: React.ReactNode; }
 ) {
-    const procesos = await getProcesos();
-    return (
-        <div className={ box.flex } >
-            <SearchProvider>
-                <div className={ box.container }>
-                    <ContextInputSearch />
-                    <article>{ children }</article>
-                </div>
-            </SearchProvider >
+  const procesos = await getProcesos();
+  return (
+    <div className={ box.flex } >
+      <SearchProvider>
+        <div className={ box.container }>
+          <ContextInputSearch />
+          <article>{ children }</article>
         </div>
-    );
+      </SearchProvider >
+    </div>
+  );
 }

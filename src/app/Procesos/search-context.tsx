@@ -12,30 +12,30 @@ const SearchContext = React.createContext<
 >( null );
 
 export function SearchProvider ( { children }: { children: React.ReactNode; } ) {
-    const params = useParams();
-    const [
-        search, setSearch
-    ] = React.useState( "" );
-    const [
-        hasUltimaActuacion, setUltimaActuacion
-    ] = React.useState( false );
-    return (
-        <SearchContext.Provider value={ [
-            search, setSearch
-        ] }>
-            <h1>search context</h1>
-            <ContextInputSearch />
+  const params = useParams();
+  const [
+    search, setSearch
+  ] = React.useState( "" );
+  const [
+    hasUltimaActuacion, setUltimaActuacion
+  ] = React.useState( false );
+  return (
+    <SearchContext.Provider value={ [
+      search, setSearch
+    ] }>
+      <h1>search context</h1>
+      <ContextInputSearch />
 
 
-            { children }
-        </SearchContext.Provider>
-    );
+      { children }
+    </SearchContext.Provider>
+  );
 }
 
 export function useSearch () {
-    const context = React.useContext( SearchContext );
-    if ( context === null ) {
-        throw new Error( " no sirvio" );
-    }
-    return context;
+  const context = React.useContext( SearchContext );
+  if ( context === null ) {
+    throw new Error( " no sirvio" );
+  }
+  return context;
 }

@@ -7,37 +7,37 @@ import layout from "#@/styles/css/layout.module.css";
 import { Proceso } from "#@/app/api/procesos/proceso";
 
 import ContextSearchInput, {
-    Search,
+  Search,
 } from "#@/app/Procesos/context-input-search";
 import box from "#@/styles/scss/box.module.scss";
 import { TabGroup } from '#@/components/tab-group';
 export const metadata = {
-    title: "Reintegra",
+  title: "Reintegra",
 };
 const poiret = Poiret_One( {
-    weight: "400",
-    subsets: [
-        "latin", "latin-ext"
-    ],
-    display: "swap",
+  weight: "400",
+  subsets: [
+    "latin", "latin-ext"
+  ],
+  display: "swap",
 } );
 export default async function Layout ( {
-    children,
-    params,
+  children,
+  params,
 }: {
     children: React.ReactNode;
     params: { tipo: string; };
 } ) {
-    const procesos = await getProcesos( {
-        tipo: params.tipo,
-    } );
+  const procesos = await getProcesos( {
+    tipo: params.tipo,
+  } );
 
 
-    return (
-        <div className={ layout.section }>
-            <Link href={ `/Procesos/${ params.tipo }` }>{ params.tipo }</Link>
+  return (
+    <div className={ layout.section }>
+      <Link href={ `/Procesos/${ params.tipo }` }>{ params.tipo }</Link>
 
-            { children }
-        </div>
-    );
+      { children }
+    </div>
+  );
 }
