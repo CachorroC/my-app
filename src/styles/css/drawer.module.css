@@ -5,6 +5,22 @@
   left: 0;
   bottom: 0;
   background-color: var(--tertiary-container);
+  overflow-y: scroll;
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+.container {
+  background-color: var(--background);
+  border: 2px dashed var(--primary);
+  border-radius: 2vmax;
+  width: 80vw;
+  margin-left: 15vw;
+  color: var(--on-surface);
+  box-shadow: var(--dp8);
+  text-align: center;
+  box-sizing: border-box;
+  padding: 2vmin;
 }
 
 /*# sourceMappingURL=drawer.module.css.map */

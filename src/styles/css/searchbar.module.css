@@ -47,13 +47,13 @@
   grid-template-areas: " . . . . " " . . . . " " . . . . " " . . . . " " . . . . " " . . . . " " . . . . " " . . . . " " . . . . " " . . . . " " . . . . " " . . . . " " . . . . ";
 }
 
-.inputbox {
+.input {
   background-color: var(--sf-3);
   color: var(--on-surface);
-  min-width: auto;
-  height: 8vmin;
+  width: 100%;
+  height: auto;
 }
-.inputbox:focus {
+.input:focus {
   border: 2px dashed var(--tertiary);
   background-color: var(--tertiary-container);
   color: var(--on-tertiary-container);

@@ -1,6 +1,5 @@
 import layout from "#@/styles/css/layout.module.css";
 import typeface from "#@/styles/css/typeface.module.css";
-import { Route } from "next";
 import Link from "next/link";
 import { Key, ReactElement, JSXElementConstructor, ReactFragment, ReactPortal } from "react";
 import box from '#@/styles/css/box.module.css';

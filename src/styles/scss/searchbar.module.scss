@@ -75,12 +75,12 @@
         " . . . . ";
 }
 
-.inputbox
+.input
 {
     background-color: var(--sf-3);
     color: var(--on-surface);
-    min-width: auto;
-    height: 8vmin;
+    width: 100%;
+    height: auto;
 
     &:focus
     {

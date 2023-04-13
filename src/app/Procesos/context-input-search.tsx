@@ -11,7 +11,6 @@ import typeface from '#@/styles/css/typeface.module.css';
 import Link from 'next/link';
 import { poiret } from '../../components/typeface';
 import drawer from '#@/styles/css/drawer.module.css';
-
 const ContextInputSearch = () => {
   const [
     search,
@@ -20,21 +19,20 @@ const ContextInputSearch = () => {
 
   return (
     <div className={ navbar.menu }>
-      <form className={ navbar.link }>
-        <h1>context Input Search</h1>
-        <input
-          type="text"
-          className={ form.input }
-          value={ search }
-          placeholder="Search..."
-          onChange={
-            ( e ) => setSearch( e.target.value ) }
-        ></input>
-      </form>
+  
+      
+      <input
+        type="text"
+        className={ form.input }
+        value={ search }
+        placeholder="Search..."
+        onChange={
+          ( e ) => setSearch( e.target.value ) }
+      ></input>
+    
     </div>
   );
 };
-
 function ProcesoRow (
   { proceso }: { proceso: Proceso; }
 ) {
@@ -54,10 +52,8 @@ export const Search = (
     search
   ] = useSearch();
   const rows: any[] = [
-
   ];
   let lastultimoTipo: string | null = null;
-
   procesos.forEach(
     ( proceso ) => {
       if (
@@ -73,13 +69,8 @@ export const Search = (
           key={ proceso.Demandado } />
       );
       lastultimoTipo = proceso.tipo;
-    } );
-
-
-
-
-  ;
-  return <div className={drawer.box}>{ rows }</div>;
+    } 
+  );
+  return <div className={box.flex}>{ rows }</div>;
 };
-
 export default ContextInputSearch;

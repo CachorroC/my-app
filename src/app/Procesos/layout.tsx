@@ -17,14 +17,14 @@ export default async function Layout (
   return (
     <div className={ box.container } >
       <SearchProvider>
-        <div className={box.flex}>
+        <div className={drawer.box}>
           <ContextInputSearch />
           <Search procesos={procesos}/>
         </div>
-        <div className={ box.container }>
+        
           
-          <article>{ children }</article>
-        </div>
+        <article className={drawer.container}>{ children }</article>
+  
       </SearchProvider >
     </div>
   );
