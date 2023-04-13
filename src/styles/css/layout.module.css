@@ -53,4 +53,20 @@
   padding: 2vmax;
 }
 
+.card {
+  background-color: var(--sf-2);
+  border: 2px dashed var(--primary);
+  border-radius: 2vmax;
+  color: var(--on-surface);
+  box-shadow: var(--dp8);
+  text-align: center;
+  box-sizing: border-box;
+  padding: 2vmin;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: space-evenly;
+  align-items: stretch;
+  align-content: space-around;
+}
+
 /*# sourceMappingURL=layout.module.css.map */

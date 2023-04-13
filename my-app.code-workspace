@@ -28,6 +28,7 @@
       "titleBar.inactiveForeground": "#e7e7e799"
     },
     "peacock.color": "#8657af",
-    "js/ts.implicitProjectConfig.strictFunctionTypes": true
+    "js/ts.implicitProjectConfig.strictFunctionTypes": true,
+    "typescript.tsdk": "node_modules/typescript/lib"
   },
 }

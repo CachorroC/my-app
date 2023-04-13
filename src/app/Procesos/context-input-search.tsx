@@ -9,6 +9,8 @@ import { Proceso } from "#@/app/api/procesos/proceso";
 import navbar from "#@/styles/css/navbar.module.css";
 import typeface from '#@/styles/css/typeface.module.css';
 import Link from 'next/link';
+import { poiret } from '../../components/typeface';
+import drawer from '#@/styles/css/drawer.module.css';
 
 const ContextInputSearch = () => {
   const [
@@ -36,10 +38,9 @@ const ContextInputSearch = () => {
 function ProcesoRow (
   { proceso }: { proceso: Proceso; }
 ) {
-  const href = 'Procesos/' + proceso.tipo + '/' + proceso.slug;
   return (
-    <Link className={ box.container } href={ `/${ href }` }>
-      <h1 className={ typeface.title }>{ proceso.Demandado }</h1>
+    <Link className={ box.container } href={`/Procesos/${proceso.tipo}/${proceso.idProceso}`} >
+      <h4 className={ poiret.className }>{ proceso.Demandado }</h4>
       <i>{ proceso.fechaUltimaActuacion?.toString() }</i>
     </Link>
   );
@@ -78,7 +79,7 @@ export const Search = (
 
 
   ;
-  return <div className={ searchbox.tabgroup }>{ rows }</div>;
+  return <div className={drawer.box}>{ rows }</div>;
 };
 
 export default ContextInputSearch;

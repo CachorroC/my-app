@@ -3,7 +3,7 @@ export interface Proceso {
     despacho: string;
     esPrivado: boolean;
     idConexion: number;
-    slug: string;
+    idProceso: string;
     llaveProceso: string;
     fechaProceso?: string | null;
     fechaUltimaActuacion?: Date | string | null;
@@ -12,27 +12,13 @@ export interface Proceso {
     tipo: string;
 };
 
-export interface Actuacion {
-    idRegActuacion: number;
-    llaveProceso: string;
-    slug: string;
-    consActuacion: number;
-    fechaActuacion: string;
-    actuacion: string;
-    anotacion?: string;
-    fechaInicial?: string;
-    fechaFinal?: string;
-    fechaRegistro: string;
-    codRegla: string;
-    conDocumentos: boolean;
-    cant: number;
-};
+
 
 export type Demandado = {
     carpeta: number;
     //? Cédula de Ciudadanía
     id_deudor: number;
-    slug: number;
+    idProceso: number;
     demandado: string;
     direccion: string;
     email: string;

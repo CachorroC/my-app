@@ -28,9 +28,9 @@ export async function getCategories ( { parent }: { parent?: string; } = {} ) {
   return categories;
 }
 
-export async function getCategory ( { slug }: { slug: string; } ) {
+export async function getCategory ( { idProceso }: { idProceso: string; } ) {
   const res = await fetch(
-    `${ getBaseUrl() }/api/categories${ slug ? `?slug=${ slug }` : "" }`
+    `${ getBaseUrl() }/api/categories${ idProceso ? `?idProceso=${ idProceso }` : "" }`
   );
 
   if ( !res.ok ) {

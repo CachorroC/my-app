@@ -2,22 +2,22 @@
 import { cache } from "react";
 
 export type Post = {
-    title: string;
-    slug: string;
-    date: number;
-    excerpt: string;
-    coverImage: string;
-    text: string[];
+  title: string;
+  idProceso: string;
+  date: number;
+  excerpt: string;
+  coverImage: string;
+  text: string[];
 };
 
 export const getPosts = cache( (): Post[] => [
   {
     title: "Dynamic Routing and Static Generation",
     excerpt:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Praesent elementum facilisis leo vel fringilla est ullamcorper eget. At imperdiet dui accumsan sit amet nulla facilities morbi tempus.",
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Praesent elementum facilisis leo vel fringilla est ullamcorper eget. At imperdiet dui accumsan sit amet nulla facilities morbi tempus.",
     coverImage: "/assets/blog/dynamic-routing/cover.jpg",
     date: 20230316,
-    slug: "2023-03-16",
+    idProceso: "2023-03-16",
 
 
     text: [
@@ -30,10 +30,10 @@ export const getPosts = cache( (): Post[] => [
   {
     title: "My fuck",
     excerpt:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Praesent elementum facilisis leo vel fringilla est ullamcorper eget. At imperdiet dui accumsan sit amet nulla facilities morbi tempus.",
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Praesent elementum facilisis leo vel fringilla est ullamcorper eget. At imperdiet dui accumsan sit amet nulla facilities morbi tempus.",
     coverImage: "/assets/blog/dynamic-routing/cover.jpg",
     date: 20230103,
-    slug: "2023-01-03",
+    idProceso: "2023-01-03",
 
 
     text: [
@@ -46,10 +46,10 @@ export const getPosts = cache( (): Post[] => [
   {
     title: "Holy Fuck",
     excerpt:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Praesent elementum facilisis leo vel fringilla est ullamcorper eget. At imperdiet dui accumsan sit amet nulla facilities morbi tempus.",
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Praesent elementum facilisis leo vel fringilla est ullamcorper eget. At imperdiet dui accumsan sit amet nulla facilities morbi tempus.",
     coverImage: "/assets/blog/dynamic-routing/cover.jpg",
     date: 20230228,
-    slug: "2023-02-28",
+    idProceso: "2023-02-28",
 
     text: [
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Praesent elementum facilisis leo vel fringilla est ullamcorper eget. At imperdiet dui accumsan sit amet nulla facilities morbi tempus. Praesent elementum facilisis leo vel fringilla. Congue mauris rhoncus aenean vel. Egestas sed tempus urna et pharetra pharetra massa massa ultricies.",
@@ -60,9 +60,9 @@ export const getPosts = cache( (): Post[] => [
   },
 ] );
 
-export async function fetchPostBySlug ( slug: string | undefined ) {
+export async function fetchPostByidProceso ( idProceso: string | undefined ) {
   // Assuming it always return expected categories
-  return getPosts().find( ( post ) => post.slug === slug );
+  return getPosts().find( ( post ) => post.idProceso === idProceso );
 }
 
 export async function fetchPosts (): Promise<Post[]> {

@@ -1,0 +1,10 @@
+.box {
+  width: 20vw;
+  height: 100%;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  background-color: var(--tertiary-container);
+}
+
+/*# sourceMappingURL=drawer.module.css.map */

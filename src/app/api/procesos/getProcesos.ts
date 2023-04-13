@@ -13,8 +13,8 @@ export async function getProcesos (
     throw new Error( "something went wrong" );
   }
   const procesos = (
-        await res.json()
-    ) as Proceso[];
+    await res.json()
+  ) as Proceso[];
 
   if ( procesos.length === 0 ) {
     notFound();
@@ -40,21 +40,42 @@ export async function getProcesosStringify (
   } );
 }
 export async function getProceso (
-  { slug }: { slug: string; }
+  { idProceso }: { idProceso: string; }
 ) {
   const res = await fetch(
-    `${ getBaseUrl() }/api/procesos${ slug ? `?slug=${ slug }` : "" }`
+    `${ getBaseUrl() }/api/procesos${ idProceso ? `?idProceso=${ idProceso }` : "" }`
   );
   if ( !res.ok ) {
-    // Render the closest `error.js` Error Boundary
+    //? Render the closest `error.js` Error Boundary
     throw new Error( "Something went wrong!" );
   }
   const proceso = ( await res.json() ) as Proceso;
 
   if ( !proceso ) {
-    // Render the closest `not-found.js` Error Boundary
+    //? Render the closest `not-found.js` Error Boundary
     notFound();
   }
 
   return proceso;
+}
+
+export async function getAsyncProceso (
+  { llaveProceso }: { llaveProceso: string; }
+) {
+  const res = await fetch( `https://consultaprocesos.ramajudicial.gov.co:448/api/v2/Procesos/Consulta/NumeroRadicacion?numero=${ llaveProceso }&SoloActivos=false`,
+    { cache: "no-store" }
+  );
+  if ( !res.ok ) {
+    //? Render the closest `error.js` Error Boundary
+    throw new Error( 'Something went wrong!' );
+  }
+  const rawProcesos = ( await res.json() );
+  const procesos = rawProcesos.procesos;
+  if ( !procesos ) {
+    //? Render the closest `not-found.js` Error Boundary
+    notFound();
+  }
+  return procesos;
+
+
 }
