@@ -3,6 +3,7 @@ import Navbar from "#@/components/navbar";
 import layout from "#@/styles/css/layout.module.css";
 import type { Metadata } from "next";
 import "material-symbols";
+import Footer from '../components/footer';
 
 export const metadata: Metadata = {
   title: "R&S Asesoría Jurídica",
@@ -105,6 +106,7 @@ export default function RootLayout (
         <div className={ layout.base }>
           <Navbar />
           { children }
+          <Footer/>
         </div>
       </body>
     </html>

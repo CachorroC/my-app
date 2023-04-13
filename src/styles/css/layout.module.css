@@ -7,6 +7,11 @@
   height: 100vh;
   grid-template-areas: "header header header header header header" "body body body body body body" "body body body body body body" "body body body body body body" "body body body body body body" "body body body body body body" "footer footer footer footer footer footer";
 }
+.base > .footer {
+  grid-area: footer;
+  background-color: var(--tertiary);
+  color: var(--on-tertiray);
+}
 .base > .header {
   display: flex;
   flex-flow: row nowrap;
@@ -38,8 +43,8 @@
 }
 .base > .main {
   box-sizing: border-box;
-  background-color: var(--background);
-  color: var(--on-background);
+  background-color: var(--primary-container);
+  color: var(--on-primary-container);
   padding-top: 5vh;
   overflow: hidden;
   grid-area: body;
@@ -58,17 +63,22 @@
 .base > .main > .sidenav {
   grid-area: sidenav;
   background-color: var(--tertiary-container);
+  border: 2px dashed var(--tertiary);
   overflow: scroll;
+  border-radius: 2vmax;
+  height: 80vh;
+  padding: 2vmin;
   display: flex;
   flex-flow: column nowrap;
 }
 .base > .main > .container {
   grid-area: art;
+  overflow: scroll;
   display: flex;
   align-items: center;
   flex-flow: column nowrap;
-  background-color: var(--background);
-  border: 2px dashed var(--primary);
+  background-color: var(--secondary-container);
+  border: 2px dashed var(--secondary);
   border-radius: 2vmax;
   color: var(--on-surface);
   box-shadow: var(--dp3);
