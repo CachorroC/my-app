@@ -11,6 +11,7 @@ import typeface from '#@/styles/css/typeface.module.css';
 import Link from 'next/link';
 import { poiret } from '../../components/typeface';
 import drawer from '#@/styles/css/drawer.module.css';
+import layout from '#@/styles/css/layout.module.css';
 const ContextInputSearch = () => {
   const [
     search,
@@ -37,7 +38,7 @@ function ProcesoRow (
   { proceso }: { proceso: Proceso; }
 ) {
   return (
-    <Link className={ box.container } href={`/Procesos/${proceso.tipo}/${proceso.idProceso}`} >
+    <Link className={ layout.card } href={`/Procesos/${proceso.tipo}/${proceso.idProceso}`} >
       <h4 className={ poiret.className }>{ proceso.Demandado }</h4>
       <i>{ proceso.fechaUltimaActuacion?.toString() }</i>
     </Link>
@@ -53,7 +54,6 @@ export const Search = (
   ] = useSearch();
   const rows: any[] = [
   ];
-  let lastultimoTipo: string | null = null;
   procesos.forEach(
     ( proceso ) => {
       if (
@@ -68,9 +68,8 @@ export const Search = (
           proceso={ proceso }
           key={ proceso.Demandado } />
       );
-      lastultimoTipo = proceso.tipo;
     } 
   );
-  return <div className={box.flex}>{ rows }</div>;
+  return <ul className={box.flex}>{ rows }</ul>;
 };
 export default ContextInputSearch;

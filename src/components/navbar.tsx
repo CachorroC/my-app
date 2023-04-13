@@ -9,6 +9,7 @@ import { Poiret_One } from "next/font/google";
 import "material-symbols";
 import NavItem from "#@/components/navitem";
 import box from "#@/styles/css/box.module.css";
+import layout from '#@/styles/css/layout.module.css';
 
 const poiret = Poiret_One( {
   weight: "400",
@@ -44,10 +45,10 @@ export default function Navbar () {
     </div>
   );
   return (
-    <div className={ styles.header }>
-      <Link href="/" onClick={ close } className={ styles.home }>
+    <div className={ layout.header }>
+      <button type="button" onClick={ close } className={ styles.home }>
         <span className="material-symbols-rounded">cabin</span>
-      </Link>
+      </button>
       <button
         type="button"
         className={ styles.button }

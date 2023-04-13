@@ -34,7 +34,7 @@ export default async function Layout ( {
 
 
   return (
-    <div className={ layout.section }>
+    <div className={ layout.container }>
       <Link href={ `/Procesos/${ params.tipo }` }>{ params.tipo }</Link>
 
       { children }

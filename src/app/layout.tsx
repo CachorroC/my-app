@@ -2,13 +2,7 @@ import "#@/styles/css/globals.css";
 import Navbar from "#@/components/navbar";
 import layout from "#@/styles/css/layout.module.css";
 import type { Metadata } from "next";
-import { Poiret_One } from "next/font/google";
 import "material-symbols";
-
-import { Proceso } from "#@/app/api/procesos/proceso";
-import { getBaseUrl } from "#@/lib/getBaseUrl";
-import { Suspense, useCallback } from "react";
-
 
 export const metadata: Metadata = {
   title: "R&S Asesoría Jurídica",
@@ -98,17 +92,20 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout ( {
-  children,
-}: {
-  children: React.ReactNode;
-} ) {
+export default function RootLayout (
+  {
+    children,
+  }: {
+    children: React.ReactNode;
+  }
+) {
   return (
     <html lang="es" className="[color-scheme: light dark]">
       <body>
-        <Navbar />
-        <section className={ layout.main }>
-          { children }</section>
+        <div className={ layout.base }>
+          <Navbar />
+          { children }
+        </div>
       </body>
     </html>
   );

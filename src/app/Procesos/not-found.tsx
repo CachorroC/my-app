@@ -3,7 +3,6 @@ import modal from "#@/styles/css/modal.module.css";
 export default function NotFound() {
   const today = new Date();
   const curHr = today.getHours();
-
   const time = () => {
     if (curHr < 12) {
       const timesegment = "este dia";

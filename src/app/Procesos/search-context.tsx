@@ -23,8 +23,6 @@ export function SearchProvider ( { children }: { children: React.ReactNode; } ) 
     <SearchContext.Provider value={ [
       search, setSearch
     ] }>
-      <h1>search context</h1>
-      <ContextInputSearch />
 
 
       { children }
