@@ -15,14 +15,10 @@ export default async function Layout (
 ) {
   const procesos = await getProcesos();
   return (
-    <div className={ box.container } >
+    <div className={ box.flex } >
       <SearchProvider>
-        <div className={box.flex}>
-          <ContextInputSearch />
-          <Search procesos={procesos}/>
-        </div>
         <div className={ box.container }>
-          
+          <ContextInputSearch />
           <article>{ children }</article>
         </div>
       </SearchProvider >

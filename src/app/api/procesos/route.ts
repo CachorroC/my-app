@@ -1,78 +1,66 @@
 import type { Proceso } from "./proceso";
 
+export async function GET(request: Request) {
+  const { searchParams } = new URL(request.url);
 
+  const slug = searchParams.get("slug");
+  if (slug) {
+    const proceso = data.find((proceso) => proceso.slug === slug);
 
-export async function GET ( request: Request ) {
-  const { searchParams } = new URL( request.url );
-
-  const idProceso = searchParams.get( "idProceso" );
-  if ( idProceso ) {
-    const proceso = data.find(
-      ( proceso ) => proceso.idProceso === idProceso
-    );
-
-    return new Response(
-      JSON.stringify(
-        proceso ?? null
-      ), {
-        status: 200,
-        headers: {
-          "content-type": "application/json",
-        },
-      }
-    );
-  }
-
-  const tipo = searchParams.get( "tipo"
-  );
-
-  if ( tipo ) {
-    const procesos = data.filter( ( proceso ) =>
-      tipo ? proceso.tipo === tipo : proceso.tipo === null
-    );
-    return new Response(
-      JSON.stringify( procesos ), {
-        status: 200,
-        headers: {
-          "content-type": "application/json",
-        },
-      }
-    );
-  }
-  const procesos = data;
-  return new Response(
-    JSON.stringify( procesos ), {
+    return new Response(JSON.stringify(proceso ?? null), {
       status: 200,
       headers: {
         "content-type": "application/json",
       },
-    } );
+    });
+  }
+
+  const tipo = searchParams.get("tipo");
+
+  if (tipo) {
+    const procesos = data.filter((proceso) =>
+      tipo ? proceso.tipo === tipo : proceso.tipo === null
+    );
+    return new Response(JSON.stringify(procesos), {
+      status: 200,
+      headers: {
+        "content-type": "application/json",
+      },
+    });
+  }
+  const procesos = data;
+  return new Response(JSON.stringify(procesos), {
+    status: 200,
+    headers: {
+      "content-type": "application/json",
+    },
+  });
 }
 
 const data: Proceso[] = [
   {
-    idProceso: "51935790",
+    slug: "51935790",
     tipo: "Reintegra",
     idConexion: 259,
     llaveProceso: "11001400308520170084900",
     fechaProceso: "2019-05-23T00:00:00",
     fechaUltimaActuacion: "2023-01-16T00:00:00",
     despacho:
-      "JUZGADO 011 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ",
+            "JUZGADO 011 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ",
     departamento: "BOGOTÁ",
     Demandante: "Demandante: BANCOLOMBIA S.A. |",
     Demandado: "JOSE EDWIN GARCES ARDILA ",
     esPrivado: false,
   },
   {
-    idProceso: "114256610",
+    slug: "114256610",
     tipo: "Reintegra",
     idConexion: 259,
     llaveProceso: "11001400304320180038400",
     fechaProceso: "2018-04-12T00:00:00",
     fechaUltimaActuacion: "2023-02-23T00:00:00",
     despacho:
-      "JUZGADO 018 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ",
+            "JUZGADO 018 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ",
     departamento: "BOGOTÁ",
     Demandante: "Demandante: BANCOLOMBIA S.A. |",
     Demandado: "JHONATAN ANDRES BERNAL PARRA ",
@@ -80,37 +68,37 @@ const data: Proceso[] = [
   },
 
   {
-    idProceso: "1805257424",
+    slug: "1805257424",
     tipo: "Reintegra",
     idConexion: 310,
     llaveProceso: "11001310301120170033500",
     fechaProceso: "2017-05-31T00:00:00",
     fechaUltimaActuacion: "2023-03-10T00:00:00",
     despacho:
-      "JUZGADO 001 CIVIL DEL CIRCUITO DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ",
+            "JUZGADO 001 CIVIL DEL CIRCUITO DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ",
     departamento: "BOGOTÁ",
     Demandante: "Demandante: BANCOLOMBIA S.A. |",
     Demandado: "OMAR DARIO ZEA GALVIS ",
     esPrivado: false,
   },
   {
-    idProceso: "50477000",
+    slug: "50477000",
     tipo: "Reintegra",
     idConexion: 259,
     llaveProceso: "11001400302620170051100",
     fechaProceso: "2017-05-31T00:00:00",
     fechaUltimaActuacion: "2022-11-11T00:00:00",
     despacho:
-      "JUZGADO 003 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ",
+            "JUZGADO 003 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ",
     departamento: "BOGOTÁ",
     Demandante: "Demandante: BANCOLOMBIA S.A. |",
     Demandado:
-      "LUIS CARLOS GUTIERREZ VELANDIA |JAQUELINE RODRIGUEZ COLMENARES ",
+            "LUIS CARLOS GUTIERREZ VELANDIA |JAQUELINE RODRIGUEZ COLMENARES ",
     esPrivado: false,
   },
 
   {
-    idProceso: "86212261",
+    slug: "86212261",
     tipo: "Reintegra",
     idConexion: 320,
     llaveProceso: "25183400300120170010600",
@@ -123,42 +111,42 @@ const data: Proceso[] = [
     esPrivado: false,
   },
   {
-    idProceso: "50521190",
+    slug: "50521190",
     tipo: "Reintegra",
     idConexion: 259,
     llaveProceso: "11001400300620170030200",
     fechaProceso: "2017-06-21T00:00:00",
     fechaUltimaActuacion: "2023-02-20T00:00:00",
     despacho:
-      "JUZGADO 013 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ",
+            "JUZGADO 013 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ",
     departamento: "BOGOTÁ",
     Demandante: "Demandante: BANCOLOMBIA S.A. |",
     Demandado: "ANA RITA GUZMAN GOMEZ ",
     esPrivado: false,
   },
   {
-    idProceso: "50593100",
+    slug: "50593100",
     tipo: "Reintegra",
     idConexion: 259,
     llaveProceso: "11001400300620170041900",
     fechaProceso: "2017-07-26T00:00:00",
     fechaUltimaActuacion: "2023-03-23T00:00:00",
     despacho:
-      "JUZGADO 011 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ",
+            "JUZGADO 011 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ",
     departamento: "BOGOTÁ",
     Demandante: "Demandante: BANCOLOMBIA S.A. |",
     Demandado: "DERLY CATHERINE CASTRO IZQUIERDO ",
     esPrivado: false,
   },
   {
-    idProceso: "50517060",
+    slug: "50517060",
     tipo: "Reintegra",
     idConexion: 259,
     llaveProceso: "11001400304220170076000",
     fechaProceso: "2017-06-20T00:00:00",
     fechaUltimaActuacion: "2022-11-10T00:00:00",
     despacho:
-      "JUZGADO 010 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ",
+            "JUZGADO 010 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ",
     departamento: "BOGOTÁ",
     Demandante: "Demandante: BANCOLOMBIA S.A. |",
     Demandado: "JOSE URIEL PAEREZ PERDOMO ",
@@ -166,35 +154,35 @@ const data: Proceso[] = [
   },
 
   {
-    idProceso: "111939890",
+    slug: "111939890",
     tipo: "Reintegra",
     idConexion: 259,
     llaveProceso: "11001400302220170056700",
     fechaProceso: "2017-06-15T00:00:00",
     fechaUltimaActuacion: "2023-02-14T00:00:00",
     despacho:
-      "JUZGADO 002 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ",
+            "JUZGADO 002 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ",
     departamento: "BOGOTÁ",
     Demandante: "Demandante: BANCOLOMBIA S.A. |",
     Demandado: "RHONALD MEZA  TARAPUES ",
     esPrivado: false,
   },
   {
-    idProceso: "51619370",
+    slug: "51619370",
     tipo: "Reintegra",
     idConexion: 259,
     llaveProceso: "11001400308220170068000",
     fechaProceso: "2019-01-29T00:00:00",
     fechaUltimaActuacion: "2023-03-28T00:00:00",
     despacho:
-      "JUZGADO 018 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ",
+            "JUZGADO 018 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ",
     departamento: "BOGOTÁ",
     Demandante: "Demandante: BANCOLOMBIA S.A. |",
     Demandado: "EDUARDO ENRIQUE ARANGO CHACON ",
     esPrivado: false,
   },
   {
-    idProceso: "81869501",
+    slug: "81869501",
     tipo: "Reintegra",
     idConexion: 320,
     llaveProceso: "11001400308220170068000",
@@ -207,56 +195,56 @@ const data: Proceso[] = [
     esPrivado: false,
   },
   {
-    idProceso: "50508870",
+    slug: "50508870",
     tipo: "Reintegra",
     idConexion: 259,
     llaveProceso: "11001400300420170057500",
     fechaProceso: "2017-06-15T00:00:00",
     fechaUltimaActuacion: "2023-03-24T00:00:00",
     despacho:
-      "JUZGADO 018 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ",
+            "JUZGADO 018 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ",
     departamento: "BOGOTÁ",
     Demandante: "Demandante: BANCOLOMBIA S.A. |",
     Demandado: "SONIA MAZUERA ",
     esPrivado: false,
   },
   {
-    idProceso: "50514310",
+    slug: "50514310",
     tipo: "Reintegra",
     idConexion: 259,
     llaveProceso: "11001400305920170048300",
     fechaProceso: "2017-06-20T00:00:00",
     fechaUltimaActuacion: "2023-02-27T00:00:00",
     despacho:
-      "JUZGADO 015 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ",
+            "JUZGADO 015 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ",
     departamento: "BOGOTÁ",
     Demandante: "Demandante: BANCOLOMBIA S.A. |",
     Demandado: "DANIEL HERNANDEZ GONZALEZ ",
     esPrivado: false,
   },
   {
-    idProceso: "28937944",
+    slug: "28937944",
     tipo: "Reintegra",
     idConexion: 310,
     llaveProceso: "11001310302520170073600",
     fechaProceso: "2017-10-03T00:00:00",
     fechaUltimaActuacion: "2022-06-15T00:00:00",
     despacho:
-      "JUZGADO 002 CIVIL DEL CIRCUITO DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ",
+            "JUZGADO 002 CIVIL DEL CIRCUITO DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ",
     departamento: "BOGOTÁ",
     Demandante: "Demandante: BANCOLOMBIA S. A. |",
     Demandado: "MIGUEL ANGEL HUERTAS VALENCIA ",
     esPrivado: false,
   },
   {
-    idProceso: "50522530",
+    slug: "50522530",
     tipo: "Reintegra",
     idConexion: 259,
     llaveProceso: "11001400307020170056600",
     fechaProceso: "2017-06-22T00:00:00",
     fechaUltimaActuacion: "2021-12-13T00:00:00",
     despacho:
-      "JUZGADO 014 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ",
+            "JUZGADO 014 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ",
     departamento: "BOGOTÁ",
     Demandante: "Demandante: BANCOLOMBIA S.A. |",
     Demandado: "NICOLAS FERNANDO MONTOYA ",
@@ -264,7 +252,7 @@ const data: Proceso[] = [
   },
 
   {
-    idProceso: "109959053",
+    slug: "109959053",
     tipo: "Reintegra",
     idConexion: 261,
     llaveProceso: "11001400304720170152000",
@@ -277,36 +265,36 @@ const data: Proceso[] = [
     esPrivado: false,
   },
   {
-    idProceso: "50593640",
+    slug: "50593640",
     tipo: "Reintegra",
     idConexion: 259,
     llaveProceso: "11001400304520170090500",
     fechaProceso: "2017-07-26T00:00:00",
     fechaUltimaActuacion: "2022-02-25T00:00:00",
     despacho:
-      "JUZGADO 002 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ",
+            "JUZGADO 002 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ",
     departamento: "BOGOTÁ",
     Demandante: "Demandante: BANCOLOMBIA S.A. |",
     Demandado: "URIEL RUIZ DIAZ ",
     esPrivado: false,
   },
   {
-    idProceso: "51497380",
+    slug: "51497380",
     tipo: "Reintegra",
     idConexion: 259,
     llaveProceso: "11001400307620170063500",
     fechaProceso: "2018-11-22T00:00:00",
     fechaUltimaActuacion: "2022-12-05T00:00:00",
     despacho:
-      "JUZGADO 004 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ",
+            "JUZGADO 004 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ",
     departamento: "BOGOTÁ",
     Demandante:
-      "Demandante: CARLOS DANIEL CARDENAS AVILES | Demandante: BANCOLOMBIA S.A. |",
+            "Demandante: CARLOS DANIEL CARDENAS AVILES | Demandante: BANCOLOMBIA S.A. |",
     Demandado: "FREDY MENESES ",
     esPrivado: false,
   },
   {
-    idProceso: "50598770",
+    slug: "50598770",
     tipo: "Reintegra",
     idConexion: 259,
     llaveProceso: "11001400300320170126400",
@@ -319,21 +307,21 @@ const data: Proceso[] = [
     esPrivado: false,
   },
   {
-    idProceso: "50760030",
+    slug: "50760030",
     tipo: "Reintegra",
     idConexion: 259,
     llaveProceso: "11001400301120170108400",
     fechaProceso: "2017-10-06T00:00:00",
     fechaUltimaActuacion: "2023-02-22T00:00:00",
     despacho:
-      "JUZGADO 002 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ",
+            "JUZGADO 002 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ",
     departamento: "BOGOTÁ",
     Demandante: "Demandante: TITULARIZADORA COLOMBIANA S.A. HITOS |",
     Demandado: "JAVIER GONZALEZ TAGUA ",
     esPrivado: false,
   },
   {
-    idProceso: "50623380",
+    slug: "50623380",
     tipo: "Reintegra",
     idConexion: 259,
     llaveProceso: "11001400302520170080700",
@@ -347,14 +335,14 @@ const data: Proceso[] = [
   },
 
   {
-    idProceso: "51357750",
+    slug: "51357750",
     tipo: "Reintegra",
     idConexion: 259,
     llaveProceso: "11001400307920170108200",
     fechaProceso: "2018-08-09T00:00:00",
     fechaUltimaActuacion: "2023-01-19T00:00:00",
     despacho:
-      "JUZGADO 001 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ",
+            "JUZGADO 001 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ",
     departamento: "BOGOTÁ",
     Demandante: "Demandante: BANCOLOMBIA S.A |",
     Demandado: "JHON ALEXANDER VALENCIA MARQUEZ ",
@@ -362,7 +350,7 @@ const data: Proceso[] = [
   },
 
   {
-    idProceso: "110120573",
+    slug: "110120573",
     tipo: "Reintegra",
     idConexion: 261,
     llaveProceso: "11001400304520170106300",
@@ -375,21 +363,21 @@ const data: Proceso[] = [
     esPrivado: false,
   },
   {
-    idProceso: "50669130",
+    slug: "50669130",
     tipo: "Reintegra",
     idConexion: 259,
     llaveProceso: "11001400301220170097100",
     fechaProceso: "2017-08-30T00:00:00",
     fechaUltimaActuacion: "2022-03-17T00:00:00",
     despacho:
-      "JUZGADO 015 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ",
+            "JUZGADO 015 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ",
     departamento: "BOGOTÁ",
     Demandante: "Demandante: BANCOLOMBIA S.A. |",
     Demandado: "FABIO ALBERTO RIVERA MESA | NELIDA DEL CARMEN RIVERA MESA ",
     esPrivado: false,
   },
   {
-    idProceso: "86374941",
+    slug: "86374941",
     tipo: "Reintegra",
     idConexion: 320,
     llaveProceso: "25754400300220170026500",
@@ -402,21 +390,21 @@ const data: Proceso[] = [
     esPrivado: false,
   },
   {
-    idProceso: "50672820",
+    slug: "50672820",
     tipo: "Reintegra",
     idConexion: 259,
     llaveProceso: "11001400306420170119100",
     fechaProceso: "2017-08-31T00:00:00",
     fechaUltimaActuacion: "2021-11-19T00:00:00",
     despacho:
-      "JUZGADO 007 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ",
+            "JUZGADO 007 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ",
     departamento: "BOGOTÁ",
     Demandante: "Demandante: BANCOLOMBIA S.A. |",
     Demandado: "CESAR UMAÑA CAÑON ",
     esPrivado: false,
   },
   {
-    idProceso: "51006610",
+    slug: "51006610",
     tipo: "Reintegra",
     idConexion: 259,
     llaveProceso: "11001400302120180016300",
@@ -430,35 +418,35 @@ const data: Proceso[] = [
   },
 
   {
-    idProceso: "86524020",
+    slug: "86524020",
     tipo: "Reintegra",
     idConexion: 259,
     llaveProceso: "11001400305520170086000",
     fechaProceso: "2017-09-04T00:00:00",
     fechaUltimaActuacion: "2023-03-27T00:00:00",
     despacho:
-      "JUZGADO 015 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ",
+            "JUZGADO 015 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ",
     departamento: "BOGOTÁ",
     Demandante: "Demandante: BANCOLOMBIA S.A. |",
     Demandado: "GERARDO ANTONIO MONCADA VEGA ",
     esPrivado: false,
   },
   {
-    idProceso: "50685700",
+    slug: "50685700",
     tipo: "Reintegra",
     idConexion: 259,
     llaveProceso: "11001400302820170084900",
     fechaProceso: "2017-09-05T00:00:00",
     fechaUltimaActuacion: "2022-06-16T00:00:00",
     despacho:
-      "JUZGADO 016 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ",
+            "JUZGADO 016 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ",
     departamento: "BOGOTÁ",
     Demandante: "Demandante: BANCOLOMBIA S.A. |",
     Demandado: "JOSE LUIS TORRES TAMAYO ",
     esPrivado: false,
   },
   {
-    idProceso: "50675410",
+    slug: "50675410",
     tipo: "Reintegra",
     idConexion: 259,
     llaveProceso: "11001400306920170084500",
@@ -471,28 +459,28 @@ const data: Proceso[] = [
     esPrivado: false,
   },
   {
-    idProceso: "50687430",
+    slug: "50687430",
     tipo: "Reintegra",
     idConexion: 259,
     llaveProceso: "11001400301620170087500",
     fechaProceso: "2017-09-06T00:00:00",
     fechaUltimaActuacion: "2022-03-09T00:00:00",
     despacho:
-      "JUZGADO 018 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ",
+            "JUZGADO 018 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ",
     departamento: "BOGOTÁ",
     Demandante: "Demandante: BANCOLOMBIA S.A. |",
     Demandado: "JORGE ALBERTO MARTINEZ BENDECK ",
     esPrivado: false,
   },
   {
-    idProceso: "50685530",
+    slug: "50685530",
     tipo: "Reintegra",
     idConexion: 259,
     llaveProceso: "11001400301320170116200",
     fechaProceso: "2017-09-05T00:00:00",
     fechaUltimaActuacion: "2023-03-07T00:00:00",
     despacho:
-      "JUZGADO 016 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ",
+            "JUZGADO 016 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ",
     departamento: "BOGOTÁ",
     Demandante: "Demandante: BANCOLOMBIA S.A. |",
     Demandado: "CARLOS JAVIER BECERRA BENAVIDES ",
@@ -500,7 +488,7 @@ const data: Proceso[] = [
   },
 
   {
-    idProceso: "50692590",
+    slug: "50692590",
     tipo: "Reintegra",
     idConexion: 259,
     llaveProceso: "11001400301320170117800",
@@ -513,35 +501,35 @@ const data: Proceso[] = [
     esPrivado: false,
   },
   {
-    idProceso: "112758450",
+    slug: "112758450",
     tipo: "Reintegra",
     idConexion: 259,
     llaveProceso: "11001400300820170105800",
     fechaProceso: "2017-09-05T00:00:00",
     fechaUltimaActuacion: "2022-07-21T00:00:00",
     despacho:
-      "JUZGADO 001 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ",
+            "JUZGADO 001 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ",
     departamento: "BOGOTÁ",
     Demandante: "Demandante: BANCOLOMBIA S.A. |",
     Demandado: "ANDRES FELIPE GUTIERREZ TRUJILLO ",
     esPrivado: false,
   },
   {
-    idProceso: "50875780",
+    slug: "50875780",
     tipo: "Reintegra",
     idConexion: 259,
     llaveProceso: "11001400300920170127900",
     fechaProceso: "2017-11-28T00:00:00",
     fechaUltimaActuacion: "2022-01-26T00:00:00",
     despacho:
-      "JUZGADO 018 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ",
+            "JUZGADO 018 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ",
     departamento: "BOGOTÁ",
     Demandante: "Demandante: BANCOLOMBIA S.A. |",
     Demandado: "JOSE HERNANDO SANCHEZ VALBUENA ",
     esPrivado: false,
   },
   {
-    idProceso: "50721470",
+    slug: "50721470",
     tipo: "Reintegra",
     idConexion: 259,
     llaveProceso: "11001400301720170119500",
@@ -554,7 +542,7 @@ const data: Proceso[] = [
     esPrivado: false,
   },
   {
-    idProceso: "127748331",
+    slug: "127748331",
     tipo: "Reintegra",
     idConexion: 320,
     llaveProceso: "11001400301720170119500",
@@ -567,14 +555,14 @@ const data: Proceso[] = [
     esPrivado: false,
   },
   {
-    idProceso: "50711570",
+    slug: "50711570",
     tipo: "Reintegra",
     idConexion: 259,
     llaveProceso: "11001400301820170152200",
     fechaProceso: "2017-09-18T00:00:00",
     fechaUltimaActuacion: "2022-09-16T00:00:00",
     despacho:
-      "JUZGADO 016 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ",
+            "JUZGADO 016 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ",
     departamento: "BOGOTÁ",
     Demandante: "Demandante: BANCOLOMBIA S.A. |",
     Demandado: "JOSE AHINSONJOVER TORO VARGAS ",
@@ -582,21 +570,21 @@ const data: Proceso[] = [
   },
 
   {
-    idProceso: "65700110",
+    slug: "65700110",
     tipo: "Reintegra",
     idConexion: 259,
     llaveProceso: "11001400306320170092400",
     fechaProceso: "2017-09-22T00:00:00",
     fechaUltimaActuacion: "2022-11-24T00:00:00",
     despacho:
-      "JUZGADO 001 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ",
+            "JUZGADO 001 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ",
     departamento: "BOGOTÁ",
     Demandante: "Demandante: BANCOLOMBIA S.A. |",
     Demandado: "HERNANDO PULECIO PAREDES ",
     esPrivado: false,
   },
   {
-    idProceso: "110568033",
+    slug: "110568033",
     tipo: "Reintegra",
     idConexion: 261,
     llaveProceso: "11001400305120170111300",
@@ -610,14 +598,14 @@ const data: Proceso[] = [
   },
 
   {
-    idProceso: "50765770",
+    slug: "50765770",
     tipo: "Reintegra",
     idConexion: 259,
     llaveProceso: "11001400306820170130600",
     fechaProceso: "2017-10-10T00:00:00",
     fechaUltimaActuacion: "2022-09-27T00:00:00",
     despacho:
-      "JUZGADO 015 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ",
+            "JUZGADO 015 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ",
     departamento: "BOGOTÁ",
     Demandante: "Demandante: BANCOLOMBIA S.A |",
     Demandado: "NESTOR JULIO MARTINEZ ORJUELA ",
@@ -625,101 +613,101 @@ const data: Proceso[] = [
   },
 
   {
-    idProceso: "50763460",
+    slug: "50763460",
     tipo: "Reintegra",
     idConexion: 259,
     llaveProceso: "11001400303320170147400",
     fechaProceso: "2017-10-09T00:00:00",
     fechaUltimaActuacion: "2022-03-07T00:00:00",
     despacho:
-      "JUZGADO 002 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ",
+            "JUZGADO 002 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ",
     departamento: "BOGOTÁ",
     Demandante: "Demandante: BANCOLOMBIA S.A. |",
     Demandado: "LUIS AUGUSTO SANCHEZ ORTIZ ",
     esPrivado: false,
   },
   {
-    idProceso: "50764880",
+    slug: "50764880",
     tipo: "Reintegra",
     idConexion: 259,
     llaveProceso: "11001400300120170130900",
     fechaProceso: "2017-10-09T00:00:00",
     fechaUltimaActuacion: "2023-03-08T00:00:00",
     despacho:
-      "JUZGADO 010 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ",
+            "JUZGADO 010 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ",
     departamento: "BOGOTÁ",
     Demandante: "Demandante: BANCOLOMBIA S.A. |",
     Demandado: "ANA BEATRIZ CORREDOR DE OSORIO ",
     esPrivado: false,
   },
   {
-    idProceso: "50762570",
+    slug: "50762570",
     tipo: "Reintegra",
     idConexion: 259,
     llaveProceso: "11001400304820170097400",
     fechaProceso: "2017-10-09T00:00:00",
     fechaUltimaActuacion: "2022-12-01T00:00:00",
     despacho:
-      "JUZGADO 007 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ",
+            "JUZGADO 007 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ",
     departamento: "BOGOTÁ",
     Demandante: "Demandante: BANCOLOMBIA S.A. |",
     Demandado: "ANDERSON REVELO SANTOS ",
     esPrivado: false,
   },
   {
-    idProceso: "51499790",
+    slug: "51499790",
     tipo: "Reintegra",
     idConexion: 259,
     llaveProceso: "11001400307620170101600",
     fechaProceso: "2018-11-23T00:00:00",
     fechaUltimaActuacion: "2023-03-30T00:00:00",
     despacho:
-      "JUZGADO 017 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ",
+            "JUZGADO 017 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ",
     departamento: "BOGOTÁ",
     Demandante:
-      "Demandante: MAURICIO BOTERO WOLFF | Demandante: BANCOLOMBIA S.A. |",
+            "Demandante: MAURICIO BOTERO WOLFF | Demandante: BANCOLOMBIA S.A. |",
     Demandado:
-      "BLANCA NUBIA LOPEZ CIFUENTES | MARIO DE JESUS OSSA PULGARIN ",
+            "BLANCA NUBIA LOPEZ CIFUENTES | MARIO DE JESUS OSSA PULGARIN ",
     esPrivado: false,
   },
 
   {
-    idProceso: "51465090",
+    slug: "51465090",
     tipo: "Reintegra",
     idConexion: 259,
     llaveProceso: "11001400307820170097500",
     fechaProceso: "2018-10-26T00:00:00",
     fechaUltimaActuacion: "2023-03-06T00:00:00",
     despacho:
-      "JUZGADO 012 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ",
+            "JUZGADO 012 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ",
     departamento: "BOGOTÁ",
     Demandante: "Demandante: BANCOLOMBIA S.A. |",
     Demandado: "JOGLI JOAQUIN OTERO VARGAS ",
     esPrivado: false,
   },
   {
-    idProceso: "50782960",
+    slug: "50782960",
     tipo: "Reintegra",
     idConexion: 259,
     llaveProceso: "11001400301720170133600",
     fechaProceso: "2017-10-18T00:00:00",
     fechaUltimaActuacion: "2022-03-28T00:00:00",
     despacho:
-      "JUZGADO 015 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ",
+            "JUZGADO 015 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ",
     departamento: "BOGOTÁ",
     Demandante: "Demandante: BANCOLOMBIA S.A. |",
     Demandado: "NATALIA CUESTAS MONDRAGON ",
     esPrivado: false,
   },
   {
-    idProceso: "50817380",
+    slug: "50817380",
     tipo: "Reintegra",
     idConexion: 259,
     llaveProceso: "11001400302220170120800",
     fechaProceso: "2017-11-01T00:00:00",
     fechaUltimaActuacion: "2023-01-31T00:00:00",
     despacho:
-      "JUZGADO 020 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ",
+            "JUZGADO 020 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ",
     departamento: "BOGOTÁ",
     Demandante: "Demandante: BANCOLOMBIA S.A. |",
     Demandado: "CALZADO RIVOLI  S.A.S. | MARTHA LUCIA CUARTAS  BETANCOURT ",
@@ -727,28 +715,28 @@ const data: Proceso[] = [
   },
 
   {
-    idProceso: "106185210",
+    slug: "106185210",
     tipo: "Reintegra",
     idConexion: 259,
     llaveProceso: "11001400305020170133600",
     fechaProceso: "2017-11-21T00:00:00",
     fechaUltimaActuacion: "2023-01-19T00:00:00",
     despacho:
-      "JUZGADO 014 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ",
+            "JUZGADO 014 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ",
     departamento: "BOGOTÁ",
     Demandante: "Demandante: BANCOLOMBIA S.A. |",
     Demandado: "LEONARDO SANABRIA SANABRA ",
     esPrivado: false,
   },
   {
-    idProceso: "50859050",
+    slug: "50859050",
     tipo: "Reintegra",
     idConexion: 259,
     llaveProceso: "11001400300420170126600",
     fechaProceso: "2017-11-21T00:00:00",
     fechaUltimaActuacion: "2022-02-04T00:00:00",
     despacho:
-      "JUZGADO 009 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ",
+            "JUZGADO 009 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ",
     departamento: "BOGOTÁ",
     Demandante: "Demandante: BANCOLOMBIA S.A. |",
     Demandado: "GILBERTO JAIME BETANCOURT ",
@@ -756,64 +744,64 @@ const data: Proceso[] = [
   },
 
   {
-    idProceso: "112730580",
+    slug: "112730580",
     tipo: "Reintegra",
     idConexion: 259,
     llaveProceso: "11001400306420170162300",
     fechaProceso: "2017-11-27T00:00:00",
     fechaUltimaActuacion: "2023-03-13T00:00:00",
     despacho:
-      "JUZGADO 016 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ",
+            "JUZGADO 016 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ",
     departamento: "BOGOTÁ",
     Demandante: "Demandante: BANCOLOMBIA S.A. |",
     Demandado: "ORLANDO ENRIQUE NOVOA BARRETO ",
     esPrivado: false,
   },
   {
-    idProceso: "51465700",
+    slug: "51465700",
     tipo: "Reintegra",
     idConexion: 259,
     llaveProceso: "11001400307820170116400",
     fechaProceso: "2018-10-26T00:00:00",
     fechaUltimaActuacion: "2022-03-29T00:00:00",
     despacho:
-      "JUZGADO 016 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ",
+            "JUZGADO 016 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ",
     departamento: "BOGOTÁ",
     Demandante: "Demandante: BANCOLOMBIA S.A. |",
     Demandado: "NESTOR ALBERTO CRISTANCHO LOPEZ ",
     esPrivado: false,
   },
   {
-    idProceso: "50873000",
+    slug: "50873000",
     tipo: "Reintegra",
     idConexion: 259,
     llaveProceso: "11001400302020170147700",
     fechaProceso: "2017-11-27T00:00:00",
     fechaUltimaActuacion: "2023-03-06T00:00:00",
     despacho:
-      "JUZGADO 007 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ",
+            "JUZGADO 007 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ",
     departamento: "BOGOTÁ",
     Demandante: "Demandante: BANCOLOMBIA S.A. |",
     Demandado:
-      "JOSÉ ANTONIO MONTEALEGRE HERNÁNDEZ | YULY MARCELA PEÑA GARCIA ",
+            "JOSÉ ANTONIO MONTEALEGRE HERNÁNDEZ | YULY MARCELA PEÑA GARCIA ",
     esPrivado: false,
   },
   {
-    idProceso: "64793050",
+    slug: "64793050",
     tipo: "Reintegra",
     idConexion: 259,
     llaveProceso: "11001400307120170125000",
     fechaProceso: "2017-12-13T00:00:00",
     fechaUltimaActuacion: "2022-03-10T00:00:00",
     despacho:
-      "JUZGADO 007 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ",
+            "JUZGADO 007 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ",
     departamento: "BOGOTÁ",
     Demandante: "Demandante: BANCOLOMBIA S.A. |",
     Demandado: "OSCAR HUMBERTO GOMEZ CHUCHIN ",
     esPrivado: false,
   },
   {
-    idProceso: "86157021",
+    slug: "86157021",
     tipo: "Reintegra",
     idConexion: 320,
     llaveProceso: "25126408900220180004800",
@@ -826,7 +814,7 @@ const data: Proceso[] = [
     esPrivado: false,
   },
   {
-    idProceso: "51107470",
+    slug: "51107470",
     tipo: "Reintegra",
     idConexion: 259,
     llaveProceso: "11001400301420180040600",
@@ -839,42 +827,42 @@ const data: Proceso[] = [
     esPrivado: false,
   },
   {
-    idProceso: "50989890",
+    slug: "50989890",
     tipo: "Reintegra",
     idConexion: 259,
     llaveProceso: "11001400305920180009000",
     fechaProceso: "2018-02-06T00:00:00",
     fechaUltimaActuacion: "2022-03-25T00:00:00",
     despacho:
-      "JUZGADO 007 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ",
+            "JUZGADO 007 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ",
     departamento: "BOGOTÁ",
     Demandante: "Demandante: BANCOLOMBIA S.A. |",
     Demandado: "MARIA MARIN DE OROZCO ",
     esPrivado: false,
   },
   {
-    idProceso: "50990920",
+    slug: "50990920",
     tipo: "Reintegra",
     idConexion: 259,
     llaveProceso: "11001400303720180011100",
     fechaProceso: "2018-02-06T00:00:00",
     fechaUltimaActuacion: "2023-02-02T00:00:00",
     despacho:
-      "JUZGADO 008 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ",
+            "JUZGADO 008 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ",
     departamento: "BOGOTÁ",
     Demandante: "Demandante: BANCOLOMBIA S.A. |",
     Demandado: "SANDRA PATRICIA BELTRAN  OVIEDO ",
     esPrivado: false,
   },
   {
-    idProceso: "50990370",
+    slug: "50990370",
     tipo: "Reintegra",
     idConexion: 259,
     llaveProceso: "11001400305220180011700",
     fechaProceso: "2018-02-06T00:00:00",
     fechaUltimaActuacion: "2023-03-09T00:00:00",
     despacho:
-      "JUZGADO 017 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ",
+            "JUZGADO 017 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ",
     departamento: "BOGOTÁ",
     Demandante: "Demandante: BANCOLOMBIA |",
     Demandado: "DARLEY JULIED PAEZ ",
@@ -882,21 +870,21 @@ const data: Proceso[] = [
   },
 
   {
-    idProceso: "51149410",
+    slug: "51149410",
     tipo: "Reintegra",
     idConexion: 259,
     llaveProceso: "11001400300420180047500",
     fechaProceso: "2018-04-26T00:00:00",
     fechaUltimaActuacion: "2023-02-27T00:00:00",
     despacho:
-      "JUZGADO 007 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ",
+            "JUZGADO 007 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ",
     departamento: "BOGOTÁ",
     Demandante: "Demandante: BANCOLOMBIA S.A. |",
     Demandado: "ADOLFO LEON DAZA FERNANDEZ ",
     esPrivado: false,
   },
   {
-    idProceso: "121826111",
+    slug: "121826111",
     tipo: "Reintegra",
     idConexion: 320,
     llaveProceso: "25307400300320210053900",
@@ -909,14 +897,14 @@ const data: Proceso[] = [
     esPrivado: false,
   },
   {
-    idProceso: "51154840",
+    slug: "51154840",
     tipo: "Reintegra",
     idConexion: 259,
     llaveProceso: "11001400300620180045400",
     fechaProceso: "2018-04-30T00:00:00",
     fechaUltimaActuacion: "2023-03-07T00:00:00",
     despacho:
-      "JUZGADO 017 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ",
+            "JUZGADO 017 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ",
     departamento: "BOGOTÁ",
     Demandante: "Demandante: BANCOLOMBIA S.A. |",
     Demandado: "SMARTITECH SAS | EDISSON ARMANDO KARL BUITRAGO ",
@@ -924,91 +912,91 @@ const data: Proceso[] = [
   },
 
   {
-    idProceso: "86958040",
+    slug: "86958040",
     tipo: "Reintegra",
     idConexion: 259,
     llaveProceso: "11001418901620190108500",
     fechaProceso: "2021-03-12T00:00:00",
     fechaUltimaActuacion: "2023-02-28T00:00:00",
     despacho:
-      "JUZGADO 002 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ",
+            "JUZGADO 002 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ",
     departamento: "BOGOTÁ",
     Demandante: "Demandante: BANCOLOMBIA S.A. |",
     Demandado: "ANGELICA NATHALY ROZO FRANCO ",
     esPrivado: false,
   },
   {
-    idProceso: "51918470",
+    slug: "51918470",
     tipo: "Reintegra",
     idConexion: 259,
     llaveProceso: "11001400308120180051400",
     fechaProceso: "2019-05-17T00:00:00",
     fechaUltimaActuacion: "2023-03-14T00:00:00",
     despacho:
-      "JUZGADO 001 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ",
+            "JUZGADO 001 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ",
     departamento: "BOGOTÁ",
     Demandante: "Demandante: BANCOLOMBIA S.A. |",
     Demandado: "MARIA CLARA REYES REYES ",
     esPrivado: false,
   },
   {
-    idProceso: "89137980",
+    slug: "89137980",
     tipo: "Reintegra",
     idConexion: 259,
     llaveProceso: "11001400305120180085000",
     fechaProceso: "2018-07-16T00:00:00",
     fechaUltimaActuacion: "2023-01-25T00:00:00",
     despacho:
-      "JUZGADO 004 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ",
+            "JUZGADO 004 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ",
     departamento: "BOGOTÁ",
     Demandante: "Demandante: BANCOLOMBIA S.A. |",
     Demandado: "SANDRA LILIANA CRUZ BELTRAN ",
     esPrivado: false,
   },
   {
-    idProceso: "51306830",
+    slug: "51306830",
     tipo: "Reintegra",
     idConexion: 259,
     llaveProceso: "11001400303620180081800",
     fechaProceso: "2018-07-13T00:00:00",
     fechaUltimaActuacion: "2023-03-27T00:00:00",
     despacho:
-      "JUZGADO 015 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ",
+            "JUZGADO 015 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ",
     departamento: "BOGOTÁ",
     Demandante: "Demandante: BANCOLOMBIA S.A. |",
     Demandado: "ADRIANA LUCIA MORA PLATA ",
     esPrivado: false,
   },
   {
-    idProceso: "51341610",
+    slug: "51341610",
     tipo: "Reintegra",
     idConexion: 259,
     llaveProceso: "11001400301420180092900",
     fechaProceso: "2018-08-01T00:00:00",
     fechaUltimaActuacion: "2023-03-15T00:00:00",
     despacho:
-      "JUZGADO 009 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ",
+            "JUZGADO 009 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ",
     departamento: "BOGOTÁ",
     Demandante: "Demandante: BANCOLOMBIA S.A. |",
     Demandado: "JOSE RODRIGO GARCIA QUINTERO ",
     esPrivado: false,
   },
   {
-    idProceso: "52160520",
+    slug: "52160520",
     tipo: "Reintegra",
     idConexion: 259,
     llaveProceso: "11001400308220180096400",
     fechaProceso: "2019-02-15T00:00:00",
     fechaUltimaActuacion: "2022-03-24T00:00:00",
     despacho:
-      "JUZGADO 014 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ",
+            "JUZGADO 014 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ",
     departamento: "BOGOTÁ",
     Demandante: "Demandante: BANCOLOMBIA S.A. |",
     Demandado: "JOSE RAMON ESTRADA CASTILLO ",
     esPrivado: false,
   },
   {
-    idProceso: "112967583",
+    slug: "112967583",
     tipo: "Reintegra",
     idConexion: 197,
     llaveProceso: "11001400308220180096400",
@@ -1021,70 +1009,70 @@ const data: Proceso[] = [
     esPrivado: false,
   },
   {
-    idProceso: "71079290",
+    slug: "71079290",
     tipo: "Reintegra",
     idConexion: 259,
     llaveProceso: "11001418901220180064400",
     fechaProceso: "2019-11-15T00:00:00",
     fechaUltimaActuacion: "2023-03-16T00:00:00",
     despacho:
-      "JUZGADO 017 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ",
+            "JUZGADO 017 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ",
     departamento: "BOGOTÁ",
     Demandante: "Demandante: BANCOLOMBIA |",
     Demandado: "BIBIANA PATRICIA ESGUERRA VASQUEZ ",
     esPrivado: false,
   },
   {
-    idProceso: "64673240",
+    slug: "64673240",
     tipo: "Reintegra",
     idConexion: 259,
     llaveProceso: "11001418901220180095100",
     fechaProceso: "2019-06-28T00:00:00",
     fechaUltimaActuacion: "2022-05-02T00:00:00",
     despacho:
-      "JUZGADO 011 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ",
+            "JUZGADO 011 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ",
     departamento: "BOGOTÁ",
     Demandante: "Demandante: BANCOLOMBIA SA |",
     Demandado: "ROSALIA CHARRY SARMIENTO ",
     esPrivado: false,
   },
   {
-    idProceso: "50780430",
+    slug: "50780430",
     tipo: "Reintegra",
     idConexion: 259,
     llaveProceso: "11001400300220170100200",
     fechaProceso: "2017-10-17T00:00:00",
     fechaUltimaActuacion: "2023-03-14T00:00:00",
     despacho:
-      "JUZGADO 013 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ",
+            "JUZGADO 013 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ",
     departamento: "BOGOTÁ",
     Demandante: "Demandante: BANCOLOMBIA S.A. |",
     Demandado: "JOGLI JOAQUIN OTERO VARGAS ",
     esPrivado: false,
   },
   {
-    idProceso: "65701460",
+    slug: "65701460",
     tipo: "Reintegra",
     idConexion: 259,
     llaveProceso: "11001400306320170129000",
     fechaProceso: "2017-12-13T00:00:00",
     fechaUltimaActuacion: "2023-03-16T00:00:00",
     despacho:
-      "JUZGADO 019 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ",
+            "JUZGADO 019 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ",
     departamento: "BOGOTÁ",
     Demandante: "Demandante: BANCOLOMBIA S.A. | Demandante: BANCOLOMBIA |",
     Demandado: "DIANA PATRICIA BARRETO OSMA ",
     esPrivado: false,
   },
   {
-    idProceso: "50521480",
+    slug: "50521480",
     idConexion: 259,
     llaveProceso: "11001400303420170083600",
     fechaProceso: "2017-06-21T00:00:00",
     fechaUltimaActuacion: "2023-03-13T00:00:00",
     tipo: "Bancolombia",
     despacho:
-      "JUZGADO 012 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ",
+            "JUZGADO 012 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ",
     departamento: "BOGOTÁ",
 
     Demandante: "BANCOLOMBIA S.A.",
@@ -1093,14 +1081,14 @@ const data: Proceso[] = [
     esPrivado: false,
   },
   {
-    idProceso: "112048180",
+    slug: "112048180",
     idConexion: 259,
     llaveProceso: "11001400302520170090300",
     fechaProceso: "2017-08-29T00:00:00",
     fechaUltimaActuacion: "2023-03-22T00:00:00",
     tipo: "Bancolombia",
     despacho:
-      "JUZGADO 018 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ",
+            "JUZGADO 018 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ",
     departamento: "BOGOTÁ",
 
     Demandante: "BANCOLOMBIA S.A.",
@@ -1109,14 +1097,14 @@ const data: Proceso[] = [
     esPrivado: false,
   },
   {
-    idProceso: "51029180",
+    slug: "51029180",
     idConexion: 259,
     llaveProceso: "11001400302120180023600",
     fechaProceso: "2018-02-23T00:00:00",
     fechaUltimaActuacion: "2023-03-22T00:00:00",
     tipo: "Bancolombia",
     despacho:
-      "JUZGADO 013 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ",
+            "JUZGADO 013 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ",
     departamento: "BOGOTÁ",
 
     Demandante: "BANCOLOMBIA S.A.",
@@ -1125,14 +1113,14 @@ const data: Proceso[] = [
     esPrivado: false,
   },
   {
-    idProceso: "50621670",
+    slug: "50621670",
     idConexion: 259,
     llaveProceso: "11001400300120170100100",
     fechaProceso: "2017-08-09T00:00:00",
     fechaUltimaActuacion: "2023-03-28T00:00:00",
     tipo: "Bancolombia",
     despacho:
-      "JUZGADO 017 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ",
+            "JUZGADO 017 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ",
     departamento: "BOGOTÁ",
 
     Demandante: "BANCOLOMBIA S.A.",
@@ -1141,14 +1129,14 @@ const data: Proceso[] = [
     esPrivado: false,
   },
   {
-    idProceso: "50716620",
+    slug: "50716620",
     idConexion: 259,
     llaveProceso: "11001400300820170113400",
     fechaProceso: "2017-09-19T00:00:00",
     fechaUltimaActuacion: "2023-03-01T00:00:00",
     tipo: "Bancolombia",
     despacho:
-      "JUZGADO 006 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ",
+            "JUZGADO 006 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ",
     departamento: "BOGOTÁ",
 
     Demandante: "BANCOLOMBIA S.A.",
@@ -1158,14 +1146,14 @@ const data: Proceso[] = [
   },
 
   {
-    idProceso: "51816100",
+    slug: "51816100",
     idConexion: 259,
     llaveProceso: "11001418901420190065600",
     fechaProceso: "2019-04-04T00:00:00",
     fechaUltimaActuacion: "2023-03-28T00:00:00",
     tipo: "Bancolombia",
     despacho:
-      "JUZGADO 014 DE PEQUEÑAS CAUSAS  Y COMPETENCIA MÚLTIPLE DE BOGOTÁ",
+            "JUZGADO 014 DE PEQUEÑAS CAUSAS  Y COMPETENCIA MÚLTIPLE DE BOGOTÁ",
     departamento: "BOGOTÁ",
 
     Demandante: "BANCOLOMBIA S.A.",
@@ -1174,7 +1162,7 @@ const data: Proceso[] = [
     esPrivado: false,
   },
   {
-    idProceso: "112628300",
+    slug: "112628300",
     idConexion: 262,
     llaveProceso: "11001400306820200102100",
     fechaProceso: "2020-10-09T00:00:00",
@@ -1189,31 +1177,31 @@ const data: Proceso[] = [
     esPrivado: false,
   },
   {
-    idProceso: "50777890",
+    slug: "50777890",
     idConexion: 259,
     llaveProceso: "11001400301520170139400",
     fechaProceso: "2017-10-13T00:00:00",
     fechaUltimaActuacion: "2021-11-08T00:00:00",
     tipo: "Bancolombia",
     despacho:
-      "JUZGADO 011 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ",
+            "JUZGADO 011 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ",
     departamento: "BOGOTÁ",
 
     Demandante: "BANCOLOMBIA S.A. ",
     Demandado:
-      "ANA LUCIA AGUILAR ,CARMELINA AGUILAR , HUMBERTO AVILA MATIAS ",
+            "ANA LUCIA AGUILAR ,CARMELINA AGUILAR , HUMBERTO AVILA MATIAS ",
 
     esPrivado: false,
   },
   {
-    idProceso: "112945420",
+    slug: "112945420",
     idConexion: 259,
     llaveProceso: "11001400303720170139100",
     fechaProceso: "2017-10-11T00:00:00",
     fechaUltimaActuacion: "2022-03-09T00:00:00",
     tipo: "Bancolombia",
     despacho:
-      "JUZGADO 011 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ",
+            "JUZGADO 011 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ",
     departamento: "BOGOTÁ",
 
     Demandante: "BANCOLOMBIA S.A. ",
@@ -1222,14 +1210,14 @@ const data: Proceso[] = [
     esPrivado: false,
   },
   {
-    idProceso: "50762570",
+    slug: "50762570",
     idConexion: 259,
     llaveProceso: "11001400304820170097400",
     fechaProceso: "2017-10-09T00:00:00",
     fechaUltimaActuacion: "2022-12-01T00:00:00",
     tipo: "Bancolombia",
     despacho:
-      "JUZGADO 007 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ",
+            "JUZGADO 007 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ",
     departamento: "BOGOTÁ",
 
     Demandante: "BANCOLOMBIA S.A. ",
@@ -1238,14 +1226,14 @@ const data: Proceso[] = [
     esPrivado: false,
   },
   {
-    idProceso: "51042800",
+    slug: "51042800",
     idConexion: 259,
     llaveProceso: "11001400305620180022100",
     fechaProceso: "2018-03-01T00:00:00",
     fechaUltimaActuacion: "2022-11-11T00:00:00",
     tipo: "Bancolombia",
     despacho:
-      "JUZGADO 007 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ",
+            "JUZGADO 007 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ",
     departamento: "BOGOTÁ",
 
     Demandante: "BANCOLOMBIA S.A. ",
@@ -1254,7 +1242,7 @@ const data: Proceso[] = [
     esPrivado: false,
   },
   {
-    idProceso: "50468620",
+    slug: "50468620",
     idConexion: 259,
     llaveProceso: "11001400300320170088400",
     fechaProceso: "2017-05-26T00:00:00",
@@ -1269,7 +1257,7 @@ const data: Proceso[] = [
     esPrivado: false,
   },
   {
-    idProceso: "113956611",
+    slug: "113956611",
     idConexion: 320,
     llaveProceso: "11001400300320170088400",
     fechaProceso: "2017-05-24T00:00:00",
@@ -1284,14 +1272,14 @@ const data: Proceso[] = [
     esPrivado: false,
   },
   {
-    idProceso: "50769660",
+    slug: "50769660",
     idConexion: 259,
     llaveProceso: "11001400302120170153200",
     fechaProceso: "2017-10-11T00:00:00",
     fechaUltimaActuacion: "2022-10-24T00:00:00",
     tipo: "Bancolombia",
     despacho:
-      "JUZGADO 015 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ",
+            "JUZGADO 015 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ",
     departamento: "BOGOTÁ",
 
     Demandante: "BANCOLOMBIA S.A. ",
@@ -1301,7 +1289,7 @@ const data: Proceso[] = [
   },
 
   {
-    idProceso: "128164881",
+    slug: "128164881",
     idConexion: 256,
     llaveProceso: "11001400304220200053500",
     fechaProceso: "2020-10-16T00:00:00",
@@ -1316,14 +1304,14 @@ const data: Proceso[] = [
     esPrivado: false,
   },
   {
-    idProceso: "87350810",
+    slug: "87350810",
     idConexion: 259,
     llaveProceso: "11001418900820180078500",
     fechaProceso: "2021-03-24T00:00:00",
     fechaUltimaActuacion: "2023-02-27T00:00:00",
     tipo: "Bancolombia",
     despacho:
-      "JUZGADO 005 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ",
+            "JUZGADO 005 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ",
     departamento: "BOGOTÁ",
 
     Demandante: "BANCOLOMBIA S.A.",

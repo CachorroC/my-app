@@ -14,10 +14,10 @@ const poiret = Poiret_One( {
 } );
 
 export default function Tab ( { proceso }: { proceso: Proceso; } ) {
-  const href: string = "Procesos/" + proceso.tipo + "/" + proceso.idProceso;
+  const href: string = "Procesos/" + proceso.tipo + "/" + proceso.slug;
 
   return (
-    <Link  href={`/Procesos/${ proceso.tipo }/${ proceso.idProceso }`} className={ box.flex }>
+    <Link href={ `/${ href }` } className={ box.flex }>
       { proceso.Demandado }
     </Link>
   );
