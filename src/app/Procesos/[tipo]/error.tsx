@@ -3,22 +3,22 @@
 import { useEffect } from "react";
 import box from '#@/styles/css/box.module.css';
 
-export default function Error ( {
+export default function Error({
   error,
   reset,
 }: {
-  error: Error;
-  reset: () => void;
-} ) {
-  useEffect( () => {
+    error: Error;
+    reset: () => void;
+}) {
+  useEffect(() => {
     // Log the error to an error reporting service
-    console.error( error );
+    console.error(error);
   }, [
     error
-  ] );
+  ]);
 
   return (
-    <div className={ box.container }>
+    <div>
       <h2>Something went wrong!</h2>
       <button
         onClick={
@@ -26,7 +26,7 @@ export default function Error ( {
           () => reset()
         }
       >
-        Try again
+                Try again
       </button>
     </div>
   );

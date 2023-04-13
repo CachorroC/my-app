@@ -13,8 +13,8 @@ export async function getProcesos (
     throw new Error( "something went wrong" );
   }
   const procesos = (
-    await res.json()
-  ) as Proceso[];
+        await res.json()
+    ) as Proceso[];
 
   if ( procesos.length === 0 ) {
     notFound();
@@ -40,19 +40,19 @@ export async function getProcesosStringify (
   } );
 }
 export async function getProceso (
-  { idProceso }: { idProceso: string; }
+  { slug }: { slug: string; }
 ) {
   const res = await fetch(
-    `${ getBaseUrl() }/api/procesos${ idProceso ? `?idProceso=${ idProceso }` : "" }`
+    `${ getBaseUrl() }/api/procesos${ slug ? `?slug=${ slug }` : "" }`
   );
   if ( !res.ok ) {
-    //? Render the closest `error.js` Error Boundary
+    // Render the closest `error.js` Error Boundary
     throw new Error( "Something went wrong!" );
   }
   const proceso = ( await res.json() ) as Proceso;
 
   if ( !proceso ) {
-    //? Render the closest `not-found.js` Error Boundary
+    // Render the closest `not-found.js` Error Boundary
     notFound();
   }
 

@@ -25,26 +25,27 @@ export const ProcesoCard = (
   {
     proceso,
 
-  }: {
-    proceso: Proceso;
+    }: {
+        proceso: Proceso;
 
   }
 ) => {
-  const ultimact = proceso.fechaUltimaActuacion === null;
+    const href = `Procesos/${ proceso.tipo }/${ proceso.slug }`;
+    const ultimact = proceso.fechaUltimaActuacion === null;
 
   const Icon = <span className='material-symbols-outlined'>{ ultimact ? 'lock' : 'star' }</span>;
   return (
 
-    <Link href={`/Procesos/${ proceso.tipo }/${ proceso.idProceso }`} className={ layout.card }>
-      <h1 className={ searchbar.title }>{
-        proceso.Demandado.toLowerCase()
-      }</h1>
-      { Icon }
-      <i>
-        <strong>{
-          proceso.fechaUltimaActuacion?.toString()
-        }</strong>
-      </i>
-    </Link>
-  );
+        <Link href={ `/${ href }` } className={ layout.card }>
+            <h1 className={ searchbar.title }>{
+                proceso.Demandado.toLowerCase()
+            }</h1>
+            { Icon }
+            <i>
+                <strong>{
+                    proceso.fechaUltimaActuacion?.toString()
+                }</strong>
+            </i>
+        </Link>
+    );
 };

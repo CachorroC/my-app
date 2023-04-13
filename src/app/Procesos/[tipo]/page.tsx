@@ -22,7 +22,7 @@ export default async function Page (
   );
   return (
     <div className={ layout.article }>
-      <h1 className={ poiret.className }>{ params.tipo }</h1>
+      <h1 className={ typeface.title }>{ params.tipo }</h1>
       <Search procesos={ procesos } />
     </div>
   );

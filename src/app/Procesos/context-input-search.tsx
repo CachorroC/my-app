@@ -38,9 +38,10 @@ const ContextInputSearch = () => {
 function ProcesoRow (
   { proceso }: { proceso: Proceso; }
 ) {
+  const href = 'Procesos/' + proceso.tipo + '/' + proceso.slug;
   return (
-    <Link className={ box.container } href={`/Procesos/${proceso.tipo}/${proceso.idProceso}`} >
-      <h4 className={ poiret.className }>{ proceso.Demandado }</h4>
+    <Link className={ box.container } href={ `/${ href }` }>
+      <h1 className={ typeface.title }>{ proceso.Demandado }</h1>
       <i>{ proceso.fechaUltimaActuacion?.toString() }</i>
     </Link>
   );
@@ -79,7 +80,7 @@ export const Search = (
 
 
   ;
-  return <div className={drawer.box}>{ rows }</div>;
+  return <div className={ searchbox.tabgroup }>{ rows }</div>;
 };
 
 export default ContextInputSearch;

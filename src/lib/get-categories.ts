@@ -7,61 +7,61 @@ export type Category = {
   items: Omit<Category, "items">[];
 };
 
-export const getCategories = cache( (): Category[] => [
+export const getCategories = cache((): Category[] => [
   {
     name: "Electronics",
-    idProceso: "electronics",
+    slug: "electronics",
     count: 11,
     items: [
-      { name: "Phones", idProceso: "phones", count: 4 },
-      { name: "Tablets", idProceso: "tablets", count: 5 },
-      { name: "Laptops", idProceso: "laptops", count: 2 },
+      { name: "Phones", slug: "phones", count: 4 },
+      { name: "Tablets", slug: "tablets", count: 5 },
+      { name: "Laptops", slug: "laptops", count: 2 },
     ],
   },
   {
     name: "Clothing",
-    idProceso: "clothing",
+    slug: "clothing",
     count: 12,
     items: [
-      { name: "Tops", idProceso: "tops", count: 3 },
-      { name: "Shorts", idProceso: "shorts", count: 4 },
-      { name: "Shoes", idProceso: "shoes", count: 5 },
+      { name: "Tops", slug: "tops", count: 3 },
+      { name: "Shorts", slug: "shorts", count: 4 },
+      { name: "Shoes", slug: "shoes", count: 5 },
     ],
   },
   {
     name: "Books",
-    idProceso: "books",
+    slug: "books",
     count: 10,
     items: [
-      { name: "Fiction", idProceso: "fiction", count: 5 },
-      { name: "Biography", idProceso: "biography", count: 2 },
-      { name: "Education", idProceso: "education", count: 3 },
+      { name: "Fiction", slug: "fiction", count: 5 },
+      { name: "Biography", slug: "biography", count: 2 },
+      { name: "Education", slug: "education", count: 3 },
     ],
   },
-] );
+]);
 
-export async function fetchCategoryByidProceso ( idProceso: string | undefined ) {
+export async function fetchCategoryBySlug(slug: string | undefined) {
   // Assuming it always return expected categories
-  return getCategories().find( ( category ) => category.idProceso === idProceso );
+  return getCategories().find((category) => category.slug === slug);
 }
 
-export async function fetchCategories (): Promise<Category[]> {
+export async function fetchCategories(): Promise<Category[]> {
   return getCategories();
 }
 
-async function findSubCategory (
+async function findSubCategory(
   category: Category | undefined,
-  subCategoryidProceso: string | undefined
+  subCategorySlug: string | undefined
 ) {
   return category?.items.find(
-    ( category ) => category.idProceso === subCategoryidProceso
+    (category) => category.slug === subCategorySlug
   );
 }
 
-export async function fetchSubCategory (
-  categoryidProceso: string | undefined,
-  subCategoryidProceso: string | undefined
+export async function fetchSubCategory(
+  categorySlug: string | undefined,
+  subCategorySlug: string | undefined
 ) {
-  const category = await fetchCategoryByidProceso( categoryidProceso );
-  return findSubCategory( category, subCategoryidProceso );
+  const category = await fetchCategoryBySlug(categorySlug);
+  return findSubCategory(category, subCategorySlug);
 }

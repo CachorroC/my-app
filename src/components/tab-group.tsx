@@ -12,7 +12,7 @@ export const TabGroup = ( { path, items }: { path: string; items: Proceso[]; } )
   <div className={ box.grid }>
     { " " }
     { items.map( ( item ) => (
-      <Tab proceso={ item } key={ item.idProceso } />
+      <Tab proceso={ item } key={ item.slug } />
     ) ) }
   </div>
 );
