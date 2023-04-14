@@ -9,19 +9,19 @@ export type Item = {
 };
 
 export const TabGroup = ({
-    path,
-    items,
+  path,
+  items,
 }: {
     path: string;
     items: Proceso[];
 }) => (
-    <div className={box.grid}>
-        {' '}
-        {items.map((item) => (
-            <Tab
-                proceso={item}
-                key={item.idProceso}
-            />
-        ))}
-    </div>
+  <div className={box.grid}>
+    {' '}
+    {items.map((item) => (
+      <Tab
+        proceso={item}
+        key={item.idProceso}
+      />
+    ))}
+  </div>
 );

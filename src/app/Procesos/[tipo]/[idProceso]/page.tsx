@@ -9,64 +9,66 @@ import { Actuaciones } from '#@/components/actuacion-card';
 import { Procesos } from '#@/components/proceso-card';
 
 async function getActuaciones(idProceso: string) {
-    const res = await fetch(
-        `https://consultaprocesos.ramajudicial.gov.co:448/api/v2/Proceso/Actuaciones/${idProceso}`,
-        { cache: 'no-store' },
+  const res = await fetch(
+    `https://consultaprocesos.ramajudicial.gov.co:448/api/v2/Proceso/Actuaciones/${idProceso}`,
+    { cache: 'no-store' },
+  );
+  if (!res.ok) {
+    throw new Error(
+      'Lo sentimos, no pudimos recuperar las actuaciones del servidor de la rama. ',
     );
-    if (!res.ok) {
-        throw new Error(
-            'Lo sentimos, no pudimos recuperar las actuaciones del servidor de la rama. ',
-        );
-    }
+  }
 
-    return res.json();
+  return res.json();
 }
 
 async function getProcesos(tipo: string) {
-    const res = await fetch(
-        `${getBaseUrl()}/api/procesos${
-            tipo ? `?tipo=${tipo}` : ''
-        }`,
-    );
-    return res.json();
+  const res = await fetch(
+    `${getBaseUrl()}/api/procesos${
+      tipo ? `?tipo=${tipo}` : ''
+    }`,
+  );
+  return res.json();
 }
 
 export default async function Page({
-    params: { tipo, idProceso },
+  params: { tipo, idProceso },
 }: {
     params: {
         tipo: string;
         idProceso: string;
     };
 }) {
-    const actuacionesData = getActuaciones(idProceso);
+  const actuacionesData = getActuaciones(idProceso);
 
-    const procesosData = getProcesos(tipo);
-    const [actuaciones, procesos] = await Promise.all([
-        actuacionesData,
-        procesosData,
-    ]);
+  const procesosData = getProcesos(tipo);
+  const [
+    actuaciones, procesos
+  ] = await Promise.all([
+    actuacionesData,
+    procesosData,
+  ]);
 
-    return (
-        <div className={box.container}>
-            <Suspense
-                fallback={
-                    <div className={box.container}>
+  return (
+    <div className={box.container}>
+      <Suspense
+        fallback={
+          <div className={box.container}>
                         loading ...
-                    </div>
-                }>
-                <Actuaciones
-                    actuaciones={actuaciones.actuaciones}
-                />
-            </Suspense>
-            <Suspense
-                fallback={
-                    <div className={box.container}>
+          </div>
+        }>
+        <Actuaciones
+          actuaciones={actuaciones.actuaciones}
+        />
+      </Suspense>
+      <Suspense
+        fallback={
+          <div className={box.container}>
                         loading ...
-                    </div>
-                }>
-                <Procesos procesos={procesos} />
-            </Suspense>
-        </div>
-    );
+          </div>
+        }>
+        <Procesos procesos={procesos} />
+      </Suspense>
+    </div>
+  );
 }

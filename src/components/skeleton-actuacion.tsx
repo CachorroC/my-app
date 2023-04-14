@@ -5,23 +5,23 @@ import box from '#@/styles/scss/box.module.scss';
 import { poiret } from './typeface';
 
 export const SkeletonActuacion = ({
-    isLoading,
+  isLoading,
 }: {
     isLoading?: boolean;
 }) => {
-    if (isLoading) {
-        return (
-            <div className={box.container}>
-                <div className={layout.card}>
-                    <h1 className={poiret.className}>
+  if (isLoading) {
+    return (
+      <div className={box.container}>
+        <div className={layout.card}>
+          <h1 className={poiret.className}>
                         Cargando
-                    </h1>
-                    <p className={typeface.block}>
+          </h1>
+          <p className={typeface.block}>
                         00/00/0000
-                    </p>
-                </div>
-            </div>
-        );
-    }
-    return <div>h</div>;
+          </p>
+        </div>
+      </div>
+    );
+  }
+  return <div>h</div>;
 };

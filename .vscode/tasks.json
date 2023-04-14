@@ -24,13 +24,17 @@
         {
             "type": "docker-run",
             "label": "docker-run: release",
-            "dependsOn": ["docker-build"],
+            "dependsOn": [
+                "docker-build"
+            ],
             "platform": "node"
         },
         {
             "type": "docker-run",
             "label": "docker-run: debug",
-            "dependsOn": ["docker-build"],
+            "dependsOn": [
+                "docker-build"
+            ],
             "dockerRun": {
                 "env": {
                     "DEBUG": "*",
@@ -40,6 +44,20 @@
             "node": {
                 "enableDebugging": true
             }
+        },
+        {
+            "type": "npm",
+            "script": "sass",
+            "problemMatcher": [],
+            "label": "npm: sass",
+            "detail": "sass --watch src/styles/scss:src/styles/css"
+        },
+        {
+            "type": "npm",
+            "script": "lint",
+            "problemMatcher": [],
+            "label": "npm: lint",
+            "detail": "next lint --fix && next lint"
         }
     ]
 }
