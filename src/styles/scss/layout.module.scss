@@ -1,30 +1,47 @@
-.base{
-    display: grid; 
-    grid-template-columns: repeat(6, 1fr); 
-    grid-template-rows: repeat(6, 1fr); 
+.base {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: repeat(6, 1fr);
     gap: 1vmax;
     width: 100%;
     height: 100vh;
-    grid-template-areas: 
-      "header header header header header header"
-      "body body body body body body"
-      "body body body body body body"
-      "body body body body body body"
-      "body body body body body body"
-      "body body body body body body"
-      "footer footer footer footer footer footer";
-      & > .footer{
+    grid-template-areas:
+        'header header header header header header'
+        'body body body body body body'
+        'body body body body body body'
+        'body body body body body body'
+        'body body body body body body'
+        'body body body body body body'
+        'footer footer footer footer footer footer';
+    & > .procesossearchbox {
+        display: grid;
+        grid-auto-rows: 1fr;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(4, 1fr);
+        gap: 0px 0px;
+        grid-template-areas:
+            '. .'
+            '. .'
+            '. .'
+            '. .';
+        justify-content: space-evenly;
+        align-content: space-evenly;
+        justify-items: center;
+        align-items: center;
+        grid-area: sidenav;
+    }
+    & > .footer {
         grid-area: footer;
         background-color: var(--tertiary);
         color: var(--on-tertiray);
-      } 
-      & > .header {
+    }
+    & > .header {
         display: flex;
         flex-flow: row nowrap;
         box-shadow: var(--dp3);
         justify-content: space-evenly;
         align-items: stretch;
-        grid-area: header;    
+        grid-area: header;
         background-color: var(--primary);
         & > .button,
         & > .home {
@@ -42,38 +59,37 @@
                 color: var(--secondary);
             }
         }
-    
+
         @media screen and (max-width: 1000px) {
             top: auto;
             bottom: 0;
         }
     }
-      & > .main{
-          box-sizing: border-box;
-          background-color: var(--primary-container);
-          color: var(--on-primary-container);
-          padding-top: 5vh;
-          overflow: hidden;
-          grid-area: body;
-          grid-template-areas: 
-          "sidenav sidenav art art art art"
-          "sidenav sidenav art art art art"
-          "sidenav sidenav art art art art"
-          "sidenav sidenav art art art art";
-          display: grid;
-          grid-template-columns: repeat(6, 1fr);
-          grid-template-areas: repeat(4, 1fr);
+    & > .main {
+        box-sizing: border-box;
+        background-color: var(--primary-container);
+        color: var(--on-primary-container);
+        padding-top: 5vh;
+        overflow: hidden;
+        grid-area: body;
+        grid-template-areas:
+            'sidenav sidenav art art art art'
+            'sidenav sidenav art art art art'
+            'sidenav sidenav art art art art'
+            'sidenav sidenav art art art art';
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        grid-template-areas: repeat(4, 1fr);
 
-          @media screen and (max-width: 1000px)
-          {
-              padding-bottom: 5vh;
-              padding: 0;
-              padding-top: 0;
-          }
+        @media screen and (max-width: 1000px) {
+            padding-bottom: 5vh;
+            padding: 0;
+            padding-top: 0;
+        }
 
-          & > .sidenav{
+        & > .sidenav {
             grid-area: sidenav;
-          
+
             background-color: var(--tertiary-container);
             border: 2px dashed var(--tertiary);
             overflow: scroll;
@@ -82,8 +98,8 @@
             padding: 2vmin;
             display: flex;
             flex-flow: column nowrap;
-          }
-          & > .container {
+        }
+        & > .container {
             grid-area: art;
             overflow: scroll;
             display: flex;
@@ -97,14 +113,11 @@
             text-align: center;
             box-sizing: border-box;
             padding: 2vmin;
-          }
-      }
-  }
-  
+        }
+    }
+}
 
-
-.section
-{
+.section {
     max-width: 100%;
     max-height: 100%;
     box-sizing: border-box;
@@ -113,8 +126,7 @@
     text-align: center;
 }
 
-.article
-{
+.article {
     display: flex;
     flex-flow: column nowrap;
     width: 100%;
@@ -125,21 +137,17 @@
     padding: 2vh;
     box-shadow: var(--dp5);
 
-    & > .nombre
-    {
+    & > .nombre {
         background-color: var(--secondary);
         color: var(--on-secondary);
     }
 
-    & > .block
-    {
+    & > .block {
         color: var(--on-surface);
     }
 }
 
-
-.card
-{
+.card {
     background-color: var(--sf-2);
     border: 2px dashed var(--primary);
     border-radius: 2vmax;
@@ -155,8 +163,7 @@
     align-content: space-around;
 }
 
-.procesos
-{
+.procesos {
     display: flex;
     flex-flow: row nowrap;
 }
