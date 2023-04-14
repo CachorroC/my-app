@@ -10,9 +10,7 @@ export interface Proceso {
     Demandado: string;
     Demandante?: string;
     tipo: string;
-};
-
-
+}
 
 export type Demandado = {
     carpeta: number;

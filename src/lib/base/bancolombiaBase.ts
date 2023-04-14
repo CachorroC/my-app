@@ -18,7 +18,7 @@ interface RootObject {
 }
 
 interface Fecha11 {
-    "Rad Memorialterminacion": string;
+    'Rad Memorialterminacion': string;
     Autoterminacionproceso: string;
     Suspencionproceso: string;
 }
@@ -97,8 +97,8 @@ interface Fecha6 {
 }
 
 interface Notificaciones {
-    "291": _291;
-    "292": _292;
+    '291': _291;
+    '292': _292;
     Certimail: boolean | string;
     Fisico: boolean | string;
     Fecha: Fecha5;
@@ -106,7 +106,7 @@ interface Notificaciones {
 }
 
 interface Type {
-    "": string;
+    '': string;
 }
 
 interface Fecha5 {
@@ -126,7 +126,7 @@ interface Fecha4 {
 }
 
 interface _291 {
-    " F": F;
+    ' F': F;
     Resultado: boolean | string;
     Fecha: Fecha3;
 }
@@ -164,8 +164,8 @@ interface Juzgado {
 }
 
 interface Obligacion {
-    "1": number | string;
-    "2": number | string;
+    '1': number | string;
+    '2': number | string;
 }
 
 interface Fecha {

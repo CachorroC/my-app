@@ -2,15 +2,21 @@
     --primary: var(--primary-light);
     --on-primary: var(--on-primary-light);
     --primary-container: var(--primary-container-light);
-    --on-primary-container: var(--on-primary-container-light);
+    --on-primary-container: var(
+        --on-primary-container-light
+    );
     --secondary: var(--secondary-light);
     --on-secondary: var(--on-secondary-light);
     --secondary-container: var(--secondary-container-light);
-    --on-secondary-container: var(--on-secondary-container-light);
+    --on-secondary-container: var(
+        --on-secondary-container-light
+    );
     --tertiary: var(--tertiary-light);
     --on-tertiary: var(--on-tertiary-light);
     --tertiary-container: var(--tertiary-container-light);
-    --on-tertiary-container: var(--on-tertiary-container-light);
+    --on-tertiary-container: var(
+        --on-tertiary-container-light
+    );
     --error: var(--error-light);
     --error-container: var(--error-container-light);
     --on-error: var(--on-error-light);

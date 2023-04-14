@@ -1,12 +1,12 @@
 .actuacion {
     display: grid;
-    grid-template-areas: ". con" "title title" "date date" "anot anot" "fechas fechas" "fechas fechas";
+    grid-template-areas: '. con' 'title title' 'date date' 'anot anot' 'fechas fechas' 'fechas fechas';
     padding: 2vmax;
     background-color: var(--sf-2);
     box-shadow: var(--dp2);
     text-align: center;
     @media screen and (max-width: 700px) {
-        grid-template-areas: "con" "title" "date" "anot" "fechas" "." ".";
+        grid-template-areas: 'con' 'title' 'date' 'anot' 'fechas' '.' '.';
     }
     .title {
         font-size: 2rem;
@@ -25,7 +25,7 @@
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         grid-template-rows: repeat(2, 1fr);
-        grid-template-areas: "fi ff" "fi ff";
+        grid-template-areas: 'fi ff' 'fi ff';
         grid-area: fechas;
         .fechaInicial {
             grid-area: fi;
@@ -35,7 +35,8 @@
         }
     }
     & > span {
-        font-variation-settings: "FILL" 0, "wght" 300, "GRAD" 0, "opsz" 24;
+        font-variation-settings: 'FILL' 0, 'wght' 300,
+            'GRAD' 0, 'opsz' 24;
     }
 }
 

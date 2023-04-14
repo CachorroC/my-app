@@ -7,7 +7,7 @@
   --src: rgb(255, 78, 63);
   --red: 255;
   --green: 78;
-  --blue: 63
+  --blue: 63;
   /* primary */
   --pal-primary0: #000000;
   --pal-primary10: #410001;
@@ -176,11 +176,14 @@
   --md-custom-color-Custom-Color-1: #008471;
   --dp0: 0px 0px 0px 0px rgba(0, 0, 0, 0);
   --dp1: 0px 2px 1px -1px rgba(0, 0, 0, 0.2),
-      0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+      0px 1px 1px 0px rgba(0, 0, 0, 0.14),
+      0px 1px 3px 0px rgba(0, 0, 0, 0.12);
   --dp2: 0px 3px 1px -2px rgba(0, 0, 0, 0.2),
-      0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
+      0px 2px 2px 0px rgba(0, 0, 0, 0.14),
+      0px 1px 5px 0px rgba(0, 0, 0, 0.12);
   --dp3: 0px 3px 3px -2px rgba(0, 0, 0, 0.2),
-      0px 3px 4px 0px rgba(0, 0, 0, 0.14), 0px 1px 8px 0px rgba(0, 0, 0, 0.12);
+      0px 3px 4px 0px rgba(0, 0, 0, 0.14),
+      0px 1px 8px 0px rgba(0, 0, 0, 0.12);
   --dp4: 0px 2px 4px -1px rgba(0, 0, 0, 0.2),
       0px 4px 5px 0px rgba(0, 0, 0, 0.14),
       0px 1px 10px 0px rgba(0, 0, 0, 0.12);
