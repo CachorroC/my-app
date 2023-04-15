@@ -1,7 +1,7 @@
 import layout from '#@/styles/css/layout.module.css';
 import { getProcesos } from '#@/app/api/procesos/getProcesos';
 import { SearchProvider } from '#@/app/Procesos//search-context';
-import ContextInputSearch, {
+import SearchBar, {
   Search,
 } from '#@/app/Procesos/context-input-search';
 export const metadata = {
@@ -17,7 +17,7 @@ export default async function Layout({
     <div className={layout.main}>
       <SearchProvider>
         <div className={layout.sidenav}>
-          <ContextInputSearch />
+          <SearchBar />
           <Search procesos={procesos} />
         </div>
         <article className={layout.container}>

@@ -1,6 +1,8 @@
 import typeface from '#@/styles/css/typeface.module.css';
 import modal from '#@/styles/css/modal.module.css';
-export default function NotFound() {
+import SearchBar, { Search } from "./context-input-search";
+import { getProcesos } from "../api/procesos/getProcesos";
+export default async function NotFound() {
   const today = new Date();
   const curHr = today.getHours();
   const time = () => {
@@ -29,12 +31,14 @@ export default function NotFound() {
               {'No se encuentra'}
             </h2>
           </div>
+          <SearchBar/>
           <div className={modal.body}>
             <p>{`Sentimos que tu consulta no hay podido ser resuelta en ${time()} de hoy.`}</p>
             <p>Some other text...</p>
           </div>
           <div className={modal.footer}>
             <h3>Modal Footer</h3>
+            <Search procesos={await getProcesos()}/>
           </div>
         </div>
       </div>

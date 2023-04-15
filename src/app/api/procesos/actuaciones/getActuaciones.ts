@@ -11,9 +11,10 @@ export async function getActuaciones({
   if (!res.ok) {
     throw new Error('something went wrong');
   }
-  const rawactuaciones = await res.json();
+  const data = await res.json();
+ 
   const actuaciones =
-        rawactuaciones.actuaciones as Actuacion[];
+        data.actuaciones as Actuacion[];
 
   if (actuaciones.length === 0) {
     notFound();

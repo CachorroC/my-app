@@ -12,7 +12,8 @@ import Link from 'next/link';
 import { poiret } from '../../components/typeface';
 import drawer from '#@/styles/css/drawer.module.css';
 import layout from '#@/styles/css/layout.module.css';
-const ContextInputSearch = () => {
+
+const SearchBar = () => {
   const [
     search, setSearch
   ] = useSearch();
@@ -24,8 +25,9 @@ const ContextInputSearch = () => {
         className={form.input}
         value={search}
         placeholder="Search..."
-        onChange={(e) =>
-          setSearch(e.target.value)
+        onChange={
+          (e) =>
+            setSearch(e.target.value)
         }></input>
     </div>
   );
@@ -75,4 +77,4 @@ export const Search = ({
     </div>
   );
 };
-export default ContextInputSearch;
+export default SearchBar;
