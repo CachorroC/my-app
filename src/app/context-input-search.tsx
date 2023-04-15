@@ -1,29 +1,33 @@
 'use client';
 
-import { useNavigate } from './nav-context';
+import { useSearch } from './search-context';
 import React from 'react';
 import form from '#@/styles/css/searchbar.module.css';
-import box from '#@/styles/scss/box.module.scss';
-import searchbox from '#@/styles/css/searchbar.module.css';
 import { Proceso } from '#@/app/api/procesos/proceso';
 import navbar from '#@/styles/css/navbar.module.css';
-import typeface from '#@/styles/css/typeface.module.css';
 import Link from 'next/link';
 import { poiret } from '#@/components/typeface';
-import drawer from '#@/styles/css/drawer.module.css';
 import layout from '#@/styles/css/layout.module.css';
 
-const Navbar = () => {
-  const [isOpen, setIsOpen] = useNavigate();
+const SearchBar = () => {
+  const [
+    search, setSearch
+  ] = useSearch();
+ 
 
   return (
-    <div className={navbar.menu}>
-      <button onClick={setIsOpen(true)}>
-        <span className="material-symbols-outlined">
-          bug
-        </span>
-      </button>
-    </div>
+    
+    <input
+      type="text"
+      className={form.input}
+      value={search}
+      placeholder="Search..."
+      
+      onChange={
+        (input) =>
+          setSearch(input.target.value)
+      }></input>
+   
   );
 };
 function ProcesoRow({ proceso }: { proceso: Proceso }) {
@@ -38,15 +42,22 @@ function ProcesoRow({ proceso }: { proceso: Proceso }) {
     </Link>
   );
 }
-export const Navigate = ({
+export const Search = ({
   procesos,
 }: {
   procesos: Proceso[];
 }) => {
-  const [isOpen] = useNavigate();
-  const rows: any[] = [];
+  const [
+    search
+  ] = useSearch();
+  const rows: any[] = [
+  ];
   procesos.forEach((proceso) => {
-    if (isOpen) {
+    if (
+      proceso.Demandado.toLowerCase().indexOf(
+        search.toLowerCase(),
+      ) === -1
+    ) {
       return;
     }
     rows.push(
@@ -60,4 +71,4 @@ export const Navigate = ({
     <div className={layout.procesossearchbox}>{rows}</div>
   );
 };
-export default Navbar;
+export default SearchBar;

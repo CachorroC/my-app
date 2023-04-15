@@ -13,12 +13,16 @@ import layout from '#@/styles/css/layout.module.css';
 
 const poiret = Poiret_One({
   weight: '400',
-  subsets: ['latin', 'latin-ext'],
+  subsets: [
+    'latin', 'latin-ext'
+  ],
   display: 'swap',
 });
 
 export default function Navbar() {
-  const [isOpen, setIsOpen] = useState(false);
+  const [
+    isOpen, setIsOpen
+  ] = useState(false);
   const close = () => setIsOpen(false);
   const drawerToggle = () => {
     setIsOpen((prevState) => !prevState);
@@ -48,14 +52,12 @@ export default function Navbar() {
   );
   return (
     <div className={layout.header}>
-      <button
-        type="button"
-        onClick={close}
-        className={styles.home}>
+      <Link href='/'
+        className={styles.button}>
         <span className="material-symbols-rounded">
           cabin
         </span>
-      </button>
+      </Link>
       <button
         type="button"
         className={styles.button}

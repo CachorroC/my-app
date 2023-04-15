@@ -1,6 +1,8 @@
-import layout from '#@/styles/css/layout.module.css';
-import typeface from '#@/styles/css/typeface.module.css';
-import { Item } from '../lib/links';
+'use client';
+import { Item, demos } from '../lib/links';
+import NavItem from "./navitem";
+import { poiret } from "./typeface";
+import navbar from '#@/styles/css/navbar.module.css';
 export default function Drawer({
   items,
   title,
@@ -10,20 +12,28 @@ export default function Drawer({
   title: string;
   children: React.ReactNode;
 }) {
+  
   return (
-    <div>
-      <h3>{title}</h3>
-      {isActive ? (
-        <p>{children}</p>
-      ) : (
-        <button
-          onClick={() => setIsActive(true)}
-          type="button">
-          <span className="material-symbols-outlined">
-            show
-          </span>
-        </button>
-      )}
+    <div
+      className={navbar.drawer}
+      onClick={close}>
+      {demos.map((section) => (
+        <nav
+          key={section.name}
+          className={navbar.menu}>
+          <h1 className={poiret.className}>
+            {section.name}
+          </h1>
+          {section.items.map((link) => (
+            <NavItem
+              key={link.id}
+              link={link}
+              close={close}
+              className={poiret.className}
+            />
+          ))}
+        </nav>
+      ))}
     </div>
   );
 }

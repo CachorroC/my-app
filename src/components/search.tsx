@@ -16,7 +16,8 @@ export async function SearchItems({
 }: {
   search: string;
 }) {
-  const rows: any[] = [];
+  const rows: any[] = [
+  ];
   const procesos = (await fetch(
     `${getBaseUrl()}/api/procesos`,
   ).then((res) => res.json())) as Proceso[];

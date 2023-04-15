@@ -14,7 +14,9 @@ import drawer from '#@/styles/css/drawer.module.css';
 import layout from '#@/styles/css/layout.module.css';
 
 const SearchBar = () => {
-  const [search, setSearch] = useSearch();
+  const [
+    search, setSearch
+  ] = useSearch();
 
   return (
     <div className={navbar.menu}>
@@ -46,8 +48,11 @@ export const Search = ({
 }: {
   procesos: Proceso[];
 }) => {
-  const [search] = useSearch();
-  const rows: any[] = [];
+  const [
+    search
+  ] = useSearch();
+  const rows: any[] = [
+  ];
   procesos.forEach((proceso) => {
     if (
       proceso.Demandado.toLowerCase().indexOf(

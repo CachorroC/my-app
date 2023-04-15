@@ -10,7 +10,9 @@ import layout from '#@/styles/css/layout.module.css';
 
 const poiret = Poiret_One({
   weight: '400',
-  subsets: ['latin', 'latin-ext'],
+  subsets: [
+    'latin', 'latin-ext'
+  ],
   display: 'swap',
 });
 
