@@ -4,6 +4,8 @@ import layout from '#@/styles/css/layout.module.css';
 import type { Metadata } from 'next';
 import 'material-symbols';
 import Footer from '../components/footer';
+import { NavProvider } from "./nav-context";
+import { Navigate } from "./context-click-nav";
 
 export const metadata: Metadata = {
   title: 'R&S Asesoría Jurídica',
@@ -107,11 +109,14 @@ export default function RootLayout({
       lang="es"
       className="[color-scheme: light dark]">
       <body>
-        <div className={layout.base}>
-          <Navbar />
-          {children}
-          <Footer />
-        </div>
+        <NavProvider>
+          <div className={layout.base}>
+            <Navbar />
+            <Navigate/>
+            {children}
+            <Footer />
+          </div>
+        </NavProvider>
       </body>
     </html>
   );

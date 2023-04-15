@@ -1,6 +1,6 @@
 'use client';
 
-import { useSearch } from './search-context';
+import { useNavigate } from './nav-context';
 import React from 'react';
 import form from '#@/styles/css/searchbar.module.css';
 import box from '#@/styles/scss/box.module.scss';
@@ -13,22 +13,17 @@ import { poiret } from '../../components/typeface';
 import drawer from '#@/styles/css/drawer.module.css';
 import layout from '#@/styles/css/layout.module.css';
 
-const SearchBar = () => {
+const Navbar = () => {
   const [
-    search, setSearch
-  ] = useSearch();
+    isOpen, setIsOpen
+  ] = useNavigate();
+
 
   return (
     <div className={ navbar.menu }>
-      <input
-        type="text"
-        className={ form.input }
-        value={ search }
-        placeholder="Search..."
-        onChange={
-          ( input ) =>
-            setSearch( input.target.value )
-        }></input>
+      <button onClick={ setIsOpen( true ) }>
+        <span className='material-symbols-outlined'>bug</span>
+      </button>
     </div>
   );
 };
@@ -48,7 +43,7 @@ function ProcesoRow (
     </Link>
   );
 }
-export const Search = (
+export const Navigate = (
   {
     procesos,
   }: {
@@ -56,16 +51,14 @@ export const Search = (
   }
 ) => {
   const [
-    search
-  ] = useSearch();
+    isOpen
+  ] = useNavigate();
   const rows: any[] = [
   ];
   procesos.forEach(
     ( proceso ) => {
       if (
-        proceso.Demandado.toLowerCase().indexOf(
-          search.toLowerCase(),
-        ) === -1
+        isOpen
       ) {
         return;
       }
@@ -82,4 +75,4 @@ export const Search = (
     </div>
   );
 };
-export default SearchBar;;
+export default Navbar;
