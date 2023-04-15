@@ -1,50 +1,50 @@
 export type ProcesosBase = {
-    items: string[];
-    name: string;
+  items: string[];
+  name: string;
 };
 export type Proceso = {
-    llaveProceso: string;
-    id_proceso: number;
-    id_conexion?: number;
-    id_deudor: number;
-    telefonos: Telefonos;
-    radicado: string;
-    proceso_type: string;
-    etapa_procesal: string;
-    email: string;
-    direccion: string;
-    demandado: string;
-    carpeta: number;
+  llaveProceso: string;
+  id_proceso: number;
+  id_conexion?: number;
+  id_deudor: number;
+  telefonos: Telefonos;
+  radicado: string;
+  proceso_type: string;
+  etapa_procesal: string;
+  email: string;
+  direccion: string;
+  demandado: string;
+  carpeta: number;
 };
 
 export type Actuacion = {
-    idRegActuacion: number;
-    llaveProceso: string;
-    consActuacion: number;
-    fechaActuacion: string;
-    actuacion: string;
-    anotacion?: string;
-    fechaInicial?: string;
-    fechaFinal?: string;
-    fechaRegistro: string;
-    codRegla: string;
-    conDocumentos: boolean;
-    cant: number;
+  idRegActuacion: number;
+  llaveProceso: string;
+  consActuacion: number;
+  fechaActuacion: string;
+  actuacion: string;
+  anotacion?: string;
+  fechaInicial?: string;
+  fechaFinal?: string;
+  fechaRegistro: string;
+  codRegla: string;
+  conDocumentos: boolean;
+  cant: number;
 };
 export type Demandado = {
-    carpeta: number;
-    //? Cédula de Ciudadanía
-    id_deudor: number;
-    id_proceso: number;
-    demandado: string;
-    direccion: string;
-    email: string;
-    llaveProceso: string;
-    telefonos?: Telefonos;
+  carpeta: number;
+  //? Cédula de Ciudadanía
+  id_deudor: number;
+  id_proceso: number;
+  demandado: string;
+  direccion: string;
+  email: string;
+  llaveProceso: string;
+  telefonos?: Telefonos;
 };
 export type Telefonos = {
-    celular?: number;
-    fijo?: number;
+  celular?: number;
+  fijo?: number;
 };
 
 export const llaves: string[] = [
@@ -80,7 +80,7 @@ export const prosesos: Proceso[] = [
     telefonos: { celular: 3212337597 },
     email: 'yess_id@hotmailcom',
     direccion:
-            'carrera 77b no 68b - 19 barrio santa helenita',
+      'carrera 77b no 68b - 19 barrio santa helenita',
     proceso_type: 'prendario',
     etapa_procesal: 'emplazamiento',
     radicado: '2017 - 00884',
@@ -183,7 +183,7 @@ export const prosesos: Proceso[] = [
     telefonos: { fijo: 4725511, celular: 3118526428 },
     email: 'ars09@hotmailcom',
     direccion:
-            'calle 64 sur  no 85 b - 40  apartamento  104',
+      'calle 64 sur  no 85 b - 40  apartamento  104',
     proceso_type: 'singular',
     radicado: '2017 - 00974',
     etapa_procesal: 'ejecución',
@@ -258,11 +258,11 @@ export const prosesos: Proceso[] = [
     id_proceso: 87350810,
     id_conexion: 259,
     direccion:
-            'calle 163 b no 50-80  interior 10 apt 231 conjunto la estancia iii',
+      'calle 163 b no 50-80  interior 10 apt 231 conjunto la estancia iii',
     proceso_type: 'singular',
     radicado: '2018 - 00785',
     etapa_procesal:
-            'embargo de remanentes juzgado 27 proceso 2019 - 00251',
+      'embargo de remanentes juzgado 27 proceso 2019 - 00251',
   },
 
   {
@@ -275,7 +275,7 @@ export const prosesos: Proceso[] = [
     telefonos: { fijo: 6139147, celular: 3134386087 },
     email: 'yadelcis@hotmailcom',
     direccion:
-            'kr 81 no 127 a - 46 conjunto monte azul bogota',
+      'kr 81 no 127 a - 46 conjunto monte azul bogota',
     proceso_type: 'singular',
     radicado: '2020 - 00535',
     etapa_procesal: 'ejecucion',

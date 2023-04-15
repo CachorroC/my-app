@@ -1,63 +1,59 @@
 {
-    "version": "2.0.0",
-    "tasks": [
-        {
-            "label": "watch Sass",
-            "type": "shell",
-            "command": "sass --watch ${cwd}/src/styles/scss:${cwd}/src/styles/css",
-            "problemMatcher": [],
-            "group": {
-                "kind": "test",
-                "isDefault": false
-            }
-        },
-        {
-            "type": "docker-build",
-            "label": "docker-build",
-            "platform": "node",
-            "dockerBuild": {
-                "dockerfile": "${workspaceFolder}/Dockerfile",
-                "context": "${workspaceFolder}",
-                "pull": true
-            }
-        },
-        {
-            "type": "docker-run",
-            "label": "docker-run: release",
-            "dependsOn": [
-                "docker-build"
-            ],
-            "platform": "node"
-        },
-        {
-            "type": "docker-run",
-            "label": "docker-run: debug",
-            "dependsOn": [
-                "docker-build"
-            ],
-            "dockerRun": {
-                "env": {
-                    "DEBUG": "*",
-                    "NODE_ENV": "development"
-                }
-            },
-            "node": {
-                "enableDebugging": true
-            }
-        },
-        {
-            "type": "npm",
-            "script": "sass",
-            "problemMatcher": [],
-            "label": "npm: sass",
-            "detail": "sass --watch src/styles/scss:src/styles/css"
-        },
-        {
-            "type": "npm",
-            "script": "lint",
-            "problemMatcher": [],
-            "label": "npm: lint",
-            "detail": "next lint --fix && next lint"
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "watch Sass",
+      "type": "shell",
+      "command": "sass --watch ${cwd}/src/styles/scss:${cwd}/src/styles/css",
+      "problemMatcher": [],
+      "group": {
+        "kind": "test",
+        "isDefault": false
+      }
+    },
+    {
+      "type": "docker-build",
+      "label": "docker-build",
+      "platform": "node",
+      "dockerBuild": {
+        "dockerfile": "${workspaceFolder}/Dockerfile",
+        "context": "${workspaceFolder}",
+        "pull": true
+      }
+    },
+    {
+      "type": "docker-run",
+      "label": "docker-run: release",
+      "dependsOn": ["docker-build"],
+      "platform": "node"
+    },
+    {
+      "type": "docker-run",
+      "label": "docker-run: debug",
+      "dependsOn": ["docker-build"],
+      "dockerRun": {
+        "env": {
+          "DEBUG": "*",
+          "NODE_ENV": "development"
         }
-    ]
+      },
+      "node": {
+        "enableDebugging": true
+      }
+    },
+    {
+      "type": "npm",
+      "script": "sass",
+      "problemMatcher": [],
+      "label": "npm: sass",
+      "detail": "sass --watch src/styles/scss:src/styles/css"
+    },
+    {
+      "type": "npm",
+      "script": "lint",
+      "problemMatcher": [],
+      "label": "npm: lint",
+      "detail": "next lint --fix && next lint"
+    }
+  ]
 }

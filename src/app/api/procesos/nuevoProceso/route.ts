@@ -4,7 +4,7 @@ export async function POST(request: Request) {
   const { searchParams } = new URL(request.url);
   const id = searchParams.get('id');
   const apiKey =
-        '5yDrhI0LSn7ByLz6XrUZgOTLQfv8MoCwqdkEZGKc4nYdb2T97aLmpkqszXLYk0KV';
+    '5yDrhI0LSn7ByLz6XrUZgOTLQfv8MoCwqdkEZGKc4nYdb2T97aLmpkqszXLYk0KV';
   const res = await fetch(
     `https://us-east-1.aws.data.mongodb-api.com/app/data-ixleg/endpoint/data/v1/action/findOne/`,
     {

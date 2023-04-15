@@ -170,7 +170,7 @@
   --md-ref-palette-error100: #ffffff;
   /* light */
   --md-sys-color-primary-light: var(
-      --md-ref-palette-primary40
+    --md-ref-palette-primary40
   );
   --md-sys-color-on-primary-light: #ffffff;
   --md-sys-color-primary-container-light: #ffdad7;

@@ -6,7 +6,7 @@ import { poiret } from './typeface';
 export function Actuaciones({
   actuaciones,
 }: {
-    actuaciones: Actuacion[];
+  actuaciones: Actuacion[];
 }) {
   return (
     <div className={box.grid}>
@@ -23,7 +23,7 @@ export function Actuaciones({
 export function ActuacionCard({
   actuacion,
 }: {
-    actuacion: Actuacion;
+  actuacion: Actuacion;
 }) {
   return (
     <div

@@ -20,15 +20,12 @@ export async function GET(request: Request) {
       (category) => category.idProceso === idProceso,
     );
 
-    return new Response(
-      JSON.stringify(category ?? null),
-      {
-        status: 200,
-        headers: {
-          'content-type': 'application/json',
-        },
+    return new Response(JSON.stringify(category ?? null), {
+      status: 200,
+      headers: {
+        'content-type': 'application/json',
       },
-    );
+    });
   }
 
   const parent = searchParams.get('parent');

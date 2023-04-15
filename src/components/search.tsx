@@ -14,10 +14,9 @@ export async function fetchProceso() {
 export async function SearchItems({
   search,
 }: {
-    search: string;
+  search: string;
 }) {
-  const rows: any[] = [
-  ];
+  const rows: any[] = [];
   const procesos = (await fetch(
     `${getBaseUrl()}/api/procesos`,
   ).then((res) => res.json())) as Proceso[];
@@ -62,7 +61,7 @@ function ItemSkeleton() {
     <div className={layout.card}>
       <h1 className={searchbar.title}>{'Deudor'}</h1>
       <span className="material-symbols-outlined">
-                loading
+        loading
       </span>
       <i>
         <strong>{'dia/mes/año'}</strong>

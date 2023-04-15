@@ -1,198 +1,177 @@
-.base
-{
+.base {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(6, 1fr);
+  gap: 1vmax;
+  width: 100%;
+  height: 100vh;
+  grid-template-areas:
+    'header header header header header header'
+    'body body body body body body'
+    'body body body body body body'
+    'body body body body body body'
+    'body body body body body body'
+    'body body body body body body'
+    'footer footer footer footer footer footer';
+
+  & > .procesossearchbox {
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    grid-template-rows: repeat(6, 1fr);
-    gap: 1vmax;
-    width: 100%;
-    height: 100vh;
+    grid-auto-rows: 1fr;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    gap: 0px 0px;
     grid-template-areas:
-        "header header header header header header"
-        "body body body body body body"
-        "body body body body body body"
-        "body body body body body body"
-        "body body body body body body"
-        "body body body body body body"
-        "footer footer footer footer footer footer";
-
-    & > .procesossearchbox
-    {
-        display: grid;
-        grid-auto-rows: 1fr;
-        grid-template-columns: repeat(2, 1fr);
-        grid-template-rows: repeat(4, 1fr);
-        gap: 0px 0px;
-        grid-template-areas:
-            ". ."
-            ". ."
-            ". ."
-            ". .";
-        justify-content: space-evenly;
-        align-content: space-evenly;
-        justify-items: center;
-        align-items: center;
-        grid-area: sidenav;
-    }
-
-    & > .footer
-    {
-        grid-area: footer;
-        background-color: var(--tertiary);
-        color: var(--on-tertiray);
-    }
-
-    & > .header
-    {
-        display: flex;
-        flex-flow: row nowrap;
-        box-shadow: var(--dp3);
-        justify-content: space-evenly;
-        align-items: stretch;
-        grid-area: header;
-        background-color: var(--primary);
-
-        & > .button,
-        & > .home
-        {
-            border: 0;
-            background-color: var(--primary-container);
-            color: var(--on-primary-container);
-            width: 100%;
-            flex-basis: auto;
-
-            & > span
-            {
-                width: 100%;
-            }
-
-            &:hover,
-            &:active
-            {
-                background-color: var(--on-secondary);
-                color: var(--secondary);
-            }
-        }
-
-        @media screen and (max-width: 1000px)
-        {
-            top: auto;
-            bottom: 0;
-        }
-    }
-
-    & > .main
-    {
-        box-sizing: border-box;
-        background-color: var(--primary-container);
-        color: var(--on-primary-container);
-        padding-top: 5vh;
-        overflow: hidden;
-        grid-area: body;
-        grid-template-areas:
-            "sidenav sidenav art art art art"
-            "sidenav sidenav art art art art"
-            "sidenav sidenav art art art art"
-            "sidenav sidenav art art art art";
-        display: grid;
-        grid-template-columns: repeat(6, 1fr);
-        grid-template-areas: repeat(4, 1fr);
-
-        @media screen and (max-width: 1000px)
-        {
-            padding-bottom: 5vh;
-            padding: 0;
-            padding-top: 0;
-        }
-
-        & > .sidenav
-        {
-            grid-area: sidenav;
-
-            background-color: var(--tertiary-container);
-            border: 2px dashed var(--tertiary);
-            overflow: scroll;
-            border-radius: 2vmax;
-            height: 80vh;
-            padding: 2vmin;
-            display: flex;
-            flex-flow: column nowrap;
-        }
-
-        & > .container
-        {
-            grid-area: art;
-            overflow: scroll;
-            display: flex;
-            align-items: center;
-            flex-flow: column nowrap;
-            background-color: var(--secondary-container);
-            border: 2px dashed var(--secondary);
-            border-radius: 2vmax;
-            color: var(--on-surface);
-            box-shadow: var(--dp3);
-            text-align: center;
-            box-sizing: border-box;
-            padding: 2vmin;
-        }
-    }
-}
-
-
-
-.section
-{
-    max-width: 100%;
-    max-height: 100%;
-    box-sizing: border-box;
-    background-color: var(--surface-variant);
-    padding: 2vmin;
-    text-align: center;
-}
-
-.article
-{
-    display: flex;
-    flex-flow: column nowrap;
-    width: 100%;
-    height: 100%;
-    gap: 2vmin;
-    background-color: var(--surface);
-
-    padding: 2vh;
-    box-shadow: var(--dp5);
-
-    & > .nombre
-    {
-        background-color: var(--secondary);
-        color: var(--on-secondary);
-    }
-
-    & > .block
-    {
-        color: var(--on-surface);
-    }
-}
-
-
-.card
-{
-    background-color: var(--sf-2);
-    border: 2px dashed var(--primary);
-    border-radius: 2vmax;
-    color: var(--on-surface);
-    box-shadow: var(--dp8);
-    text-align: center;
-    box-sizing: border-box;
-    padding: 2vmin;
-    display: flex;
-    flex-flow: column wrap;
+      '. .'
+      '. .'
+      '. .'
+      '. .';
     justify-content: space-evenly;
-    align-items: stretch;
-    align-content: space-around;
-}
+    align-content: space-evenly;
+    justify-items: center;
+    align-items: center;
+    grid-area: sidenav;
+  }
 
-.procesos
-{
+  & > .footer {
+    grid-area: footer;
+    background-color: var(--tertiary);
+    color: var(--on-tertiray);
+  }
+
+  & > .header {
     display: flex;
     flex-flow: row nowrap;
+    box-shadow: var(--dp3);
+    justify-content: space-evenly;
+    align-items: stretch;
+    grid-area: header;
+    background-color: var(--primary);
+
+    & > .button,
+    & > .home {
+      border: 0;
+      background-color: var(--primary-container);
+      color: var(--on-primary-container);
+      width: 100%;
+      flex-basis: auto;
+
+      & > span {
+        width: 100%;
+      }
+
+      &:hover,
+      &:active {
+        background-color: var(--on-secondary);
+        color: var(--secondary);
+      }
+    }
+
+    @media screen and (max-width: 1000px) {
+      top: auto;
+      bottom: 0;
+    }
+  }
+
+  & > .main {
+    box-sizing: border-box;
+    background-color: var(--primary-container);
+    color: var(--on-primary-container);
+    padding-top: 5vh;
+    overflow: hidden;
+    grid-area: body;
+    grid-template-areas:
+      'sidenav sidenav art art art art'
+      'sidenav sidenav art art art art'
+      'sidenav sidenav art art art art'
+      'sidenav sidenav art art art art';
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-areas: repeat(4, 1fr);
+
+    @media screen and (max-width: 1000px) {
+      padding-bottom: 5vh;
+      padding: 0;
+      padding-top: 0;
+    }
+
+    & > .sidenav {
+      grid-area: sidenav;
+
+      background-color: var(--tertiary-container);
+      border: 2px dashed var(--tertiary);
+      overflow: scroll;
+      border-radius: 2vmax;
+      height: 80vh;
+      padding: 2vmin;
+      display: flex;
+      flex-flow: column nowrap;
+    }
+
+    & > .container {
+      grid-area: art;
+      overflow: scroll;
+      display: flex;
+      align-items: center;
+      flex-flow: column nowrap;
+      background-color: var(--secondary-container);
+      border: 2px dashed var(--secondary);
+      border-radius: 2vmax;
+      color: var(--on-surface);
+      box-shadow: var(--dp3);
+      text-align: center;
+      box-sizing: border-box;
+      padding: 2vmin;
+    }
+  }
+}
+
+.section {
+  max-width: 100%;
+  max-height: 100%;
+  box-sizing: border-box;
+  background-color: var(--surface-variant);
+  padding: 2vmin;
+  text-align: center;
+}
+
+.article {
+  display: flex;
+  flex-flow: column nowrap;
+  width: 100%;
+  height: 100%;
+  gap: 2vmin;
+  background-color: var(--surface);
+
+  padding: 2vh;
+  box-shadow: var(--dp5);
+
+  & > .nombre {
+    background-color: var(--secondary);
+    color: var(--on-secondary);
+  }
+
+  & > .block {
+    color: var(--on-surface);
+  }
+}
+
+.card {
+  background-color: var(--sf-2);
+  border: 2px dashed var(--primary);
+  border-radius: 2vmax;
+  color: var(--on-surface);
+  box-shadow: var(--dp8);
+  text-align: center;
+  box-sizing: border-box;
+  padding: 2vmin;
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: space-evenly;
+  align-items: stretch;
+  align-content: space-around;
+}
+
+.procesos {
+  display: flex;
+  flex-flow: row nowrap;
 }

@@ -10,27 +10,21 @@ import { useParams } from 'next/navigation';
 import ContextInputSearch from './context-input-search';
 
 const SearchContext = React.createContext<
-    | [string, React.Dispatch<React.SetStateAction<string>>]
-    | null
+  | [string, React.Dispatch<React.SetStateAction<string>>]
+  | null
 >(null);
 
 export function SearchProvider({
   children,
 }: {
-    children: React.ReactNode;
+  children: React.ReactNode;
 }) {
   const params = useParams();
-  const [
-    search, setSearch
-  ] = React.useState('');
-  const [
-    hasUltimaActuacion, setUltimaActuacion
-  ] =
-        React.useState(false);
+  const [search, setSearch] = React.useState('');
+  const [hasUltimaActuacion, setUltimaActuacion] =
+    React.useState(false);
   return (
-    <SearchContext.Provider value={[
-      search, setSearch
-    ]}>
+    <SearchContext.Provider value={[search, setSearch]}>
       {children}
     </SearchContext.Provider>
   );

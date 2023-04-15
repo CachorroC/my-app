@@ -9,24 +9,19 @@ export async function GET(request: Request) {
       (proceso) => proceso.idProceso === idProceso,
     );
 
-    return new Response(
-      JSON.stringify(proceso ?? null),
-      {
-        status: 200,
-        headers: {
-          'content-type': 'application/json',
-        },
+    return new Response(JSON.stringify(proceso ?? null), {
+      status: 200,
+      headers: {
+        'content-type': 'application/json',
       },
-    );
+    });
   }
 
   const tipo = searchParams.get('tipo');
 
   if (tipo) {
     const procesos = data.filter((proceso) =>
-      tipo
-        ? proceso.tipo === tipo
-        : proceso.tipo === null,
+      tipo ? proceso.tipo === tipo : proceso.tipo === null,
     );
     return new Response(JSON.stringify(procesos), {
       status: 200,
@@ -53,7 +48,7 @@ const data: Proceso[] = [
     fechaProceso: '2019-05-23T00:00:00',
     fechaUltimaActuacion: '2023-01-16T00:00:00',
     despacho:
-            'JUZGADO 011 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ',
+      'JUZGADO 011 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ',
     departamento: 'BOGOTÁ',
     Demandante: 'Demandante: BANCOLOMBIA S.A. |',
     Demandado: 'JOSE EDWIN GARCES ARDILA ',
@@ -67,7 +62,7 @@ const data: Proceso[] = [
     fechaProceso: '2018-04-12T00:00:00',
     fechaUltimaActuacion: '2023-02-23T00:00:00',
     despacho:
-            'JUZGADO 018 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ',
+      'JUZGADO 018 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ',
     departamento: 'BOGOTÁ',
     Demandante: 'Demandante: BANCOLOMBIA S.A. |',
     Demandado: 'JHONATAN ANDRES BERNAL PARRA ',
@@ -82,7 +77,7 @@ const data: Proceso[] = [
     fechaProceso: '2017-05-31T00:00:00',
     fechaUltimaActuacion: '2023-03-10T00:00:00',
     despacho:
-            'JUZGADO 001 CIVIL DEL CIRCUITO DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ',
+      'JUZGADO 001 CIVIL DEL CIRCUITO DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ',
     departamento: 'BOGOTÁ',
     Demandante: 'Demandante: BANCOLOMBIA S.A. |',
     Demandado: 'OMAR DARIO ZEA GALVIS ',
@@ -96,11 +91,11 @@ const data: Proceso[] = [
     fechaProceso: '2017-05-31T00:00:00',
     fechaUltimaActuacion: '2022-11-11T00:00:00',
     despacho:
-            'JUZGADO 003 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ',
+      'JUZGADO 003 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ',
     departamento: 'BOGOTÁ',
     Demandante: 'Demandante: BANCOLOMBIA S.A. |',
     Demandado:
-            'LUIS CARLOS GUTIERREZ VELANDIA |JAQUELINE RODRIGUEZ COLMENARES ',
+      'LUIS CARLOS GUTIERREZ VELANDIA |JAQUELINE RODRIGUEZ COLMENARES ',
     esPrivado: false,
   },
 
@@ -111,11 +106,9 @@ const data: Proceso[] = [
     llaveProceso: '25183400300120170010600',
     fechaProceso: '2017-05-30T00:00:00',
     fechaUltimaActuacion: null,
-    despacho:
-            'JUZGADO 001 CIVIL MUNICIPAL DE CHOCONTÁ ',
+    despacho: 'JUZGADO 001 CIVIL MUNICIPAL DE CHOCONTÁ ',
     departamento: 'CUNDINAMARCA',
-    Demandante:
-            'Demandante/accionante: BANCOLOMBIA SA | ',
+    Demandante: 'Demandante/accionante: BANCOLOMBIA SA | ',
     Demandado: 'ALVARO  RODRIGUEZ ALONSO  ',
     esPrivado: false,
   },
@@ -127,7 +120,7 @@ const data: Proceso[] = [
     fechaProceso: '2017-06-21T00:00:00',
     fechaUltimaActuacion: '2023-02-20T00:00:00',
     despacho:
-            'JUZGADO 013 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ',
+      'JUZGADO 013 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ',
     departamento: 'BOGOTÁ',
     Demandante: 'Demandante: BANCOLOMBIA S.A. |',
     Demandado: 'ANA RITA GUZMAN GOMEZ ',
@@ -141,7 +134,7 @@ const data: Proceso[] = [
     fechaProceso: '2017-07-26T00:00:00',
     fechaUltimaActuacion: '2023-03-23T00:00:00',
     despacho:
-            'JUZGADO 011 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ',
+      'JUZGADO 011 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ',
     departamento: 'BOGOTÁ',
     Demandante: 'Demandante: BANCOLOMBIA S.A. |',
     Demandado: 'DERLY CATHERINE CASTRO IZQUIERDO ',
@@ -155,7 +148,7 @@ const data: Proceso[] = [
     fechaProceso: '2017-06-20T00:00:00',
     fechaUltimaActuacion: '2022-11-10T00:00:00',
     despacho:
-            'JUZGADO 010 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ',
+      'JUZGADO 010 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ',
     departamento: 'BOGOTÁ',
     Demandante: 'Demandante: BANCOLOMBIA S.A. |',
     Demandado: 'JOSE URIEL PAEREZ PERDOMO ',
@@ -170,7 +163,7 @@ const data: Proceso[] = [
     fechaProceso: '2017-06-15T00:00:00',
     fechaUltimaActuacion: '2023-02-14T00:00:00',
     despacho:
-            'JUZGADO 002 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ',
+      'JUZGADO 002 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ',
     departamento: 'BOGOTÁ',
     Demandante: 'Demandante: BANCOLOMBIA S.A. |',
     Demandado: 'RHONALD MEZA  TARAPUES ',
@@ -184,7 +177,7 @@ const data: Proceso[] = [
     fechaProceso: '2019-01-29T00:00:00',
     fechaUltimaActuacion: '2023-03-28T00:00:00',
     despacho:
-            'JUZGADO 018 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ',
+      'JUZGADO 018 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ',
     departamento: 'BOGOTÁ',
     Demandante: 'Demandante: BANCOLOMBIA S.A. |',
     Demandado: 'EDUARDO ENRIQUE ARANGO CHACON ',
@@ -200,7 +193,7 @@ const data: Proceso[] = [
     despacho: 'JUZGADO 082 CIVIL MUNICIPAL DE BOGOTÁ ',
     departamento: 'BOGOTÁ',
     Demandante:
-            'Demandante/accionante: Banco Bancolombia SA |',
+      'Demandante/accionante: Banco Bancolombia SA |',
     Demandado: 'EDUARDO ENRIQUE ARANGO CHACON    ',
     esPrivado: false,
   },
@@ -212,7 +205,7 @@ const data: Proceso[] = [
     fechaProceso: '2017-06-15T00:00:00',
     fechaUltimaActuacion: '2023-03-24T00:00:00',
     despacho:
-            'JUZGADO 018 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ',
+      'JUZGADO 018 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ',
     departamento: 'BOGOTÁ',
     Demandante: 'Demandante: BANCOLOMBIA S.A. |',
     Demandado: 'SONIA MAZUERA ',
@@ -226,7 +219,7 @@ const data: Proceso[] = [
     fechaProceso: '2017-06-20T00:00:00',
     fechaUltimaActuacion: '2023-02-27T00:00:00',
     despacho:
-            'JUZGADO 015 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ',
+      'JUZGADO 015 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ',
     departamento: 'BOGOTÁ',
     Demandante: 'Demandante: BANCOLOMBIA S.A. |',
     Demandado: 'DANIEL HERNANDEZ GONZALEZ ',
@@ -240,7 +233,7 @@ const data: Proceso[] = [
     fechaProceso: '2017-10-03T00:00:00',
     fechaUltimaActuacion: '2022-06-15T00:00:00',
     despacho:
-            'JUZGADO 002 CIVIL DEL CIRCUITO DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ',
+      'JUZGADO 002 CIVIL DEL CIRCUITO DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ',
     departamento: 'BOGOTÁ',
     Demandante: 'Demandante: BANCOLOMBIA S. A. |',
     Demandado: 'MIGUEL ANGEL HUERTAS VALENCIA ',
@@ -254,7 +247,7 @@ const data: Proceso[] = [
     fechaProceso: '2017-06-22T00:00:00',
     fechaUltimaActuacion: '2021-12-13T00:00:00',
     despacho:
-            'JUZGADO 014 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ',
+      'JUZGADO 014 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ',
     departamento: 'BOGOTÁ',
     Demandante: 'Demandante: BANCOLOMBIA S.A. |',
     Demandado: 'NICOLAS FERNANDO MONTOYA ',
@@ -272,7 +265,7 @@ const data: Proceso[] = [
     departamento: 'BOGOTÁ',
     Demandante: 'Demandante: BANCOLOMBIA S.A. |',
     Demandado:
-            'MILCIADES GALINDO CASTEBLANCO |GERMAN ALONSO SANCHEZ PICO ',
+      'MILCIADES GALINDO CASTEBLANCO |GERMAN ALONSO SANCHEZ PICO ',
     esPrivado: false,
   },
   {
@@ -283,7 +276,7 @@ const data: Proceso[] = [
     fechaProceso: '2017-07-26T00:00:00',
     fechaUltimaActuacion: '2022-02-25T00:00:00',
     despacho:
-            'JUZGADO 002 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ',
+      'JUZGADO 002 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ',
     departamento: 'BOGOTÁ',
     Demandante: 'Demandante: BANCOLOMBIA S.A. |',
     Demandado: 'URIEL RUIZ DIAZ ',
@@ -297,10 +290,10 @@ const data: Proceso[] = [
     fechaProceso: '2018-11-22T00:00:00',
     fechaUltimaActuacion: '2022-12-05T00:00:00',
     despacho:
-            'JUZGADO 004 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ',
+      'JUZGADO 004 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ',
     departamento: 'BOGOTÁ',
     Demandante:
-            'Demandante: CARLOS DANIEL CARDENAS AVILES | Demandante: BANCOLOMBIA S.A. |',
+      'Demandante: CARLOS DANIEL CARDENAS AVILES | Demandante: BANCOLOMBIA S.A. |',
     Demandado: 'FREDY MENESES ',
     esPrivado: false,
   },
@@ -325,10 +318,10 @@ const data: Proceso[] = [
     fechaProceso: '2017-10-06T00:00:00',
     fechaUltimaActuacion: '2023-02-22T00:00:00',
     despacho:
-            'JUZGADO 002 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ',
+      'JUZGADO 002 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ',
     departamento: 'BOGOTÁ',
     Demandante:
-            'Demandante: TITULARIZADORA COLOMBIANA S.A. HITOS |',
+      'Demandante: TITULARIZADORA COLOMBIANA S.A. HITOS |',
     Demandado: 'JAVIER GONZALEZ TAGUA ',
     esPrivado: false,
   },
@@ -354,7 +347,7 @@ const data: Proceso[] = [
     fechaProceso: '2018-08-09T00:00:00',
     fechaUltimaActuacion: '2023-01-19T00:00:00',
     despacho:
-            'JUZGADO 001 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ',
+      'JUZGADO 001 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ',
     departamento: 'BOGOTÁ',
     Demandante: 'Demandante: BANCOLOMBIA S.A |',
     Demandado: 'JHON ALEXANDER VALENCIA MARQUEZ ',
@@ -382,11 +375,11 @@ const data: Proceso[] = [
     fechaProceso: '2017-08-30T00:00:00',
     fechaUltimaActuacion: '2022-03-17T00:00:00',
     despacho:
-            'JUZGADO 015 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ',
+      'JUZGADO 015 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ',
     departamento: 'BOGOTÁ',
     Demandante: 'Demandante: BANCOLOMBIA S.A. |',
     Demandado:
-            'FABIO ALBERTO RIVERA MESA | NELIDA DEL CARMEN RIVERA MESA ',
+      'FABIO ALBERTO RIVERA MESA | NELIDA DEL CARMEN RIVERA MESA ',
     esPrivado: false,
   },
   {
@@ -399,7 +392,7 @@ const data: Proceso[] = [
     despacho: 'JUZGADO 002 CIVIL MUNICIPAL DE SOACHA ',
     departamento: 'CUNDINAMARCA',
     Demandante:
-            'Demandante/accionante: Banco Bancolombia SA |',
+      'Demandante/accionante: Banco Bancolombia SA |',
     Demandado: 'JEOVANY  ROJAS CRUZ  ',
     esPrivado: false,
   },
@@ -411,7 +404,7 @@ const data: Proceso[] = [
     fechaProceso: '2017-08-31T00:00:00',
     fechaUltimaActuacion: '2021-11-19T00:00:00',
     despacho:
-            'JUZGADO 007 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ',
+      'JUZGADO 007 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ',
     departamento: 'BOGOTÁ',
     Demandante: 'Demandante: BANCOLOMBIA S.A. |',
     Demandado: 'CESAR UMAÑA CAÑON ',
@@ -439,7 +432,7 @@ const data: Proceso[] = [
     fechaProceso: '2017-09-04T00:00:00',
     fechaUltimaActuacion: '2023-03-27T00:00:00',
     despacho:
-            'JUZGADO 015 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ',
+      'JUZGADO 015 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ',
     departamento: 'BOGOTÁ',
     Demandante: 'Demandante: BANCOLOMBIA S.A. |',
     Demandado: 'GERARDO ANTONIO MONCADA VEGA ',
@@ -453,7 +446,7 @@ const data: Proceso[] = [
     fechaProceso: '2017-09-05T00:00:00',
     fechaUltimaActuacion: '2022-06-16T00:00:00',
     despacho:
-            'JUZGADO 016 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ',
+      'JUZGADO 016 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ',
     departamento: 'BOGOTÁ',
     Demandante: 'Demandante: BANCOLOMBIA S.A. |',
     Demandado: 'JOSE LUIS TORRES TAMAYO ',
@@ -480,7 +473,7 @@ const data: Proceso[] = [
     fechaProceso: '2017-09-06T00:00:00',
     fechaUltimaActuacion: '2022-03-09T00:00:00',
     despacho:
-            'JUZGADO 018 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ',
+      'JUZGADO 018 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ',
     departamento: 'BOGOTÁ',
     Demandante: 'Demandante: BANCOLOMBIA S.A. |',
     Demandado: 'JORGE ALBERTO MARTINEZ BENDECK ',
@@ -494,7 +487,7 @@ const data: Proceso[] = [
     fechaProceso: '2017-09-05T00:00:00',
     fechaUltimaActuacion: '2023-03-07T00:00:00',
     despacho:
-            'JUZGADO 016 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ',
+      'JUZGADO 016 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ',
     departamento: 'BOGOTÁ',
     Demandante: 'Demandante: BANCOLOMBIA S.A. |',
     Demandado: 'CARLOS JAVIER BECERRA BENAVIDES ',
@@ -522,7 +515,7 @@ const data: Proceso[] = [
     fechaProceso: '2017-09-05T00:00:00',
     fechaUltimaActuacion: '2022-07-21T00:00:00',
     despacho:
-            'JUZGADO 001 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ',
+      'JUZGADO 001 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ',
     departamento: 'BOGOTÁ',
     Demandante: 'Demandante: BANCOLOMBIA S.A. |',
     Demandado: 'ANDRES FELIPE GUTIERREZ TRUJILLO ',
@@ -536,7 +529,7 @@ const data: Proceso[] = [
     fechaProceso: '2017-11-28T00:00:00',
     fechaUltimaActuacion: '2022-01-26T00:00:00',
     despacho:
-            'JUZGADO 018 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ',
+      'JUZGADO 018 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ',
     departamento: 'BOGOTÁ',
     Demandante: 'Demandante: BANCOLOMBIA S.A. |',
     Demandado: 'JOSE HERNANDO SANCHEZ VALBUENA ',
@@ -565,7 +558,7 @@ const data: Proceso[] = [
     despacho: 'JUZGADO 017 CIVIL MUNICIPAL DE BOGOTÁ ',
     departamento: 'BOGOTÁ',
     Demandante:
-            'Demandante/accionante: Banco de Colombia S.A |',
+      'Demandante/accionante: Banco de Colombia S.A |',
     Demandado: 'ALIRIO  HEREDIA BUITRAGO (Emplazado)  ',
     esPrivado: false,
   },
@@ -577,7 +570,7 @@ const data: Proceso[] = [
     fechaProceso: '2017-09-18T00:00:00',
     fechaUltimaActuacion: '2022-09-16T00:00:00',
     despacho:
-            'JUZGADO 016 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ',
+      'JUZGADO 016 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ',
     departamento: 'BOGOTÁ',
     Demandante: 'Demandante: BANCOLOMBIA S.A. |',
     Demandado: 'JOSE AHINSONJOVER TORO VARGAS ',
@@ -592,7 +585,7 @@ const data: Proceso[] = [
     fechaProceso: '2017-09-22T00:00:00',
     fechaUltimaActuacion: '2022-11-24T00:00:00',
     despacho:
-            'JUZGADO 001 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ',
+      'JUZGADO 001 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ',
     departamento: 'BOGOTÁ',
     Demandante: 'Demandante: BANCOLOMBIA S.A. |',
     Demandado: 'HERNANDO PULECIO PAREDES ',
@@ -620,7 +613,7 @@ const data: Proceso[] = [
     fechaProceso: '2017-10-10T00:00:00',
     fechaUltimaActuacion: '2022-09-27T00:00:00',
     despacho:
-            'JUZGADO 015 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ',
+      'JUZGADO 015 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ',
     departamento: 'BOGOTÁ',
     Demandante: 'Demandante: BANCOLOMBIA S.A |',
     Demandado: 'NESTOR JULIO MARTINEZ ORJUELA ',
@@ -635,7 +628,7 @@ const data: Proceso[] = [
     fechaProceso: '2017-10-09T00:00:00',
     fechaUltimaActuacion: '2022-03-07T00:00:00',
     despacho:
-            'JUZGADO 002 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ',
+      'JUZGADO 002 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ',
     departamento: 'BOGOTÁ',
     Demandante: 'Demandante: BANCOLOMBIA S.A. |',
     Demandado: 'LUIS AUGUSTO SANCHEZ ORTIZ ',
@@ -649,7 +642,7 @@ const data: Proceso[] = [
     fechaProceso: '2017-10-09T00:00:00',
     fechaUltimaActuacion: '2023-03-08T00:00:00',
     despacho:
-            'JUZGADO 010 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ',
+      'JUZGADO 010 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ',
     departamento: 'BOGOTÁ',
     Demandante: 'Demandante: BANCOLOMBIA S.A. |',
     Demandado: 'ANA BEATRIZ CORREDOR DE OSORIO ',
@@ -663,7 +656,7 @@ const data: Proceso[] = [
     fechaProceso: '2017-10-09T00:00:00',
     fechaUltimaActuacion: '2022-12-01T00:00:00',
     despacho:
-            'JUZGADO 007 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ',
+      'JUZGADO 007 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ',
     departamento: 'BOGOTÁ',
     Demandante: 'Demandante: BANCOLOMBIA S.A. |',
     Demandado: 'ANDERSON REVELO SANTOS ',
@@ -677,12 +670,12 @@ const data: Proceso[] = [
     fechaProceso: '2018-11-23T00:00:00',
     fechaUltimaActuacion: '2023-03-30T00:00:00',
     despacho:
-            'JUZGADO 017 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ',
+      'JUZGADO 017 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ',
     departamento: 'BOGOTÁ',
     Demandante:
-            'Demandante: MAURICIO BOTERO WOLFF | Demandante: BANCOLOMBIA S.A. |',
+      'Demandante: MAURICIO BOTERO WOLFF | Demandante: BANCOLOMBIA S.A. |',
     Demandado:
-            'BLANCA NUBIA LOPEZ CIFUENTES | MARIO DE JESUS OSSA PULGARIN ',
+      'BLANCA NUBIA LOPEZ CIFUENTES | MARIO DE JESUS OSSA PULGARIN ',
     esPrivado: false,
   },
 
@@ -694,7 +687,7 @@ const data: Proceso[] = [
     fechaProceso: '2018-10-26T00:00:00',
     fechaUltimaActuacion: '2023-03-06T00:00:00',
     despacho:
-            'JUZGADO 012 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ',
+      'JUZGADO 012 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ',
     departamento: 'BOGOTÁ',
     Demandante: 'Demandante: BANCOLOMBIA S.A. |',
     Demandado: 'JOGLI JOAQUIN OTERO VARGAS ',
@@ -708,7 +701,7 @@ const data: Proceso[] = [
     fechaProceso: '2017-10-18T00:00:00',
     fechaUltimaActuacion: '2022-03-28T00:00:00',
     despacho:
-            'JUZGADO 015 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ',
+      'JUZGADO 015 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ',
     departamento: 'BOGOTÁ',
     Demandante: 'Demandante: BANCOLOMBIA S.A. |',
     Demandado: 'NATALIA CUESTAS MONDRAGON ',
@@ -722,11 +715,11 @@ const data: Proceso[] = [
     fechaProceso: '2017-11-01T00:00:00',
     fechaUltimaActuacion: '2023-01-31T00:00:00',
     despacho:
-            'JUZGADO 020 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ',
+      'JUZGADO 020 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ',
     departamento: 'BOGOTÁ',
     Demandante: 'Demandante: BANCOLOMBIA S.A. |',
     Demandado:
-            'CALZADO RIVOLI  S.A.S. | MARTHA LUCIA CUARTAS  BETANCOURT ',
+      'CALZADO RIVOLI  S.A.S. | MARTHA LUCIA CUARTAS  BETANCOURT ',
     esPrivado: false,
   },
 
@@ -738,7 +731,7 @@ const data: Proceso[] = [
     fechaProceso: '2017-11-21T00:00:00',
     fechaUltimaActuacion: '2023-01-19T00:00:00',
     despacho:
-            'JUZGADO 014 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ',
+      'JUZGADO 014 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ',
     departamento: 'BOGOTÁ',
     Demandante: 'Demandante: BANCOLOMBIA S.A. |',
     Demandado: 'LEONARDO SANABRIA SANABRA ',
@@ -752,7 +745,7 @@ const data: Proceso[] = [
     fechaProceso: '2017-11-21T00:00:00',
     fechaUltimaActuacion: '2022-02-04T00:00:00',
     despacho:
-            'JUZGADO 009 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ',
+      'JUZGADO 009 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ',
     departamento: 'BOGOTÁ',
     Demandante: 'Demandante: BANCOLOMBIA S.A. |',
     Demandado: 'GILBERTO JAIME BETANCOURT ',
@@ -767,7 +760,7 @@ const data: Proceso[] = [
     fechaProceso: '2017-11-27T00:00:00',
     fechaUltimaActuacion: '2023-03-13T00:00:00',
     despacho:
-            'JUZGADO 016 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ',
+      'JUZGADO 016 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ',
     departamento: 'BOGOTÁ',
     Demandante: 'Demandante: BANCOLOMBIA S.A. |',
     Demandado: 'ORLANDO ENRIQUE NOVOA BARRETO ',
@@ -781,7 +774,7 @@ const data: Proceso[] = [
     fechaProceso: '2018-10-26T00:00:00',
     fechaUltimaActuacion: '2022-03-29T00:00:00',
     despacho:
-            'JUZGADO 016 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ',
+      'JUZGADO 016 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ',
     departamento: 'BOGOTÁ',
     Demandante: 'Demandante: BANCOLOMBIA S.A. |',
     Demandado: 'NESTOR ALBERTO CRISTANCHO LOPEZ ',
@@ -795,11 +788,11 @@ const data: Proceso[] = [
     fechaProceso: '2017-11-27T00:00:00',
     fechaUltimaActuacion: '2023-03-06T00:00:00',
     despacho:
-            'JUZGADO 007 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ',
+      'JUZGADO 007 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ',
     departamento: 'BOGOTÁ',
     Demandante: 'Demandante: BANCOLOMBIA S.A. |',
     Demandado:
-            'JOSÉ ANTONIO MONTEALEGRE HERNÁNDEZ | YULY MARCELA PEÑA GARCIA ',
+      'JOSÉ ANTONIO MONTEALEGRE HERNÁNDEZ | YULY MARCELA PEÑA GARCIA ',
     esPrivado: false,
   },
   {
@@ -810,7 +803,7 @@ const data: Proceso[] = [
     fechaProceso: '2017-12-13T00:00:00',
     fechaUltimaActuacion: '2022-03-10T00:00:00',
     despacho:
-            'JUZGADO 007 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ',
+      'JUZGADO 007 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ',
     departamento: 'BOGOTÁ',
     Demandante: 'Demandante: BANCOLOMBIA S.A. |',
     Demandado: 'OSCAR HUMBERTO GOMEZ CHUCHIN ',
@@ -823,13 +816,10 @@ const data: Proceso[] = [
     llaveProceso: '25126408900220180004800',
     fechaProceso: '2018-02-02T00:00:00',
     fechaUltimaActuacion: null,
-    despacho:
-            'JUZGADO 002 PROMISCUO MUNICIPAL DE CAJICÁ ',
+    despacho: 'JUZGADO 002 PROMISCUO MUNICIPAL DE CAJICÁ ',
     departamento: 'CUNDINAMARCA',
-    Demandante:
-            'Demandante/accionante: BANCOLOMBIA SA |',
-    Demandado:
-            'JUAN CAMILO CHINGATE PENAGOS (Emplazado) ',
+    Demandante: 'Demandante/accionante: BANCOLOMBIA SA |',
+    Demandado: 'JUAN CAMILO CHINGATE PENAGOS (Emplazado) ',
     esPrivado: false,
   },
   {
@@ -853,7 +843,7 @@ const data: Proceso[] = [
     fechaProceso: '2018-02-06T00:00:00',
     fechaUltimaActuacion: '2022-03-25T00:00:00',
     despacho:
-            'JUZGADO 007 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ',
+      'JUZGADO 007 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ',
     departamento: 'BOGOTÁ',
     Demandante: 'Demandante: BANCOLOMBIA S.A. |',
     Demandado: 'MARIA MARIN DE OROZCO ',
@@ -867,7 +857,7 @@ const data: Proceso[] = [
     fechaProceso: '2018-02-06T00:00:00',
     fechaUltimaActuacion: '2023-02-02T00:00:00',
     despacho:
-            'JUZGADO 008 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ',
+      'JUZGADO 008 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ',
     departamento: 'BOGOTÁ',
     Demandante: 'Demandante: BANCOLOMBIA S.A. |',
     Demandado: 'SANDRA PATRICIA BELTRAN  OVIEDO ',
@@ -881,7 +871,7 @@ const data: Proceso[] = [
     fechaProceso: '2018-02-06T00:00:00',
     fechaUltimaActuacion: '2023-03-09T00:00:00',
     despacho:
-            'JUZGADO 017 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ',
+      'JUZGADO 017 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ',
     departamento: 'BOGOTÁ',
     Demandante: 'Demandante: BANCOLOMBIA |',
     Demandado: 'DARLEY JULIED PAEZ ',
@@ -896,7 +886,7 @@ const data: Proceso[] = [
     fechaProceso: '2018-04-26T00:00:00',
     fechaUltimaActuacion: '2023-02-27T00:00:00',
     despacho:
-            'JUZGADO 007 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ',
+      'JUZGADO 007 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ',
     departamento: 'BOGOTÁ',
     Demandante: 'Demandante: BANCOLOMBIA S.A. |',
     Demandado: 'ADOLFO LEON DAZA FERNANDEZ ',
@@ -909,11 +899,9 @@ const data: Proceso[] = [
     llaveProceso: '25307400300320210053900',
     fechaProceso: '2021-10-27T00:00:00',
     fechaUltimaActuacion: '2023-03-10T00:00:00',
-    despacho:
-            'JUZGADO 003 CIVIL MUNICIPAL DE GIRARDOT ',
+    despacho: 'JUZGADO 003 CIVIL MUNICIPAL DE GIRARDOT ',
     departamento: 'CUNDINAMARCA',
-    Demandante:
-            'Demandante/accionante: BANCOLOMBIA SA ',
+    Demandante: 'Demandante/accionante: BANCOLOMBIA SA ',
     Demandado: 'adriana  vanegas peña ',
     esPrivado: false,
   },
@@ -925,11 +913,11 @@ const data: Proceso[] = [
     fechaProceso: '2018-04-30T00:00:00',
     fechaUltimaActuacion: '2023-03-07T00:00:00',
     despacho:
-            'JUZGADO 017 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ',
+      'JUZGADO 017 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ',
     departamento: 'BOGOTÁ',
     Demandante: 'Demandante: BANCOLOMBIA S.A. |',
     Demandado:
-            'SMARTITECH SAS | EDISSON ARMANDO KARL BUITRAGO ',
+      'SMARTITECH SAS | EDISSON ARMANDO KARL BUITRAGO ',
     esPrivado: false,
   },
 
@@ -941,7 +929,7 @@ const data: Proceso[] = [
     fechaProceso: '2021-03-12T00:00:00',
     fechaUltimaActuacion: '2023-02-28T00:00:00',
     despacho:
-            'JUZGADO 002 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ',
+      'JUZGADO 002 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ',
     departamento: 'BOGOTÁ',
     Demandante: 'Demandante: BANCOLOMBIA S.A. |',
     Demandado: 'ANGELICA NATHALY ROZO FRANCO ',
@@ -955,7 +943,7 @@ const data: Proceso[] = [
     fechaProceso: '2019-05-17T00:00:00',
     fechaUltimaActuacion: '2023-03-14T00:00:00',
     despacho:
-            'JUZGADO 001 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ',
+      'JUZGADO 001 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ',
     departamento: 'BOGOTÁ',
     Demandante: 'Demandante: BANCOLOMBIA S.A. |',
     Demandado: 'MARIA CLARA REYES REYES ',
@@ -969,7 +957,7 @@ const data: Proceso[] = [
     fechaProceso: '2018-07-16T00:00:00',
     fechaUltimaActuacion: '2023-01-25T00:00:00',
     despacho:
-            'JUZGADO 004 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ',
+      'JUZGADO 004 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ',
     departamento: 'BOGOTÁ',
     Demandante: 'Demandante: BANCOLOMBIA S.A. |',
     Demandado: 'SANDRA LILIANA CRUZ BELTRAN ',
@@ -983,7 +971,7 @@ const data: Proceso[] = [
     fechaProceso: '2018-07-13T00:00:00',
     fechaUltimaActuacion: '2023-03-27T00:00:00',
     despacho:
-            'JUZGADO 015 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ',
+      'JUZGADO 015 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ',
     departamento: 'BOGOTÁ',
     Demandante: 'Demandante: BANCOLOMBIA S.A. |',
     Demandado: 'ADRIANA LUCIA MORA PLATA ',
@@ -997,7 +985,7 @@ const data: Proceso[] = [
     fechaProceso: '2018-08-01T00:00:00',
     fechaUltimaActuacion: '2023-03-15T00:00:00',
     despacho:
-            'JUZGADO 009 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ',
+      'JUZGADO 009 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ',
     departamento: 'BOGOTÁ',
     Demandante: 'Demandante: BANCOLOMBIA S.A. |',
     Demandado: 'JOSE RODRIGO GARCIA QUINTERO ',
@@ -1011,7 +999,7 @@ const data: Proceso[] = [
     fechaProceso: '2019-02-15T00:00:00',
     fechaUltimaActuacion: '2022-03-24T00:00:00',
     despacho:
-            'JUZGADO 014 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ',
+      'JUZGADO 014 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ',
     departamento: 'BOGOTÁ',
     Demandante: 'Demandante: BANCOLOMBIA S.A. |',
     Demandado: 'JOSE RAMON ESTRADA CASTILLO ',
@@ -1024,8 +1012,7 @@ const data: Proceso[] = [
     llaveProceso: '11001400308220180096400',
     fechaProceso: '2022-05-11T00:00:00',
     fechaUltimaActuacion: '2022-05-25T00:00:00',
-    despacho:
-            'JUZGADO 001 CIVIL MUNICIPAL DE ENVIGADO ',
+    despacho: 'JUZGADO 001 CIVIL MUNICIPAL DE ENVIGADO ',
     departamento: 'ANTIOQUIA',
     Demandante: 'Demandante: BANCOLOMBIA S.A. |',
     Demandado: 'JOSE RAMON ESTRADA CASTILLO ',
@@ -1039,7 +1026,7 @@ const data: Proceso[] = [
     fechaProceso: '2019-11-15T00:00:00',
     fechaUltimaActuacion: '2023-03-16T00:00:00',
     despacho:
-            'JUZGADO 017 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ',
+      'JUZGADO 017 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ',
     departamento: 'BOGOTÁ',
     Demandante: 'Demandante: BANCOLOMBIA |',
     Demandado: 'BIBIANA PATRICIA ESGUERRA VASQUEZ ',
@@ -1053,7 +1040,7 @@ const data: Proceso[] = [
     fechaProceso: '2019-06-28T00:00:00',
     fechaUltimaActuacion: '2022-05-02T00:00:00',
     despacho:
-            'JUZGADO 011 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ',
+      'JUZGADO 011 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ',
     departamento: 'BOGOTÁ',
     Demandante: 'Demandante: BANCOLOMBIA SA |',
     Demandado: 'ROSALIA CHARRY SARMIENTO ',
@@ -1067,7 +1054,7 @@ const data: Proceso[] = [
     fechaProceso: '2017-10-17T00:00:00',
     fechaUltimaActuacion: '2023-03-14T00:00:00',
     despacho:
-            'JUZGADO 013 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ',
+      'JUZGADO 013 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ',
     departamento: 'BOGOTÁ',
     Demandante: 'Demandante: BANCOLOMBIA S.A. |',
     Demandado: 'JOGLI JOAQUIN OTERO VARGAS ',
@@ -1081,10 +1068,10 @@ const data: Proceso[] = [
     fechaProceso: '2017-12-13T00:00:00',
     fechaUltimaActuacion: '2023-03-16T00:00:00',
     despacho:
-            'JUZGADO 019 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ',
+      'JUZGADO 019 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ',
     departamento: 'BOGOTÁ',
     Demandante:
-            'Demandante: BANCOLOMBIA S.A. | Demandante: BANCOLOMBIA |',
+      'Demandante: BANCOLOMBIA S.A. | Demandante: BANCOLOMBIA |',
     Demandado: 'DIANA PATRICIA BARRETO OSMA ',
     esPrivado: false,
   },
@@ -1096,7 +1083,7 @@ const data: Proceso[] = [
     fechaUltimaActuacion: '2023-03-13T00:00:00',
     tipo: 'Bancolombia',
     despacho:
-            'JUZGADO 012 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ',
+      'JUZGADO 012 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ',
     departamento: 'BOGOTÁ',
 
     Demandante: 'BANCOLOMBIA S.A.',
@@ -1112,7 +1099,7 @@ const data: Proceso[] = [
     fechaUltimaActuacion: '2023-03-22T00:00:00',
     tipo: 'Bancolombia',
     despacho:
-            'JUZGADO 018 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ',
+      'JUZGADO 018 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ',
     departamento: 'BOGOTÁ',
 
     Demandante: 'BANCOLOMBIA S.A.',
@@ -1128,7 +1115,7 @@ const data: Proceso[] = [
     fechaUltimaActuacion: '2023-03-22T00:00:00',
     tipo: 'Bancolombia',
     despacho:
-            'JUZGADO 013 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ',
+      'JUZGADO 013 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ',
     departamento: 'BOGOTÁ',
 
     Demandante: 'BANCOLOMBIA S.A.',
@@ -1144,7 +1131,7 @@ const data: Proceso[] = [
     fechaUltimaActuacion: '2023-03-28T00:00:00',
     tipo: 'Bancolombia',
     despacho:
-            'JUZGADO 017 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ',
+      'JUZGADO 017 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ',
     departamento: 'BOGOTÁ',
 
     Demandante: 'BANCOLOMBIA S.A.',
@@ -1160,7 +1147,7 @@ const data: Proceso[] = [
     fechaUltimaActuacion: '2023-03-01T00:00:00',
     tipo: 'Bancolombia',
     despacho:
-            'JUZGADO 006 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ',
+      'JUZGADO 006 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ',
     departamento: 'BOGOTÁ',
 
     Demandante: 'BANCOLOMBIA S.A.',
@@ -1177,7 +1164,7 @@ const data: Proceso[] = [
     fechaUltimaActuacion: '2023-03-28T00:00:00',
     tipo: 'Bancolombia',
     despacho:
-            'JUZGADO 014 DE PEQUEÑAS CAUSAS  Y COMPETENCIA MÚLTIPLE DE BOGOTÁ',
+      'JUZGADO 014 DE PEQUEÑAS CAUSAS  Y COMPETENCIA MÚLTIPLE DE BOGOTÁ',
     departamento: 'BOGOTÁ',
 
     Demandante: 'BANCOLOMBIA S.A.',
@@ -1208,12 +1195,12 @@ const data: Proceso[] = [
     fechaUltimaActuacion: '2021-11-08T00:00:00',
     tipo: 'Bancolombia',
     despacho:
-            'JUZGADO 011 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ',
+      'JUZGADO 011 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ',
     departamento: 'BOGOTÁ',
 
     Demandante: 'BANCOLOMBIA S.A. ',
     Demandado:
-            'ANA LUCIA AGUILAR ,CARMELINA AGUILAR , HUMBERTO AVILA MATIAS ',
+      'ANA LUCIA AGUILAR ,CARMELINA AGUILAR , HUMBERTO AVILA MATIAS ',
 
     esPrivado: false,
   },
@@ -1225,12 +1212,12 @@ const data: Proceso[] = [
     fechaUltimaActuacion: '2022-03-09T00:00:00',
     tipo: 'Bancolombia',
     despacho:
-            'JUZGADO 011 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ',
+      'JUZGADO 011 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ',
     departamento: 'BOGOTÁ',
 
     Demandante: 'BANCOLOMBIA S.A. ',
     Demandado:
-            'JOSE NOEL PUERTA JARAMILLO  LUZ DARY PUERTA JARAMILLO ',
+      'JOSE NOEL PUERTA JARAMILLO  LUZ DARY PUERTA JARAMILLO ',
 
     esPrivado: false,
   },
@@ -1242,7 +1229,7 @@ const data: Proceso[] = [
     fechaUltimaActuacion: '2022-12-01T00:00:00',
     tipo: 'Bancolombia',
     despacho:
-            'JUZGADO 007 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ',
+      'JUZGADO 007 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ',
     departamento: 'BOGOTÁ',
 
     Demandante: 'BANCOLOMBIA S.A. ',
@@ -1258,7 +1245,7 @@ const data: Proceso[] = [
     fechaUltimaActuacion: '2022-11-11T00:00:00',
     tipo: 'Bancolombia',
     despacho:
-            'JUZGADO 007 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ',
+      'JUZGADO 007 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ',
     departamento: 'BOGOTÁ',
 
     Demandante: 'BANCOLOMBIA S.A. ',
@@ -1304,7 +1291,7 @@ const data: Proceso[] = [
     fechaUltimaActuacion: '2022-10-24T00:00:00',
     tipo: 'Bancolombia',
     despacho:
-            'JUZGADO 015 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ',
+      'JUZGADO 015 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ ',
     departamento: 'BOGOTÁ',
 
     Demandante: 'BANCOLOMBIA S.A. ',
@@ -1325,7 +1312,7 @@ const data: Proceso[] = [
 
     Demandante: 'BANCOLOMBIA S.A.',
     Demandado:
-            'MARCO TULIO SANCHEZ MEDINA y SANDRA LEONOR PAEZ MURCIA',
+      'MARCO TULIO SANCHEZ MEDINA y SANDRA LEONOR PAEZ MURCIA',
 
     esPrivado: false,
   },
@@ -1337,7 +1324,7 @@ const data: Proceso[] = [
     fechaUltimaActuacion: '2023-02-27T00:00:00',
     tipo: 'Bancolombia',
     despacho:
-            'JUZGADO 005 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ',
+      'JUZGADO 005 CIVIL MUNICIPAL DE EJECUCIÓN DE SENTENCIAS DE BOGOTÁ',
     departamento: 'BOGOTÁ',
 
     Demandante: 'BANCOLOMBIA S.A.',

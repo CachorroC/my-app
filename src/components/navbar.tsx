@@ -13,16 +13,12 @@ import layout from '#@/styles/css/layout.module.css';
 
 const poiret = Poiret_One({
   weight: '400',
-  subsets: [
-    'latin', 'latin-ext'
-  ],
+  subsets: ['latin', 'latin-ext'],
   display: 'swap',
 });
 
 export default function Navbar() {
-  const [
-    isOpen, setIsOpen
-  ] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
   const close = () => setIsOpen(false);
   const drawerToggle = () => {
     setIsOpen((prevState) => !prevState);
@@ -57,7 +53,7 @@ export default function Navbar() {
         onClick={close}
         className={styles.home}>
         <span className="material-symbols-rounded">
-                    cabin
+          cabin
         </span>
       </button>
       <button
@@ -66,11 +62,11 @@ export default function Navbar() {
         onClick={drawerToggle}>
         {isOpen ? (
           <span className="material-symbols-rounded">
-                        pets
+            pets
           </span>
         ) : (
           <span className="material-symbols-rounded">
-                        star
+            star
           </span>
         )}
       </button>
@@ -81,11 +77,11 @@ export default function Navbar() {
         onClick={() => setIsOpen(!isOpen)}>
         {isOpen ? (
           <span className="material-symbols-rounded">
-                        close
+            close
           </span>
         ) : (
           <span className="material-symbols-rounded">
-                        menu
+            menu
           </span>
         )}
       </button>

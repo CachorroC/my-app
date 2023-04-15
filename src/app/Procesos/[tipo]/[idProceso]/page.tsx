@@ -34,17 +34,15 @@ async function getProcesos(tipo: string) {
 export default async function Page({
   params: { tipo, idProceso },
 }: {
-    params: {
-        tipo: string;
-        idProceso: string;
-    };
+  params: {
+    tipo: string;
+    idProceso: string;
+  };
 }) {
   const actuacionesData = getActuaciones(idProceso);
 
   const procesosData = getProcesos(tipo);
-  const [
-    actuaciones, procesos
-  ] = await Promise.all([
+  const [actuaciones, procesos] = await Promise.all([
     actuacionesData,
     procesosData,
   ]);
@@ -53,9 +51,7 @@ export default async function Page({
     <div className={box.container}>
       <Suspense
         fallback={
-          <div className={box.container}>
-                        loading ...
-          </div>
+          <div className={box.container}>loading ...</div>
         }>
         <Actuaciones
           actuaciones={actuaciones.actuaciones}
@@ -63,9 +59,7 @@ export default async function Page({
       </Suspense>
       <Suspense
         fallback={
-          <div className={box.container}>
-                        loading ...
-          </div>
+          <div className={box.container}>loading ...</div>
         }>
         <Procesos procesos={procesos} />
       </Suspense>

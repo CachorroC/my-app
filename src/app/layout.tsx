@@ -4,8 +4,8 @@ import layout from '#@/styles/css/layout.module.css';
 import type { Metadata } from 'next';
 import 'material-symbols';
 import Footer from '../components/footer';
-import { NavProvider } from "./nav-context";
-import { Navigate } from "./context-click-nav";
+import { NavProvider } from './nav-context';
+import { Navigate } from './context-click-nav';
 
 export const metadata: Metadata = {
   title: 'R&S Asesoría Jurídica',
@@ -13,9 +13,7 @@ export const metadata: Metadata = {
   generator: 'R&S Asesoría Jurídica',
   applicationName: 'R&S Asesoría Jurídica',
   referrer: 'origin-when-cross-origin',
-  keywords: [
-    'Next.js', 'React', 'JavaScript'
-  ],
+  keywords: ['Next.js', 'React', 'JavaScript'],
   authors: [
     { name: 'cam' },
     {
@@ -36,7 +34,7 @@ export const metadata: Metadata = {
   ],
   creator: 'Cachorro Cami',
   manifest:
-        'https://app.rsasesorjuridico.com/manifest.json',
+    'https://app.rsasesorjuridico.com/manifest.json',
   publisher: 'CachorroC',
   alternates: {},
   formatDetection: {
@@ -87,7 +85,8 @@ export const metadata: Metadata = {
       '/icons/mstile-310x310.png',
       {
         url: '/icons/android-chrome-512x512.png',
-        media: '(device-width: 768px) and (device-height: 1024px)',
+        media:
+          '(device-width: 768px) and (device-height: 1024px)',
       },
     ],
   },
@@ -102,7 +101,7 @@ export const metadata: Metadata = {
 export default function RootLayout({
   children,
 }: {
-    children: React.ReactNode;
+  children: React.ReactNode;
 }) {
   return (
     <html
@@ -112,7 +111,7 @@ export default function RootLayout({
         <NavProvider>
           <div className={layout.base}>
             <Navbar />
-            <Navigate/>
+            <Navigate />
             {children}
             <Footer />
           </div>

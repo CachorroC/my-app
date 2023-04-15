@@ -7,22 +7,17 @@ import box from '#@/styles/css/box.module.css';
 
 const poiret = Poiret_One({
   weight: '400',
-  subsets: [
-    'latin', 'latin-ext'
-  ],
+  subsets: ['latin', 'latin-ext'],
   display: 'swap',
 });
 
 export default function Tab({
   proceso,
 }: {
-    proceso: Proceso;
+  proceso: Proceso;
 }) {
   const href: string =
-        'Procesos/' +
-        proceso.tipo +
-        '/' +
-        proceso.idProceso;
+    'Procesos/' + proceso.tipo + '/' + proceso.idProceso;
 
   return (
     <Link

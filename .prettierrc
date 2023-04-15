@@ -1,13 +1,13 @@
 {
-    "tabWidth": 4,
-    "useTabs": false,
-    "arrowParens": "always",
-    "bracketSameLine": true,
-    "bracketSpacing": true,
-    "singleQuote": true,
-    "htmlWhitespaceSensitivity": "ignore",
-    "trailingComma": "all",
-    "printWidth": 60,
-    "singleAttributePerLine": true,
-    "semi": true
+  "tabWidth": 2,
+  "useTabs": false,
+  "arrowParens": "always",
+  "bracketSameLine": true,
+  "bracketSpacing": true,
+  "singleQuote": true,
+  "htmlWhitespaceSensitivity": "ignore",
+  "trailingComma": "all",
+  "printWidth": 60,
+  "singleAttributePerLine": true,
+  "semi": true
 }

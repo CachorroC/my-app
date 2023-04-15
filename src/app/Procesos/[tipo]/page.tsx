@@ -13,18 +13,16 @@ export const metadata = {
 export default async function Page({
   params,
 }: {
-    params: {
-        tipo: string;
-    };
+  params: {
+    tipo: string;
+  };
 }) {
   const procesos = await getProcesos({
     tipo: params.tipo,
   });
   return (
     <>
-      <h1 className={poiret.className}>
-        {params.tipo}
-      </h1>
+      <h1 className={poiret.className}>{params.tipo}</h1>
       <Search procesos={procesos} />
     </>
   );

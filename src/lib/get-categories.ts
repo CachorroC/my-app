@@ -1,10 +1,10 @@
 import { cache } from 'react';
 
 export type Category = {
-    name: string;
-    idProceso: string;
-    count: number;
-    items: Omit<Category, 'items'>[];
+  name: string;
+  idProceso: string;
+  count: number;
+  items: Omit<Category, 'items'>[];
 };
 
 export const getCategories = cache((): Category[] => [
@@ -78,8 +78,8 @@ export async function fetchCategoryByidProceso(
 }
 
 export async function fetchCategories(): Promise<
-    Category[]
-    > {
+  Category[]
+> {
   return getCategories();
 }
 

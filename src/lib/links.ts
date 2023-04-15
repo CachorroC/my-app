@@ -1,9 +1,9 @@
 export type Item = {
-    href: any;
-    name: string;
-    icon: string;
-    description?: string;
-    id?: number;
+  href: any;
+  name: string;
+  icon: string;
+  description?: string;
+  id?: number;
 };
 export const linksInternos: Item[] = [
   {
@@ -70,7 +70,7 @@ export const demos: { name: string; items: Item[] }[] = [
         icon: 'search_off',
         id: 12,
         description:
-                    'Create Not Found UI for specific parts of an app',
+          'Create Not Found UI for specific parts of an app',
       },
     ],
   },

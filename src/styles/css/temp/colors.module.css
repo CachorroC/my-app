@@ -23,7 +23,9 @@
 }
 
 .on-primary-container {
-  background-color: var(--md-sys-color-on-primary-container);
+  background-color: var(
+    --md-sys-color-on-primary-container
+  );
 }
 
 .on-primary-container-text {
@@ -55,7 +57,9 @@
 }
 
 .on-primary-fixed-variant {
-  background-color: var(--md-sys-color-on-primary-fixed-variant);
+  background-color: var(
+    --md-sys-color-on-primary-fixed-variant
+  );
 }
 
 .on-primary-fixed-variant-text {
@@ -87,7 +91,9 @@
 }
 
 .on-secondary-container {
-  background-color: var(--md-sys-color-on-secondary-container);
+  background-color: var(
+    --md-sys-color-on-secondary-container
+  );
 }
 
 .on-secondary-container-text {
@@ -119,7 +125,9 @@
 }
 
 .on-secondary-fixed-variant {
-  background-color: var(--md-sys-color-on-secondary-fixed-variant);
+  background-color: var(
+    --md-sys-color-on-secondary-fixed-variant
+  );
 }
 
 .on-secondary-fixed-variant-text {
@@ -151,7 +159,9 @@
 }
 
 .on-tertiary-container {
-  background-color: var(--md-sys-color-on-tertiary-container);
+  background-color: var(
+    --md-sys-color-on-tertiary-container
+  );
 }
 
 .on-tertiary-container-text {
@@ -183,7 +193,9 @@
 }
 
 .on-tertiary-fixed-variant {
-  background-color: var(--md-sys-color-on-tertiary-fixed-variant);
+  background-color: var(
+    --md-sys-color-on-tertiary-fixed-variant
+  );
 }
 
 .on-tertiary-fixed-variant-text {
@@ -335,7 +347,9 @@
 }
 
 .surface-container-highest {
-  background-color: var(--md-sys-color-surface-container-highest);
+  background-color: var(
+    --md-sys-color-surface-container-highest
+  );
 }
 
 .surface-container-highest-text {
@@ -343,7 +357,9 @@
 }
 
 .surface-container-high {
-  background-color: var(--md-sys-color-surface-container-high);
+  background-color: var(
+    --md-sys-color-surface-container-high
+  );
 }
 
 .surface-container-high-text {
@@ -359,7 +375,9 @@
 }
 
 .surface-container-low {
-  background-color: var(--md-sys-color-surface-container-low);
+  background-color: var(
+    --md-sys-color-surface-container-low
+  );
 }
 
 .surface-container-low-text {
@@ -367,7 +385,9 @@
 }
 
 .surface-container-lowest {
-  background-color: var(--md-sys-color-surface-container-lowest);
+  background-color: var(
+    --md-sys-color-surface-container-lowest
+  );
 }
 
 .surface-container-lowest-text {

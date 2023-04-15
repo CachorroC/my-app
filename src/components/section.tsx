@@ -4,7 +4,7 @@ import { LevelContext } from '#@/components/procesos-context';
 export default function Section({
   children,
 }: {
-    children: React.ReactNode;
+  children: React.ReactNode;
 }) {
   const level = useContext(LevelContext);
   return (

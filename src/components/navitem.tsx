@@ -10,9 +10,9 @@ export default function NavItem({
   className,
   close,
 }: {
-    link: Item;
-    className: string;
-    close: () => false | void;
+  link: Item;
+  className: string;
+  close: () => false | void;
 }) {
   const segment = useSelectedLayoutSegment();
   const isActive = link.href === segment;
