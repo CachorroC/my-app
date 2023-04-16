@@ -9,6 +9,7 @@ import { SearchProvider } from './search-context';
 import SearchBar, { Search } from './context-input-search';
 import { getProcesos } from './api/procesos/getProcesos';
 import NavButton, { Nav } from './context-click-counter';
+import { ReactNode } from 'react';
 
 export const metadata: Metadata = {
   title: 'R&S Asesoría Jurídica',
@@ -103,11 +104,13 @@ export const metadata: Metadata = {
   },
 };
 
-export default async function RootLayout ( {
-  children,
-}: {
-  children: React.ReactNode;
-} ) {
+export default async function RootLayout (
+  {
+    children,
+  }: {
+    children: ReactNode;
+  }
+) {
   const procesos = await getProcesos();
   return (
     <html

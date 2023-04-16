@@ -1,4 +1,4 @@
-import type { Route } from 'next';
+
 import Link from 'next/link';
 
 export interface Item {
@@ -38,25 +38,25 @@ export const linksExternos: Item[] = [
     id: 2,
   },
 ];
-export const demos: { name: string; items: Item[] }[] = [
+export const demos: { name: string; items: Item[]; }[] = [
   {
     name: 'Links Internos',
     items: [
       {
-        href: '/Procesos/Bancolombia',
+        href: 'Bancolombia',
         name: 'Bancolombia',
         icon: 'account_balance',
         id: 2,
       },
       {
-        href: '/Procesos/Reintegra',
+        href: 'Reintegra',
         name: 'Reintegra',
         icon: 'integration_instructions',
         id: 3,
       },
       {
-        href: '/hooks',
-        name: 'Hooks',
+        href: '',
+        name: 'Procesos',
         icon: 'phishing',
         id: 4,
       },

@@ -48,9 +48,14 @@ export const Nav = ( {
   ] = useSearch();
   const rows: any[] = [
   ];
+
   procesos.forEach( ( proceso ) => {
     const name = proceso.Demandado.slice( 0, 10 );
     const ultimAct = new Date( proceso.fechaUltimaActuacion ? proceso.fechaUltimaActuacion : '' );
+    const months = [
+      "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" 
+    ];
+    const month = months[ ultimAct.getMonth() ];
     if (
       proceso.Demandado.toLowerCase().indexOf(
         search.toLowerCase(),
@@ -65,8 +70,7 @@ export const Nav = ( {
         <h4 className={ poiret.className }>
           { name }
         </h4>
-        <i>{ ultimAct.getMonth() + 1 }</i>
-        <i>{ ultimAct.getFullYear() }</i>
+        <i>{ month }</i>
       </Link>,
     );
   } );

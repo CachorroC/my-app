@@ -18,8 +18,7 @@ const poiret = Poiret_One( {
 
 export default async function Home () {
   return (
-    <div className={ layout.main }>
-      { ' ' }
+    <>
       { demos.map( ( section ) => (
         <div
           className={ styles.section }
@@ -52,6 +51,6 @@ export default async function Home () {
           </div>
         </div>
       ) ) }
-    </div>
+    </>
   );
 }

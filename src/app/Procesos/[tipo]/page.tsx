@@ -7,7 +7,7 @@ import { poiret } from '../../../components/typeface';
 import Link from 'next/link';
 import { useSearch } from '#@/app/search-context';
 export const metadata = {
-  title: 'procesos',
+  title: 'Bancolombia',
 };
 
 export default async function Page({
