@@ -10,9 +10,7 @@ import layout from '#@/styles/css/layout.module.css';
 
 const poiret = Poiret_One({
   weight: '400',
-  subsets: [
-    'latin', 'latin-ext'
-  ],
+  subsets: ['latin', 'latin-ext'],
   display: 'swap',
 });
 
@@ -32,7 +30,7 @@ export default async function Home() {
             {' '}
             {section.items.map((item) => (
               <Link
-                href={item.href}
+                href={`/Procesos/${item.href}`}
                 key={item.id}
                 className={styles.module}>
                 <h2

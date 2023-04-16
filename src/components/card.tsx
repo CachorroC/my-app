@@ -33,8 +33,7 @@ type Card = {
     | undefined;
 };
 export function Cardboard({ cards }: { cards: Card[] }) {
-  const rows: any[] = [
-  ];
+  const rows: any[] = [];
   cards.forEach((card) =>
     rows.push(
       <Card

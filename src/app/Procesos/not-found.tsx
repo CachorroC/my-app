@@ -1,6 +1,8 @@
 import typeface from '#@/styles/css/typeface.module.css';
 import modal from '#@/styles/css/modal.module.css';
-import SearchBar, { Search } from './context-input-search';
+import SearchBar, {
+  Search,
+} from '#@/app/context-input-search';
 import { getProcesos } from '../api/procesos/getProcesos';
 export default async function NotFound() {
   const today = new Date();
@@ -9,12 +11,10 @@ export default async function NotFound() {
     if (curHr < 12) {
       const timesegment = 'este dia';
       return timesegment;
-    }
-    else if (curHr < 18) {
+    } else if (curHr < 18) {
       const timesegment = 'la tarde';
       return timesegment;
-    }
-    else {
+    } else {
       const timesegment = 'la noche';
       return timesegment;
     }

@@ -10,19 +10,16 @@ import 'material-symbols';
 import NavItem from '#@/components/navitem';
 import box from '#@/styles/css/box.module.css';
 import layout from '#@/styles/css/layout.module.css';
+import { useNavigator } from '../app/navigator-context';
 
 const poiret = Poiret_One({
   weight: '400',
-  subsets: [
-    'latin', 'latin-ext'
-  ],
+  subsets: ['latin', 'latin-ext'],
   display: 'swap',
 });
 
 export default function Navbar() {
-  const [
-    isOpen, setIsOpen
-  ] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
   const close = () => setIsOpen(false);
   const drawerToggle = () => {
     setIsOpen((prevState) => !prevState);
@@ -52,7 +49,8 @@ export default function Navbar() {
   );
   return (
     <div className={layout.header}>
-      <Link href='/'
+      <Link
+        href="/"
         className={styles.button}>
         <span className="material-symbols-rounded">
           cabin

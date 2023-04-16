@@ -1,4 +1,4 @@
-import layout from '#@/styles/css/layout.module.css';
+import layout from '#@/styles/css/layout2.module.css';
 export default function Footer() {
   return (
     <footer className={layout.footer}>

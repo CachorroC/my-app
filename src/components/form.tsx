@@ -3,15 +3,9 @@
 import { SetStateAction, useState } from 'react';
 
 export default function Form() {
-  const [
-    answer, setAnswer
-  ] = useState('');
-  const [
-    error, setError
-  ] = useState(null);
-  const [
-    status, setStatus
-  ] = useState('typing'); // 'typing', 's
+  const [answer, setAnswer] = useState('');
+  const [error, setError] = useState(null);
+  const [status, setStatus] = useState('typing'); // 'typing', 's
   if (status === 'success') {
     return <h1>{status}</h1>;
   }
@@ -23,8 +17,7 @@ export default function Form() {
     try {
       await submitForm(answer);
       setStatus('success');
-    }
-    catch (err) {
+    } catch (err) {
       setStatus('typing');
       setError(null);
     }
@@ -73,8 +66,7 @@ function submitForm(answer: string) {
             'Good guess but a wrong answer. Try again!',
           ),
         );
-      }
-      else {
+      } else {
         resolve();
       }
     }, 1500);

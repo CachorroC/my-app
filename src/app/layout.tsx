@@ -1,14 +1,14 @@
 import '#@/styles/css/globals.css';
 import Navbar from '#@/components/navbar';
-import layout from '#@/styles/css/layout.module.css';
+import layout from '#@/styles/css/layout2.module.css';
 import type { Metadata } from 'next';
 import 'material-symbols';
 import Footer from '../components/footer';
 import { NavProvider } from '#@/app/navigator-context';
-import { SearchProvider } from "./search-context";
-import SearchBar, { Search } from "./context-input-search";
-import { getProcesos } from "./api/procesos/getProcesos";
-import NavButton, { Nav } from "./context-click-counter";
+import { SearchProvider } from './search-context';
+import SearchBar, { Search } from './context-input-search';
+import { getProcesos } from './api/procesos/getProcesos';
+import NavButton, { Nav } from './context-click-counter';
 
 export const metadata: Metadata = {
   title: 'R&S Asesoría Jurídica',
@@ -16,9 +16,7 @@ export const metadata: Metadata = {
   generator: 'R&S Asesoría Jurídica',
   applicationName: 'R&S Asesoría Jurídica',
   referrer: 'origin-when-cross-origin',
-  keywords: [
-    'Next.js', 'React', 'JavaScript'
-  ],
+  keywords: ['Next.js', 'React', 'JavaScript'],
   authors: [
     { name: 'cam' },
     {
@@ -103,34 +101,29 @@ export const metadata: Metadata = {
   },
 };
 
-export default async function RootLayout ( {
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
-} ) {
+}) {
   const procesos = await getProcesos();
   return (
     <html
       lang="es"
       className="[color-scheme: light dark]">
       <body>
-        <NavProvider>
-          <SearchProvider>
-          
-            <div className={ layout.base }>
-              <Navbar />
-              <NavButton/>
-              <Nav/>
-
-              { children }
+        <SearchProvider>
+          <NavProvider>
+            <div className={layout.container}>
+              {/*   <Navbar /> */}
+              <NavButton />
+              <Nav procesos={procesos} />
               <SearchBar />
-              <Search procesos={procesos}/>
-          
+              {children}
               <Footer />
             </div>
-         
-          </SearchProvider>
-        </NavProvider>
+          </NavProvider>
+        </SearchProvider>
       </body>
     </html>
   );

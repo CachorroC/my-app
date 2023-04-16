@@ -1,7 +1,7 @@
 'use client';
 import { Item, demos } from '../lib/links';
-import NavItem from "./navitem";
-import { poiret } from "./typeface";
+import NavItem from './navitem';
+import { poiret } from './typeface';
 import navbar from '#@/styles/css/navbar.module.css';
 export default function Drawer({
   items,
@@ -12,7 +12,6 @@ export default function Drawer({
   title: string;
   children: React.ReactNode;
 }) {
-  
   return (
     <div
       className={navbar.drawer}

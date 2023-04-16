@@ -1,10 +1,15 @@
-export type Item = {
-  href: any;
+import type { Route } from 'next';
+import Link from 'next/link';
+
+export interface Item {
   name: string;
   icon: string;
   description?: string;
-  id?: number;
-};
+  id: number;
+
+  href?: string | null;
+}
+
 export const linksInternos: Item[] = [
   {
     href: '/blog',
@@ -24,11 +29,13 @@ export const linksExternos: Item[] = [
     name: 'zero trust',
     href: 'https://dash.teams.cloudflare.com',
     icon: 'zero',
+    id: 1,
   },
   {
     name: ' cloudflare',
     href: 'https://dash.cloudflare.com',
     icon: 'cloud',
+    id: 2,
   },
 ];
 export const demos: { name: string; items: Item[] }[] = [

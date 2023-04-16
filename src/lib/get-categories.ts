@@ -79,7 +79,7 @@ export async function fetchCategoryByidProceso(
 
 export async function fetchCategories(): Promise<
   Category[]
-  > {
+> {
   return getCategories();
 }
 

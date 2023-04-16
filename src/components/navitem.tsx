@@ -4,6 +4,7 @@ import { type Item } from '#@/lib/links';
 import { useSelectedLayoutSegment } from 'next/navigation';
 import 'material-symbols';
 import box from '#@/styles/css/box.module.css';
+import { Route } from 'next';
 
 export default function NavItem({
   link,
@@ -19,7 +20,7 @@ export default function NavItem({
   return (
     <Link
       onClick={close}
-      href={link.href}
+      href={`/Procesos/${link.href}`}
       className={`${styles.link} ${box.container}`}>
       <span className="material-symbols-outlined">
         {isActive ? 'favorite' : link.icon}

@@ -8,26 +8,24 @@ import navbar from '#@/styles/css/navbar.module.css';
 import Link from 'next/link';
 import { poiret } from '#@/components/typeface';
 import layout from '#@/styles/css/layout.module.css';
+import { useNavigator } from './navigator-context';
 
 const SearchBar = () => {
-  const [
-    search, setSearch
-  ] = useSearch();
- 
+  const [search, setSearch] = useSearch();
+  const [isOpen, setIsOpen] = useNavigator();
 
   return (
-    
     <input
       type="text"
       className={form.input}
       value={search}
       placeholder="Search..."
-      
-      onChange={
-        (input) =>
-          setSearch(input.target.value)
-      }></input>
-   
+      onBeforeInput={() => {
+        setIsOpen(true);
+      }}
+      onChange={(input) => {
+        setSearch(input.target.value);
+      }}></input>
   );
 };
 function ProcesoRow({ proceso }: { proceso: Proceso }) {
@@ -47,11 +45,8 @@ export const Search = ({
 }: {
   procesos: Proceso[];
 }) => {
-  const [
-    search
-  ] = useSearch();
-  const rows: any[] = [
-  ];
+  const [search] = useSearch();
+  const rows: any[] = [];
   procesos.forEach((proceso) => {
     if (
       proceso.Demandado.toLowerCase().indexOf(

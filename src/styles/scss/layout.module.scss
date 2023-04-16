@@ -7,14 +7,17 @@
   height: 100vh;
   grid-template-areas:
     'header header header header header header'
-    'body body body body body body'
+    'navbutton navbutton search search search search'
     'body body body body body body'
     'body body body body body body'
     'body body body body body body'
     'body body body body body body'
     'footer footer footer footer footer footer';
+  .navbutton {
+    grid-area: navbutton;
+  }
 
-  & > .procesossearchbox {
+  .procesossearchbox {
     display: grid;
     grid-auto-rows: 1fr;
     grid-template-columns: repeat(2, 1fr);
@@ -32,13 +35,13 @@
     grid-area: sidenav;
   }
 
-  & > .footer {
+  .footer {
     grid-area: footer;
     background-color: var(--tertiary);
     color: var(--on-tertiray);
   }
 
-  & > .header {
+  .header {
     display: flex;
     flex-flow: row nowrap;
     box-shadow: var(--dp3);
@@ -47,15 +50,15 @@
     grid-area: header;
     background-color: var(--primary);
 
-    & > .button,
-    & > .home {
+    .button,
+    .home {
       border: 0;
       background-color: var(--primary-container);
       color: var(--on-primary-container);
       width: 100%;
       flex-basis: auto;
 
-      & > span {
+      span {
         width: 100%;
       }
 

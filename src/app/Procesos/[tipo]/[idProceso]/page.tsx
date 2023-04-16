@@ -42,9 +42,7 @@ export default async function Page({
   const actuacionesData = getActuaciones(idProceso);
 
   const procesosData = getProcesos(tipo);
-  const [
-    actuaciones, procesos
-  ] = await Promise.all([
+  const [actuaciones, procesos] = await Promise.all([
     actuacionesData,
     procesosData,
   ]);

@@ -1,10 +1,16 @@
 'use client';
 import { useParams } from 'next/navigation';
-import { Dispatch, ReactNode, SetStateAction, createContext, useContext, useState } from "react";
+import {
+  Dispatch,
+  ReactNode,
+  SetStateAction,
+  createContext,
+  useContext,
+  useState,
+} from 'react';
 
 const SearchContext = createContext<
-  | [string, Dispatch<SetStateAction<string>>]
-  | null
+  [string, Dispatch<SetStateAction<string>>] | null
 >(null);
 
 export function SearchProvider({
@@ -13,17 +19,11 @@ export function SearchProvider({
   children: ReactNode;
 }) {
   const params = useParams();
-  const [
-    search, setSearch
-  ] = useState('');
-  const [
-    hasUltimaActuacion, setUltimaActuacion
-  ] =
+  const [search, setSearch] = useState('');
+  const [hasUltimaActuacion, setUltimaActuacion] =
     useState(false);
   return (
-    <SearchContext.Provider value={[
-      search, setSearch
-    ]}>
+    <SearchContext.Provider value={[search, setSearch]}>
       {children}
     </SearchContext.Provider>
   );

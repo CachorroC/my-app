@@ -2,10 +2,10 @@ import { getProcesos } from '#@/app/api/procesos/getProcesos';
 import layout from '#@/styles/css/layout.module.css';
 import typeface from '#@/styles/css/typeface.module.css';
 import React from 'react';
-import { Search } from '#@/app/Procesos/context-input-search';
+import { Search } from '#@/app/context-input-search';
 import { poiret } from '../../../components/typeface';
 import Link from 'next/link';
-import { useSearch } from '../search-context';
+import { useSearch } from '#@/app/search-context';
 export const metadata = {
   title: 'procesos',
 };
