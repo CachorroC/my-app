@@ -10,9 +10,13 @@ export function AddToCart({
   initialCartCount: number;
 }) {
   const router = useRouter();
-  const [isPending, startTransition] = useTransition();
+  const [
+    isPending, startTransition
+  ] = useTransition();
 
-  const [, setOptimisticCartCount] = useCartCount();
+  const [
+    , setOptimisticCartCount
+  ] = useCartCount();
 
   const addToCart = () => {
     setOptimisticCartCount(initialCartCount + 1);

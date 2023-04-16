@@ -8,7 +8,8 @@ export interface Proceso {
   esPrivado: boolean;
   idConexion: number;
   fechaProceso?: string | null;
-  fechaUltimaActuacion?: Date | string | null;
+  fechaUltimaActuacion: Date | string | null
+;
   Demandante?: string;
 }
 

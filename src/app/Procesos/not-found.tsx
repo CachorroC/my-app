@@ -11,10 +11,12 @@ export default async function NotFound() {
     if (curHr < 12) {
       const timesegment = 'este dia';
       return timesegment;
-    } else if (curHr < 18) {
+    }
+    else if (curHr < 18) {
       const timesegment = 'la tarde';
       return timesegment;
-    } else {
+    }
+    else {
       const timesegment = 'la noche';
       return timesegment;
     }

@@ -19,11 +19,17 @@ export function SearchProvider({
   children: ReactNode;
 }) {
   const params = useParams();
-  const [search, setSearch] = useState('');
-  const [hasUltimaActuacion, setUltimaActuacion] =
+  const [
+    search, setSearch
+  ] = useState('');
+  const [
+    hasUltimaActuacion, setUltimaActuacion
+  ] =
     useState(false);
   return (
-    <SearchContext.Provider value={[search, setSearch]}>
+    <SearchContext.Provider value={[
+      search, setSearch
+    ]}>
       {children}
     </SearchContext.Provider>
   );

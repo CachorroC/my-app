@@ -17,7 +17,9 @@ export function CartCountProvider({
   children: React.ReactNode;
   initialCartCount: number;
 }) {
-  const [optimisticCartCount, setOptimisticCartCount] =
+  const [
+    optimisticCartCount, setOptimisticCartCount
+  ] =
     useState<null | number>(null);
 
   const count =
@@ -27,7 +29,9 @@ export function CartCountProvider({
 
   return (
     <CartCountContext.Provider
-      value={[count, setOptimisticCartCount]}>
+      value={[
+        count, setOptimisticCartCount
+      ]}>
       {children}
     </CartCountContext.Provider>
   );

@@ -1,7 +1,7 @@
 'use client';
 import styles from '#@/styles/css/navbar.module.css';
 import { demos } from '#@/lib/links';
-import React, { useState } from 'react';
+import React, { ReactNode, useState } from 'react';
 import Link from 'next/link';
 import { Drawer } from '@mui/material';
 import { useSelectedLayoutSegment } from 'next/navigation';
@@ -9,58 +9,62 @@ import { Poiret_One } from 'next/font/google';
 import 'material-symbols';
 import NavItem from '#@/components/navitem';
 import box from '#@/styles/css/box.module.css';
-import layout from '#@/styles/css/layout.module.css';
+import layout from '#@/styles/scss/layout.module.scss';
 import { useNavigator } from '../app/navigator-context';
 
-const poiret = Poiret_One({
+const poiret = Poiret_One( {
   weight: '400',
-  subsets: ['latin', 'latin-ext'],
+  subsets: [
+    'latin', 'latin-ext'
+  ],
   display: 'swap',
-});
+} );
 
-export default function Navbar() {
-  const [isOpen, setIsOpen] = useState(false);
-  const close = () => setIsOpen(false);
+export default function Navbar ( { children }: { children: ReactNode; } ) {
+  const [
+    isOpen, setIsOpen
+  ] = useState( false );
+  const close = () => setIsOpen( false );
   const drawerToggle = () => {
-    setIsOpen((prevState) => !prevState);
+    setIsOpen( ( prevState ) => !prevState );
   };
   const drawer = (
     <div
-      className={styles.drawer}
-      onClick={close}>
-      {demos.map((section) => (
+      className={ styles.drawer }
+      onClick={ close }>
+      { demos.map( ( section ) => (
         <nav
-          key={section.name}
-          className={styles.menu}>
-          <h1 className={poiret.className}>
-            {section.name}
+          key={ section.name }
+          className={ styles.menu }>
+          <h1 className={ poiret.className }>
+            { section.name }
           </h1>
-          {section.items.map((link) => (
+          { section.items.map( ( link ) => (
             <NavItem
-              key={link.id}
-              link={link}
-              close={close}
-              className={poiret.className}
+              key={ link.id }
+              link={ link }
+              close={ close }
+              className={ poiret.className }
             />
-          ))}
+          ) ) }
         </nav>
-      ))}
+      ) ) }
     </div>
   );
   return (
-    <div className={layout.header}>
+    <div className={ layout.header }>
       <Link
         href="/"
-        className={styles.button}>
+        className={ styles.button }>
         <span className="material-symbols-rounded">
           cabin
         </span>
       </Link>
       <button
         type="button"
-        className={styles.button}
-        onClick={drawerToggle}>
-        {isOpen ? (
+        className={ styles.button }
+        onClick={ drawerToggle }>
+        { isOpen ? (
           <span className="material-symbols-rounded">
             pets
           </span>
@@ -68,29 +72,16 @@ export default function Navbar() {
           <span className="material-symbols-rounded">
             star
           </span>
-        )}
+        ) }
       </button>
-
-      <button
-        type="button"
-        className={styles.button}
-        onClick={() => setIsOpen(!isOpen)}>
-        {isOpen ? (
-          <span className="material-symbols-rounded">
-            close
-          </span>
-        ) : (
-          <span className="material-symbols-rounded">
-            menu
-          </span>
-        )}
-      </button>
+      { children }
+    
       <Drawer
         variant="temporary"
-        open={isOpen}
-        onClose={drawerToggle}
-        ModalProps={{ keepMounted: true }}>
-        {drawer}
+        open={ isOpen }
+        onClose={ drawerToggle }
+        ModalProps={ { keepMounted: true } }>
+        { drawer }
       </Drawer>
     </div>
   );

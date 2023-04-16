@@ -3,20 +3,22 @@
 import { useNavigator } from './navigator-context';
 import React from 'react';
 import box from '#@/styles/css/box.module.css';
-import layout from '#@/styles/css/layout2.module.css';
+import layout from '#@/styles/scss/layout.module.scss';
 import { useSearch } from './search-context';
 import Link from 'next/link';
 import { poiret } from '../components/typeface';
 import { Proceso } from './api/procesos/proceso';
 
 const NavButton = () => {
-  const [isOpen, setIsOpen] = useNavigator();
+  const [
+    isOpen, setIsOpen
+  ] = useNavigator();
 
-  if (isOpen) {
+  if ( isOpen ) {
     return (
       <button
-        onClick={() => setIsOpen(false)}
-        className={layout.navbutton}>
+        onClick={ () => setIsOpen( false ) }
+        className={ layout.NavButton }>
         <span className="material-symbols-outlined">
           close
         </span>
@@ -25,23 +27,30 @@ const NavButton = () => {
   }
   return (
     <button
-      onClick={() => setIsOpen(true)}
-      className={layout.NavButton}>
+      onClick={ () => setIsOpen( true ) }
+      className={ layout.NavButton }>
       <span className="material-symbols-outlined">
-        home{' '}
+        menu
       </span>
     </button>
   );
 };
-export const Nav = ({
+export const Nav = ( {
   procesos,
 }: {
   procesos: Proceso[];
-}) => {
-  const [isOpen, setIsOpen] = useNavigator();
-  const [search] = useSearch();
-  const rows: any[] = [];
-  procesos.forEach((proceso) => {
+} ) => {
+  const [
+    isOpen, setIsOpen
+  ] = useNavigator();
+  const [
+    search
+  ] = useSearch();
+  const rows: any[] = [
+  ];
+  procesos.forEach( ( proceso ) => {
+    const name = proceso.Demandado.slice( 0, 10 );
+    const ultimAct = new Date( proceso.fechaUltimaActuacion ? proceso.fechaUltimaActuacion : '' );
     if (
       proceso.Demandado.toLowerCase().indexOf(
         search.toLowerCase(),
@@ -51,30 +60,32 @@ export const Nav = ({
     }
     rows.push(
       <Link
-        className={layout.card}
-        href={`/Procesos/${proceso.tipo}/${proceso.idProceso}`}>
-        <h4 className={poiret.className}>
-          {proceso.Demandado}
+        className={ layout.link }
+        href={ `/Procesos/${ proceso.tipo }/${ proceso.idProceso }` }>
+        <h4 className={ poiret.className }>
+          { name }
         </h4>
-        <i>{proceso.fechaUltimaActuacion?.toString()}</i>
+        <i>{ ultimAct.getMonth() + 1 }</i>
+        <i>{ ultimAct.getFullYear() }</i>
       </Link>,
     );
-  });
-  if (isOpen === true) {
-    return <div className={layout.sidenav}>{rows}</div>;
-  } else if (!isOpen) {
+  } );
+  if ( isOpen === true ) {
+    return <div className={ layout.sidenav }>{ rows }</div>;
+  }
+  else if ( !isOpen ) {
     return (
       <button
-        onClick={() => {
-          setIsOpen(true);
-        }}>
+        onClick={ () => {
+          setIsOpen( true );
+        } }>
         <span className="material-symbols-outlined">
           heart_plus
         </span>
       </button>
     );
   }
-  return <p>idk</p>;
+  return <div className={ layout.sidenav }>{ rows }</div>;
 };
 
 export default NavButton;

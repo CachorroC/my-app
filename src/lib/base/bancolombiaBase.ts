@@ -1,4 +1,4 @@
-interface RootObject {
+export interface RootObject {
   Carpeta: number;
   Deudor: Deudor;
   Codeudor: Codeudor;

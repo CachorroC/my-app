@@ -1,6 +1,6 @@
 import '#@/styles/css/globals.css';
 import Navbar from '#@/components/navbar';
-import layout from '#@/styles/css/layout2.module.css';
+import layout from '#@/styles/scss/layout.module.scss';
 import type { Metadata } from 'next';
 import 'material-symbols';
 import Footer from '../components/footer';
@@ -16,7 +16,9 @@ export const metadata: Metadata = {
   generator: 'R&S Asesoría Jurídica',
   applicationName: 'R&S Asesoría Jurídica',
   referrer: 'origin-when-cross-origin',
-  keywords: ['Next.js', 'React', 'JavaScript'],
+  keywords: [
+    'Next.js', 'React', 'JavaScript'
+  ],
   authors: [
     { name: 'cam' },
     {
@@ -101,11 +103,11 @@ export const metadata: Metadata = {
   },
 };
 
-export default async function RootLayout({
+export default async function RootLayout ( {
   children,
 }: {
   children: React.ReactNode;
-}) {
+} ) {
   const procesos = await getProcesos();
   return (
     <html
@@ -114,12 +116,15 @@ export default async function RootLayout({
       <body>
         <SearchProvider>
           <NavProvider>
-            <div className={layout.container}>
-              {/*   <Navbar /> */}
-              <NavButton />
-              <Nav procesos={procesos} />
-              <SearchBar />
-              {children}
+            <div className={ layout.container }>
+              <Navbar>
+                <NavButton />
+                <SearchBar />
+              </Navbar>
+              <div className={ layout.body }>
+                { children }
+              </div>
+              <Nav procesos={ procesos } />
               <Footer />
             </div>
           </NavProvider>

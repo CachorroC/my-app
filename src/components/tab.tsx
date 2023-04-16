@@ -7,7 +7,9 @@ import box from '#@/styles/css/box.module.css';
 
 const poiret = Poiret_One({
   weight: '400',
-  subsets: ['latin', 'latin-ext'],
+  subsets: [
+    'latin', 'latin-ext'
+  ],
   display: 'swap',
 });
 

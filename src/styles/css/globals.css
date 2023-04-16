@@ -1,7 +1,5 @@
-@import url(./theme/lightTokens.css)
-(prefers-color-scheme: light);
-@import url(./theme/darkTokens.css)
-(prefers-color-scheme: dark);
+@import url(./theme/lightTokens.css) (prefers-color-scheme: light);
+@import url(./theme/darkTokens.css) (prefers-color-scheme: dark);
 @import url(./theme/colors.module.css);
 :root {
   --primary: var(--pal-primary40);

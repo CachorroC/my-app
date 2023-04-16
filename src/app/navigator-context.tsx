@@ -20,9 +20,13 @@ export function NavProvider({
   children: ReactNode;
 }) {
   const params = useParams();
-  const [isOpen, setIsOpen] = useState(false);
+  const [
+    isOpen, setIsOpen
+  ] = useState(false);
   return (
-    <NavContext.Provider value={[isOpen, setIsOpen]}>
+    <NavContext.Provider value={[
+      isOpen, setIsOpen
+    ]}>
       {children}
     </NavContext.Provider>
   );

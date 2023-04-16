@@ -16,7 +16,8 @@ export async function fetchProcesos({
 }: {
   procesos: Proceso[];
 }) {
-  const rows: any[] = [];
+  const rows: any[] = [
+  ];
   procesos.forEach((proceso, i) => {
     const llaveProceso = proceso.llaveProceso;
     setTimeout(() => {

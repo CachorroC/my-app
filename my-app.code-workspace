@@ -10,7 +10,7 @@
   "settings": {
     "peacock.color": "#8657af",
     "js/ts.implicitProjectConfig.strictFunctionTypes": true,
-    "typescript.tsdk": "node_modules/typescript/lib",
+    "typescript.tsdk": "my-app/node_modules/typescript/lib",
     "workbench.colorCustomizations": {
       "activityBar.activeBackground": "#9f7abf",
       "activityBar.background": "#9f7abf",

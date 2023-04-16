@@ -12,8 +12,7 @@
   padding: 0;
   border: 1px solid #888;
   width: 80%;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
-    0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   -webkit-animation-name: animatetop;
   -webkit-animation-duration: 0.4s;
   animation-name: animatetop;
@@ -30,8 +29,7 @@
   font-size: 28px;
   font-weight: bold;
 }
-.modal .content .header:hover > span,
-.modal .content .header:active > span {
+.modal .content .header:hover > span, .modal .content .header:active > span {
   color: #000;
   text-decoration: none;
   cursor: pointer;
