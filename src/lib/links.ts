@@ -1,10 +1,15 @@
-export type Item = {
-    href: any;
-    name: string;
-    icon: string;
-    description?: string;
-    id?: number;
-};
+
+import Link from 'next/link';
+
+export interface Item {
+  name: string;
+  icon: string;
+  description?: string;
+  id: number;
+
+  href?: string | null;
+}
+
 export const linksInternos: Item[] = [
   {
     href: '/blog',
@@ -24,32 +29,34 @@ export const linksExternos: Item[] = [
     name: 'zero trust',
     href: 'https://dash.teams.cloudflare.com',
     icon: 'zero',
+    id: 1,
   },
   {
     name: ' cloudflare',
     href: 'https://dash.cloudflare.com',
     icon: 'cloud',
+    id: 2,
   },
 ];
-export const demos: { name: string; items: Item[] }[] = [
+export const demos: { name: string; items: Item[]; }[] = [
   {
     name: 'Links Internos',
     items: [
       {
-        href: '/Procesos/Bancolombia',
+        href: 'Bancolombia',
         name: 'Bancolombia',
         icon: 'account_balance',
         id: 2,
       },
       {
-        href: '/Procesos/Reintegra',
+        href: 'Reintegra',
         name: 'Reintegra',
         icon: 'integration_instructions',
         id: 3,
       },
       {
-        href: '/hooks',
-        name: 'Hooks',
+        href: '',
+        name: 'Procesos',
         icon: 'phishing',
         id: 4,
       },
@@ -70,7 +77,7 @@ export const demos: { name: string; items: Item[] }[] = [
         icon: 'search_off',
         id: 12,
         description:
-                    'Create Not Found UI for specific parts of an app',
+          'Create Not Found UI for specific parts of an app',
       },
     ],
   },

@@ -12,9 +12,8 @@ export async function getActuaciones({
     throw new Error('something went wrong');
   }
   const data = await res.json();
- 
-  const actuaciones =
-        data.actuaciones as Actuacion[];
+
+  const actuaciones = data.actuaciones as Actuacion[];
 
   if (actuaciones.length === 0) {
     notFound();

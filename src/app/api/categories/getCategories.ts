@@ -35,7 +35,7 @@ export async function getCategories({
 export async function getCategory({
   idProceso,
 }: {
-    idProceso: string;
+  idProceso: string;
 }) {
   const res = await fetch(
     `${getBaseUrl()}/api/categories${

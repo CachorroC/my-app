@@ -6,3 +6,7 @@ export const poiret = Poiret_One({
   ],
   display: 'swap',
 });
+
+export const Title = ({ title }: { title: string }) => (
+  <h1 className={poiret.className}>{title}</h1>
+);

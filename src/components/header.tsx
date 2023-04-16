@@ -15,7 +15,7 @@ export function Header() {
         <div className="relative flex-1">
           <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
             <span className="material-symbols-outlined">
-                            search
+              search
             </span>
           </div>
           <input
@@ -32,7 +32,7 @@ export function Header() {
       <div className="flex shrink-0 gap-x-3">
         <div className="relative flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-gray-600 text-white">
           <span className="material-symbols-outlined">
-                        search
+            search
           </span>
           <div className="absolute -top-1 -right-1 flex h-4 w-4 items-center justify-center rounded-full bg-vercel-cyan text-sm font-bold text-cyan-800">
             <CartCount />

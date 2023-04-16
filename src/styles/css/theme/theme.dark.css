@@ -2,20 +2,18 @@
   --primary: var(--primary-dark);
   --on-primary: var(--on-primary-dark);
   --primary-container: var(--primary-container-dark);
-  --on-primary-container: var(
-      --on-primary-container-dark
-  );
+  --on-primary-container: var(--on-primary-container-dark);
   --secondary: var(--secondary-dark);
   --on-secondary: var(--on-secondary-dark);
   --secondary-container: var(--secondary-container-dark);
   --on-secondary-container: var(
-      --on-secondary-container-dark
+    --on-secondary-container-dark
   );
   --tertiary: var(--tertiary-dark);
   --on-tertiary: var(--on-tertiary-dark);
   --tertiary-container: var(--tertiary-container-dark);
   --on-tertiary-container: var(
-      --on-tertiary-container-dark
+    --on-tertiary-container-dark
   );
   --error: var(--error-dark);
   --error-container: var(--error-container-dark);

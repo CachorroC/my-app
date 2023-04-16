@@ -4,14 +4,12 @@ import { LevelContext } from '#@/components/procesos-context';
 export default function Heading({
   children,
 }: {
-    children: React.ReactNode;
+  children: React.ReactNode;
 }) {
   const level = useContext(LevelContext);
   switch (level) {
   case 0:
-    throw Error(
-      'Heading must be inside a Section!',
-    );
+    throw Error('Heading must be inside a Section!');
   case 1:
     return <h1>{children}</h1>;
   case 2:

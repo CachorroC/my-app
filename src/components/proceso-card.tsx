@@ -7,7 +7,7 @@ import box from '#@/styles/scss/box.module.scss';
 export const Procesos = ({
   procesos,
 }: {
-    procesos: Proceso[];
+  procesos: Proceso[];
 }) => (
   <div className={box.container}>
     {procesos.map((proceso: Proceso) => (
@@ -21,7 +21,7 @@ export const Procesos = ({
 export const ProcesoCard = ({
   proceso,
 }: {
-    proceso: Proceso;
+  proceso: Proceso;
 }) => {
   const ultimact = proceso.fechaUltimaActuacion === null;
 

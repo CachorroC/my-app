@@ -1,11 +1,15 @@
 import '#@/styles/css/globals.css';
 import Navbar from '#@/components/navbar';
-import layout from '#@/styles/css/layout.module.css';
+import layout from '#@/styles/scss/layout.module.scss';
 import type { Metadata } from 'next';
 import 'material-symbols';
 import Footer from '../components/footer';
-import { NavProvider } from "./nav-context";
-import { Navigate } from "./context-click-nav";
+import { NavProvider } from '#@/app/navigator-context';
+import { SearchProvider } from './search-context';
+import SearchBar, { Search } from './context-input-search';
+import { getProcesos } from './api/procesos/getProcesos';
+import NavButton, { Nav } from './context-click-counter';
+import { ReactNode } from 'react';
 
 export const metadata: Metadata = {
   title: 'R&S Asesoría Jurídica',
@@ -36,7 +40,7 @@ export const metadata: Metadata = {
   ],
   creator: 'Cachorro Cami',
   manifest:
-        'https://app.rsasesorjuridico.com/manifest.json',
+    'https://app.rsasesorjuridico.com/manifest.json',
   publisher: 'CachorroC',
   alternates: {},
   formatDetection: {
@@ -87,7 +91,8 @@ export const metadata: Metadata = {
       '/icons/mstile-310x310.png',
       {
         url: '/icons/android-chrome-512x512.png',
-        media: '(device-width: 768px) and (device-height: 1024px)',
+        media:
+          '(device-width: 768px) and (device-height: 1024px)',
       },
     ],
   },
@@ -99,24 +104,34 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
-  children,
-}: {
-    children: React.ReactNode;
-}) {
+export default async function RootLayout (
+  {
+    children,
+  }: {
+    children: ReactNode;
+  }
+) {
+  const procesos = await getProcesos();
   return (
     <html
       lang="es"
       className="[color-scheme: light dark]">
       <body>
-        <NavProvider>
-          <div className={layout.base}>
-            <Navbar />
-            <Navigate/>
-            {children}
-            <Footer />
-          </div>
-        </NavProvider>
+        <SearchProvider>
+          <NavProvider>
+            <div className={ layout.container }>
+              <Navbar>
+                <NavButton />
+                <SearchBar />
+              </Navbar>
+              <div className={ layout.body }>
+                { children }
+              </div>
+              <Nav procesos={ procesos } />
+              <Footer />
+            </div>
+          </NavProvider>
+        </SearchProvider>
       </body>
     </html>
   );

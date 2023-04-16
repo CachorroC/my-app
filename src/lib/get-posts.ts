@@ -1,21 +1,20 @@
 import { cache } from 'react';
 
 export type Post = {
-    title: string;
-    idProceso: string;
-    date: number;
-    excerpt: string;
-    coverImage: string;
-    text: string[];
+  title: string;
+  idProceso: string;
+  date: number;
+  excerpt: string;
+  coverImage: string;
+  text: string[];
 };
 
 export const getPosts = cache((): Post[] => [
   {
     title: 'Dynamic Routing and Static Generation',
     excerpt:
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Praesent elementum facilisis leo vel fringilla est ullamcorper eget. At imperdiet dui accumsan sit amet nulla facilities morbi tempus.',
-    coverImage:
-            '/assets/blog/dynamic-routing/cover.jpg',
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Praesent elementum facilisis leo vel fringilla est ullamcorper eget. At imperdiet dui accumsan sit amet nulla facilities morbi tempus.',
+    coverImage: '/assets/blog/dynamic-routing/cover.jpg',
     date: 20230316,
     idProceso: '2023-03-16',
 
@@ -29,9 +28,8 @@ export const getPosts = cache((): Post[] => [
   {
     title: 'My fuck',
     excerpt:
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Praesent elementum facilisis leo vel fringilla est ullamcorper eget. At imperdiet dui accumsan sit amet nulla facilities morbi tempus.',
-    coverImage:
-            '/assets/blog/dynamic-routing/cover.jpg',
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Praesent elementum facilisis leo vel fringilla est ullamcorper eget. At imperdiet dui accumsan sit amet nulla facilities morbi tempus.',
+    coverImage: '/assets/blog/dynamic-routing/cover.jpg',
     date: 20230103,
     idProceso: '2023-01-03',
 
@@ -45,9 +43,8 @@ export const getPosts = cache((): Post[] => [
   {
     title: 'Holy Fuck',
     excerpt:
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Praesent elementum facilisis leo vel fringilla est ullamcorper eget. At imperdiet dui accumsan sit amet nulla facilities morbi tempus.',
-    coverImage:
-            '/assets/blog/dynamic-routing/cover.jpg',
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Praesent elementum facilisis leo vel fringilla est ullamcorper eget. At imperdiet dui accumsan sit amet nulla facilities morbi tempus.',
+    coverImage: '/assets/blog/dynamic-routing/cover.jpg',
     date: 20230228,
     idProceso: '2023-02-28',
 
