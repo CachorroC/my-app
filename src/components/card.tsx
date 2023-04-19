@@ -1,3 +1,4 @@
+'use client';
 import layout from '#@/styles/css/layout.module.css';
 import typeface from '#@/styles/css/typeface.module.css';
 import Link from 'next/link';
@@ -10,70 +11,28 @@ import {
 } from 'react';
 import box from '#@/styles/css/box.module.css';
 import { poiret } from './typeface';
+import card from '#@/styles/css/card.module.css';
+import { Route } from 'next';
 
-type Card = {
-  id: Key;
-  title:
-    | string
-    | number
-    | boolean
-    | ReactElement<any, string | JSXElementConstructor<any>>
-    | ReactFragment
-    | ReactPortal
-    | null
-    | undefined;
-  content:
-    | string
-    | number
-    | boolean
-    | ReactElement<any, string | JSXElementConstructor<any>>
-    | ReactFragment
-    | ReactPortal
-    | null
-    | undefined;
-};
-export function Cardboard({ cards }: { cards: Card[] }) {
-    const rows: any[] = [
-    ];
-    cards.forEach((card) =>
-        rows.push(
-            <Card
-                id={card.id}
-                title={card.title}
-                content={card.content}
-            />,
-        ),
-    );
-    return <div className={box.grid}>{rows}</div>;
-}
-export function Card<T extends string>(cardData: {
-  id: Key;
-  title:
-    | string
-    | number
-    | boolean
-    | ReactElement<any, string | JSXElementConstructor<any>>
-    | ReactFragment
-    | ReactPortal
-    | null
-    | undefined;
-  content:
-    | string
-    | number
-    | boolean
-    | ReactElement<any, string | JSXElementConstructor<any>>
-    | ReactFragment
-    | ReactPortal
-    | null
-    | undefined;
-}) {
+export default function Card<T extends string> ( {
+    id, content, title, href, icon
+}: { id: string; content: string; title: string; href: Route<T> | URL; icon: string; } ) {
     return (
         <div
-            className={layout.card}
-            key={cardData.id}>
-            <h1 className={poiret.className}>{cardData.title}</h1>
-            <p className={typeface.block}>{cardData.content}</p>
-            <Link href={'/'}></Link>
+            className={ card.layout }
+            key={ id }>
+            <h1 className={ `${ poiret.className } ${ card.title }` }>{ title }</h1>
+            <p className={ card.content }>{ content }</p>
+
+            <hr className={ card.dummytxt }></hr>
+            <hr className={ card.dummytxt }></hr>
+            <hr className={ card.dummytxt }></hr>
+            <hr className={ card.dummytxt }></hr>
+            <Link href={ href } className={ card.link }>
+                <span className='material-symbols-outlined'>
+                    { icon }
+                </span>
+            </Link>
         </div>
     );
 }

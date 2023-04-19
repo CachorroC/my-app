@@ -9,6 +9,7 @@ import Link from 'next/link';
 import { poiret } from '#@/components/typeface';
 import layout from '#@/styles/scss/layout.module.scss';
 import { useNavigator } from './navigator-context';
+import Card from '#@/components/card';
 
 const SearchBar = () => {
     const [
@@ -42,14 +43,13 @@ function ProcesoRow ( { proceso }: { proceso: intProceso; } ) {
     const name = proceso.Demandado.slice( 0, 10 ).toLocaleLowerCase();
     const ultimAct = new Date( proceso.fechaUltimaActuacion ? proceso.fechaUltimaActuacion : '' );
     return (
-        <Link
-            className={ layout.card }
-            href={ `/Procesos/${ proceso.tipo }/${ proceso.idProceso }` }>
-            <h4 className={ poiret.className }>
-                { name }
-            </h4>
-            <i>{ ultimAct.toString() }</i>
-        </Link>
+        <Card
+            id={ proceso.idProceso }
+            content={ ultimAct.toLocaleString().slice( 0, 7 ) }
+            title={ proceso.Demandado.toLowerCase().split( ' ' )[ 0 ] + ' ' + proceso.Demandado.toLowerCase().split( ' ' )[ 2 ] }
+            href={ `/Procesos/${ proceso.tipo }/${ proceso.idProceso }` }
+            icon={ 'heart_plus' } />
+
     );
 }
 export const Search = ( {
@@ -62,21 +62,23 @@ export const Search = ( {
     ] = useSearch();
     const rows: any[] = [
     ];
-    procesos.forEach( ( proceso ) => {
-        if (
-            proceso.Demandado.toLowerCase().indexOf(
-                search.toLowerCase(),
-            ) === -1
-        ) {
-            return;
+    procesos.forEach(
+        ( proceso ) => {
+            if (
+                proceso.Demandado.toLowerCase().indexOf(
+                    search.toLowerCase(),
+                ) === -1
+            ) {
+                return;
+            }
+            rows.push(
+                <ProcesoRow
+                    proceso={ proceso }
+                    key={ proceso.Demandado }
+                />,
+            );
         }
-        rows.push(
-            <ProcesoRow
-                proceso={ proceso }
-                key={ proceso.Demandado }
-            />,
-        );
-    } );
+    );
     return (
         <div className={ layout.procesossearchbox }>{ rows }</div>
     );
