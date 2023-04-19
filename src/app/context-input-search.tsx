@@ -30,12 +30,16 @@ const SearchBar = () => {
                 className={ form.input }
                 value={ search }
                 placeholder="Search..."
-                onBeforeInput={ () => {
-                    setIsOpen( true );
-                } }
-                onChange={ ( input ) => {
-                    setSearch( input.target.value );
-                } }></input>
+                onBeforeInput={
+                    () => {
+                        setIsOpen( true );
+                    }
+                }
+                onChange={
+                    ( input ) => {
+                        setSearch( input.target.value );
+                    }
+                }></input>
         </form>
     );
 };
@@ -49,6 +53,7 @@ function ProcesoRow ( { proceso }: { proceso: intProceso; } ) {
             title={ proceso.Demandado.toLowerCase().split( ' ' )[ 0 ] + ' ' + proceso.Demandado.toLowerCase().split( ' ' )[ 2 ] }
             href={ `/Procesos/${ proceso.tipo }/${ proceso.idProceso }` }
             icon={ 'heart_plus' } />
+
 
     );
 }
