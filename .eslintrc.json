@@ -3,7 +3,7 @@
   "rules": {
     "array-bracket-newline": ["error", "always"],
     "brace-style": ["error", "stroustrup"],
-    "indent": ["error", 2],
+    "indent": ["error", 4],
     "linebreak-style": ["error", "unix"],
     "semi": ["error", "always"],
     "arrow-body-style": ["error", "as-needed"]

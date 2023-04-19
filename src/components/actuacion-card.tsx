@@ -4,38 +4,38 @@ import { Actuacion } from '#@/app/api/procesos/actuaciones/actuacion';
 import box from '#@/styles/css/box.module.css';
 import { poiret } from './typeface';
 export function Actuaciones ( {
-  actuaciones,
+    actuaciones,
 }: {
   actuaciones: Actuacion[];
 } ) {
-  return (
-    <div className={ box.grid }>
-      { actuaciones.map( ( actuacion: Actuacion ) => (
-        <ActuacionCard
-          key={ actuacion.consActuacion }
-          actuacion={ actuacion }
-        />
-      ) ) }
-    </div>
-  );
+    return (
+        <div className={ box.grid }>
+            { actuaciones.map( ( actuacion: Actuacion ) => (
+                <ActuacionCard
+                    key={ actuacion.consActuacion }
+                    actuacion={ actuacion }
+                />
+            ) ) }
+        </div>
+    );
 }
 
 export function ActuacionCard ( {
-  actuacion,
+    actuacion,
 }: {
   actuacion: Actuacion;
 } ) {
-  return (
-    <div
-      className={ layout.card }
-      key={ actuacion.consActuacion }>
-      <h1 className={ poiret.className }>
-        { actuacion.actuacion }
-      </h1>
-      <p className={ typeface.block }>
-        { actuacion.anotacion }
-      </p>
-      <i>{ actuacion.fechaActuacion }</i>
-    </div>
-  );
+    return (
+        <div
+            className={ layout.card }
+            key={ actuacion.consActuacion }>
+            <h1 className={ poiret.className }>
+                { actuacion.actuacion }
+            </h1>
+            <p className={ typeface.block }>
+                { actuacion.anotacion }
+            </p>
+            <i>{ actuacion.fechaActuacion }</i>
+        </div>
+    );
 }

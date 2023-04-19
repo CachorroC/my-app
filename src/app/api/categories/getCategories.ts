@@ -9,51 +9,51 @@ import type { Category } from './category';
 import 'server-only';
 
 export async function getCategories({
-  parent,
+    parent,
 }: { parent?: string } = {}) {
-  const res = await fetch(
-    `${getBaseUrl()}/api/categories${
-      parent ? `?parent=${parent}` : ''
-    }`,
-  );
+    const res = await fetch(
+        `${getBaseUrl()}/api/categories${
+            parent ? `?parent=${parent}` : ''
+        }`,
+    );
 
-  if (!res.ok) {
+    if (!res.ok) {
     // Render the closest `error.js` Error Boundary
-    throw new Error('Something went wrong!');
-  }
+        throw new Error('Something went wrong!');
+    }
 
-  const categories = (await res.json()) as Category[];
+    const categories = (await res.json()) as Category[];
 
-  if (categories.length === 0) {
+    if (categories.length === 0) {
     // Render the closest `not-found.js` Error Boundary
-    notFound();
-  }
+        notFound();
+    }
 
-  return categories;
+    return categories;
 }
 
 export async function getCategory({
-  idProceso,
+    idProceso,
 }: {
   idProceso: string;
 }) {
-  const res = await fetch(
-    `${getBaseUrl()}/api/categories${
-      idProceso ? `?idProceso=${idProceso}` : ''
-    }`,
-  );
+    const res = await fetch(
+        `${getBaseUrl()}/api/categories${
+            idProceso ? `?idProceso=${idProceso}` : ''
+        }`,
+    );
 
-  if (!res.ok) {
+    if (!res.ok) {
     // Render the closest `error.js` Error Boundary
-    throw new Error('Something went wrong!');
-  }
+        throw new Error('Something went wrong!');
+    }
 
-  const category = (await res.json()) as Category;
+    const category = (await res.json()) as Category;
 
-  if (!category) {
+    if (!category) {
     // Render the closest `not-found.js` Error Boundary
-    notFound();
-  }
+        notFound();
+    }
 
-  return category;
+    return category;
 }

@@ -11,38 +11,38 @@ const CartCountContext = React.createContext<
 >(undefined);
 
 export function CartCountProvider({
-  children,
-  initialCartCount,
+    children,
+    initialCartCount,
 }: {
   children: React.ReactNode;
   initialCartCount: number;
 }) {
-  const [
-    optimisticCartCount, setOptimisticCartCount
-  ] =
+    const [
+        optimisticCartCount, setOptimisticCartCount
+    ] =
     useState<null | number>(null);
 
-  const count =
+    const count =
     optimisticCartCount !== null
-      ? optimisticCartCount
-      : initialCartCount;
+        ? optimisticCartCount
+        : initialCartCount;
 
-  return (
-    <CartCountContext.Provider
-      value={[
-        count, setOptimisticCartCount
-      ]}>
-      {children}
-    </CartCountContext.Provider>
-  );
+    return (
+        <CartCountContext.Provider
+            value={[
+                count, setOptimisticCartCount
+            ]}>
+            {children}
+        </CartCountContext.Provider>
+    );
 }
 
 export function useCartCount() {
-  const context = React.useContext(CartCountContext);
-  if (context === undefined) {
-    throw new Error(
-      'useCartCount must be used within a CartCountProvider',
-    );
-  }
-  return context;
+    const context = React.useContext(CartCountContext);
+    if (context === undefined) {
+        throw new Error(
+            'useCartCount must be used within a CartCountProvider',
+        );
+    }
+    return context;
 }

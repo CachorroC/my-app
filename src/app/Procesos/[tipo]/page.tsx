@@ -7,23 +7,23 @@ import { poiret } from '../../../components/typeface';
 import Link from 'next/link';
 import { useSearch } from '#@/app/search-context';
 export const metadata = {
-  title: 'Bancolombia',
+    title: 'Bancolombia',
 };
 
 export default async function Page({
-  params,
+    params,
 }: {
   params: {
     tipo: string;
   };
 }) {
-  const procesos = await getProcesos({
-    tipo: params.tipo,
-  });
-  return (
-    <>
-      <h1 className={poiret.className}>{params.tipo}</h1>
-      <Search procesos={procesos} />
-    </>
-  );
+    const procesos = await getProcesos({
+        tipo: params.tipo,
+    });
+    return (
+        <>
+            <h1 className={poiret.className}>{params.tipo}</h1>
+            <Search procesos={procesos} />
+        </>
+    );
 }

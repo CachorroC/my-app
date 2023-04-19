@@ -1,4 +1,4 @@
-export interface Proceso {
+export interface intProceso {
   Demandado: string;
   idProceso: string;
   llaveProceso: string;
@@ -9,7 +9,7 @@ export interface Proceso {
   idConexion: number;
   fechaProceso?: string | null;
   fechaUltimaActuacion: Date | string | null
-;
+  ;
   Demandante?: string;
 }
 

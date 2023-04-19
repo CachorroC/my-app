@@ -2,25 +2,25 @@ import layout from '#@/styles/css/layout.module.css';
 import { getProcesos } from '#@/app/api/procesos/getProcesos';
 import { SearchProvider } from '#@/app/search-context';
 import SearchBar, {
-  Search,
+    Search,
 } from '#@/app/context-input-search';
 import { Nav } from '../context-click-counter';
 import { Item } from '../../lib/links';
 import box from '#@/styles/scss/box.module.scss';
 export const metadata = {
-  title: 'Procesos',
+    title: 'Procesos',
 };
 export default async function Layout ( {
-  children,
+    children,
 }: {
-  children: React.ReactNode;
+    children: React.ReactNode;
 } ) {
-  const procesos = await getProcesos();
+    const procesos = await getProcesos();
 
-  return (
-    <article className={ box.container }>
-      { children }
-    </article>
+    return (
+        <div className={ layout.body }>
+            { children }
+        </div>
 
-  );
+    );
 }

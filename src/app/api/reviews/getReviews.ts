@@ -9,19 +9,19 @@ import type { Review } from './review';
 import 'server-only';
 
 export async function getReviews() {
-  const res = await fetch(`${getBaseUrl()}/api/reviews`);
+    const res = await fetch(`${getBaseUrl()}/api/reviews`);
 
-  if (!res.ok) {
+    if (!res.ok) {
     // Render the closest `error.js` Error Boundary
-    throw new Error('Something went wrong!');
-  }
+        throw new Error('Something went wrong!');
+    }
 
-  const reviews = (await res.json()) as Review[];
+    const reviews = (await res.json()) as Review[];
 
-  if (reviews.length === 0) {
+    if (reviews.length === 0) {
     // Render the closest `not-found.js` Error Boundary
-    notFound();
-  }
+        notFound();
+    }
 
-  return reviews;
+    return reviews;
 }
