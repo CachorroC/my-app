@@ -8,7 +8,9 @@ export default async function page () {
             {
                 procesos.map(
                     ( proceso ) => (
-                        <div className={ layout.card } key={ proceso.idProceso }>
+                        <div
+                            className={ layout.card }
+                            key={ proceso.idProceso }>
                             <h1>{ proceso.idProceso }</h1>
                         </div>
                     )

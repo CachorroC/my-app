@@ -8,6 +8,7 @@ import { useSearch } from './search-context';
 import Link from 'next/link';
 import { poiret } from '../components/typeface';
 import { intProceso } from './api/procesos/proceso';
+import Card from '#@/components/card';
 
 const NavButton = () => {
     const [
@@ -22,7 +23,7 @@ const NavButton = () => {
                 }
                 className={ layout.NavButton }>
                 <span className="material-symbols-outlined">
-          close
+                    close
                 </span>
             </button>
         );
@@ -34,7 +35,7 @@ const NavButton = () => {
             }
             className={ layout.NavButton }>
             <span className="material-symbols-outlined">
-        menu
+                menu
             </span>
         </button>
     );
@@ -42,7 +43,7 @@ const NavButton = () => {
 export const Nav = ( {
     procesos,
 }: {
-  procesos: intProceso[];
+    procesos: intProceso[];
 } ) => {
     const [
         isOpen, setIsOpen
@@ -68,14 +69,9 @@ export const Nav = ( {
             return;
         }
         rows.push(
-            <Link
-                className={ layout.link }
-                href={ `/Procesos/${ proceso.tipo }/${ proceso.idProceso }` }>
-                <h4 className={ poiret.className }>
-                    { name }
-                </h4>
-                <i>{ month }</i>
-            </Link>,
+
+            <Card id={ proceso.idProceso } content={ month } title={ name } href={ `/Procesos/${ proceso.tipo }/${ proceso.idProceso }` } icon={ month } />
+            ,
         );
     } );
     if ( isOpen === true ) {
@@ -83,14 +79,20 @@ export const Nav = ( {
     }
     else if ( !isOpen ) {
         return (
-            <button
-                onClick={ () => {
-                    setIsOpen( true );
-                } }>
-                <span className="material-symbols-outlined">
-          heart_plus
-                </span>
-            </button>
+            <div className={ layout.sidenav }>
+                <button
+                    onClick={ () => {
+                        setIsOpen( true );
+                    } }>
+                    <span className="material-symbols-outlined">
+                        heart_plus
+                    </span>
+                </button>
+                <Card id={ '1' } content={ '' } title={ 'Raw procesos' } href={ '/rawProcesos' } icon={ 'draw_collage' } />
+                <Card id={ '2' } content={ '' } title={ 'Procesos' } href={ '/Procesos' } icon={ 'home_storage' } />
+                <Card id={ '3' } content={ '' } title={ 'Bancolombia' } href={ '/Procesos/Bancolombia' } icon={ 'account_balance' } />
+                <Card id={ '4' } content={ '' } title={ 'Reintegra' } href={ '/Procesos/Reintegra' } icon={ 'integration_instructions' } />
+            </div>
         );
     }
     return <div className={ layout.sidenav }>{ rows }</div>;

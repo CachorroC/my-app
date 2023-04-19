@@ -1,4 +1,4 @@
-'use client';
+
 import layout from '#@/styles/css/layout.module.css';
 import typeface from '#@/styles/css/typeface.module.css';
 import Link from 'next/link';
