@@ -1,7 +1,5 @@
-@import url(./theme/lightTokens.css)
-(prefers-color-scheme: light);
-@import url(./theme/darkTokens.css)
-(prefers-color-scheme: dark);
+@import url(./theme/lightTokens.css) (prefers-color-scheme: light);
+@import url(./theme/darkTokens.css) (prefers-color-scheme: dark);
 @import url(./theme/colors.module.css);
 :root {
   --primary: var(--pal-primary40);
@@ -77,6 +75,8 @@
 }
 :root,
 html {
+  font-family: var(--font-roboto-mono);
+
   box-sizing: border-box;
   /*  font-size: clamp(
     var(--minFontSize),
@@ -116,7 +116,14 @@ h2 {
 h4 {
   font-size: 1rem;
 }
-
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-poiret);
+}
 /* width */
 ::-webkit-scrollbar {
   width: 20px;

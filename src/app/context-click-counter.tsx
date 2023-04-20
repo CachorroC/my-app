@@ -70,7 +70,7 @@ export const Nav = ( {
         }
         rows.push(
 
-            <Card id={ proceso.idProceso } content={ month } title={ name } href={ `/Procesos/${ proceso.tipo }/${ proceso.idProceso }` } icon={ month } />
+            <Card id={ proceso.idProceso } content={ month } title={ name } href={ `/Procesos/${ proceso.tipo }/${ proceso.idProceso }` } icon={ 'dataset_linked' } />
             ,
         );
     } );

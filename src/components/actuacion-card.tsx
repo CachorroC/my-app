@@ -3,10 +3,11 @@ import typeface from '#@/styles/css/typeface.module.css';
 import { Actuacion } from '#@/app/api/procesos/actuaciones/actuacion';
 import box from '#@/styles/css/box.module.css';
 import { poiret } from './typeface';
+import card from '#@/styles/css/card.module.css';
 export function Actuaciones ( {
     actuaciones,
 }: {
-  actuaciones: Actuacion[];
+    actuaciones: Actuacion[];
 } ) {
     return (
         <div className={ box.grid }>
@@ -23,16 +24,16 @@ export function Actuaciones ( {
 export function ActuacionCard ( {
     actuacion,
 }: {
-  actuacion: Actuacion;
+    actuacion: Actuacion;
 } ) {
     return (
         <div
-            className={ layout.card }
+            className={ card.layout }
             key={ actuacion.consActuacion }>
-            <h1 className={ poiret.className }>
+            <h1 className={ card.title }>
                 { actuacion.actuacion }
             </h1>
-            <p className={ typeface.block }>
+            <p className={ card.content }>
                 { actuacion.anotacion }
             </p>
             <i>{ actuacion.fechaActuacion }</i>

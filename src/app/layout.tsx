@@ -10,6 +10,7 @@ import SearchBar, { Search } from './context-input-search';
 import { getProcesos } from './api/procesos/getProcesos';
 import NavButton, { Nav } from './context-click-counter';
 import { ReactNode } from 'react';
+import { Poiret_One, Roboto_Mono } from 'next/font/google';
 
 export const metadata: Metadata = {
     title: 'R&S Asesoría Jurídica',
@@ -104,6 +105,22 @@ export const metadata: Metadata = {
     },
 };
 
+const roboto_mono = Roboto_Mono( {
+    subsets: [
+        'latin' 
+    ],
+    variable: '--font-roboto-mono',
+    display: 'swap',
+} );
+
+export const poiret = Poiret_One( {
+    weight: '400',
+    variable: '--font-poiret',
+    subsets: [
+        'latin', 'latin-ext'
+    ],
+    display: 'swap',
+} );
 export default async function RootLayout ( {
     children,
 }: {
@@ -113,7 +130,7 @@ export default async function RootLayout ( {
     return (
         <html
             lang="es"
-            className="[color-scheme: light dark]">
+            className={ `${ poiret.variable } ${ roboto_mono.variable } [color-scheme: light dark]` }>
             <body>
                 <SearchProvider>
                     <NavProvider>

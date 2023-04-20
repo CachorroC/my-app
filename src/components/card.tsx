@@ -1,5 +1,4 @@
 
-import layout from '#@/styles/css/layout.module.css';
 import typeface from '#@/styles/css/typeface.module.css';
 import Link from 'next/link';
 import {
@@ -21,18 +20,17 @@ export default function Card<T extends string> ( {
         <div
             className={ card.layout }
             key={ id }>
-            <h1 className={ `${ poiret.className } ${ card.title }` }>{ title }</h1>
+            <h4 className={ card.title }>{ title }</h4>
+            <hr className={ card.dummytxt }></hr>
             <p className={ card.content }>{ content }</p>
-
-            <hr className={ card.dummytxt }></hr>
-            <hr className={ card.dummytxt }></hr>
-            <hr className={ card.dummytxt }></hr>
             <hr className={ card.dummytxt }></hr>
             <Link href={ href } className={ card.link }>
+                <hr className={ card.dummytxt }></hr>
                 <span className='material-symbols-outlined'>
                     { icon }
                 </span>
             </Link>
+            <hr className={ card.dummytxt }></hr>
         </div>
     );
 }
