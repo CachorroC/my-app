@@ -49,7 +49,7 @@ function ProcesoRow ( { proceso }: { proceso: intProceso; } ) {
     return (
         <Card
             id={ proceso.idProceso }
-            content={ ultimAct.toLocaleString().slice( 0, 7 ) }
+            content={ ultimAct.toLocaleString().slice( 0, 9 ) }
             title={ proceso.Demandado.toLowerCase().split( ' ' )[ 0 ] + ' ' + proceso.Demandado.toLowerCase().split( ' ' )[ 2 ] }
             href={ `/Procesos/${ proceso.tipo }/${ proceso.idProceso }` }
             icon={ 'heart_plus' } />

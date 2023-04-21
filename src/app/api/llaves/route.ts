@@ -81,7 +81,7 @@ export async function GET(request: Request) {
     );
 }
 
-export const llaves: string[] = [
+const llaves: string[] = [
     "25754418900320170075500",
     "25245408900120170023900",
     "11001400302120170153200",
