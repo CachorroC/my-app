@@ -3,7 +3,7 @@
 import { useNavigator } from './navigator-context';
 import React from 'react';
 import box from '#@/styles/css/box.module.css';
-import layout from '#@/styles/scss/layout.module.scss';
+import layout from '#s/layout.module.scss';
 import { useSearch } from './search-context';
 import Link from 'next/link';
 import { poiret } from '../components/typeface';

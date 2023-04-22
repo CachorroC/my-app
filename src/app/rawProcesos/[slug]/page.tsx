@@ -1,12 +1,12 @@
 import { getBaseUrl } from "#@/lib/getBaseUrl";
 import Card from '../../../components/card';
-import box from '#@/styles/scss/box.module.scss';
+import box from '#s/box.module.scss';
 import { getData } from "#@/app/api/rys/getMongo";
 export default async function Page ( { params }: { params: { slug: string; }; } ) {
     const procesos = await fetch(
         `${ getBaseUrl() }/api/rys`, {
-            method: 'POST'
-        }
+        method: 'POST'
+    }
     ).then( ( res ) => res.json() );
     const res = await fetch(
         'https://us-east-1.aws.data.mongodb-api.com/app/data-ixleg/endpoint/data/v1/action/find',

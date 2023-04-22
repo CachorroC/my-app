@@ -3,10 +3,10 @@ import { Poiret_One } from 'next/font/google';
 import styles from '#@/styles/css/page.module.css';
 import Link from 'next/link';
 
-import box from '#@/styles/scss/box.module.scss';
+import box from '#s/box.module.scss';
 import Form from '#@/components/form';
 import { demos } from '#@/lib/links';
-import layout from '#@/styles/scss/layout.module.scss';
+import layout from '#s/layout.module.scss';
 
 const poiret = Poiret_One( {
     weight: '400',

@@ -1,6 +1,6 @@
 import '#@/styles/css/globals.css';
 import Navbar from '#@/components/navbar';
-import layout from '#@/styles/scss/layout.module.scss';
+import layout from '#s/layout.module.scss';
 import type { Metadata } from 'next';
 import 'material-symbols';
 import Footer from '../components/footer';
@@ -107,7 +107,7 @@ export const metadata: Metadata = {
 
 const roboto_mono = Roboto_Mono( {
     subsets: [
-        'latin' 
+        'latin'
     ],
     variable: '--font-roboto-mono',
     display: 'swap',

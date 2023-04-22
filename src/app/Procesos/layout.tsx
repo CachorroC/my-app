@@ -6,7 +6,7 @@ import SearchBar, {
 } from '#@/app/context-input-search';
 import { Nav } from '../context-click-counter';
 import { Item } from '../../lib/links';
-import box from '#@/styles/scss/box.module.scss';
+import box from '#s/box.module.scss';
 export const metadata = {
     title: 'Procesos',
 };

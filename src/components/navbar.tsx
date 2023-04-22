@@ -7,7 +7,7 @@ import { Drawer } from '@mui/material';
 import { Poiret_One } from 'next/font/google';
 import 'material-symbols';
 import NavItem from '#@/components/navitem';
-import layout from '#@/styles/scss/layout.module.scss';
+import layout from '#s/layout.module.scss';
 
 const poiret = Poiret_One( {
     weight: '400',

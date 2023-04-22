@@ -1,5 +1,5 @@
 import { getBaseUrl } from '#@/lib/getBaseUrl';
-import box from '#@/styles/scss/box.module.scss';
+import box from '#s/box.module.scss';
 import { Actuacion } from '#@/app/api/procesos/actuaciones/actuacion';
 import layout from '#@/styles/css/layout.module.css';
 import { Suspense } from 'react';

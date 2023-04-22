@@ -7,7 +7,7 @@ import { intProceso } from '#@/app/api/procesos/proceso';
 import navbar from '#@/styles/css/navbar.module.css';
 import Link from 'next/link';
 import { poiret } from '#@/components/typeface';
-import layout from '#@/styles/scss/layout.module.scss';
+import layout from '#s/layout.module.scss';
 import { useNavigator } from './navigator-context';
 import Card from '#@/components/card';
 
